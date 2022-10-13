@@ -20,7 +20,7 @@ const BackgroundChange: FC<any> = ({ children }) => {
   const direction = useDirection();
 
   const ref = useRef<HTMLDivElement>(null);
-  const proximity = useProximity(ref.current);
+  const proximity = useProximity(ref);
 
   useEffect(() => {
     switch (direction) {
