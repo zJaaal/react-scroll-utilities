@@ -6,7 +6,11 @@ function App() {
 
   const proximity = useProximity(ref);
 
-  return <div ref={ref}>{proximity}</div>;
+  return (
+    <div className="test" ref={ref}>
+      {"proximity: " + proximity}
+    </div>
+  );
 }
 
 export default App;

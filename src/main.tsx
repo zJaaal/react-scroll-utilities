@@ -8,12 +8,19 @@ import BackgroundChange from "./test-components/BackgroundChange";
 
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
   <React.StrictMode>
+    <h1>Scroll!</h1>
     <ScrollDirection>
+      <App />
       <BackgroundChange>
-        <Render>
-          <h5>HELLO XD</h5>
+        <Render
+          style={{
+            height: "inherit",
+            position: "relative",
+            transform: "translate(30%, 50%)",
+          }}
+        >
+          <h3 className="test-h5">I'm spinning</h3>
         </Render>
-        <App />
       </BackgroundChange>
     </ScrollDirection>
   </React.StrictMode>

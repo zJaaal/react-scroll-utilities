@@ -52,9 +52,10 @@ const BackgroundChange: FC<any> = ({ children }) => {
   );
 
   return (
-    <section style={{ ...backgroundColors, height: "inherit" }} ref={ref}>
+    <div style={{ ...backgroundColors, height: "inherit" }} ref={ref}>
+      <h1>This background react to the direction of your scroll!</h1>
       {children}
-    </section>
+    </div>
   );
 };
 

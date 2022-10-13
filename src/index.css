@@ -2,7 +2,8 @@ body {
   height: 2000px;
 }
 
-div {
+.test {
+  height: inherit;
   position: relative;
   transform: translate(30%, 50%);
 }
@@ -12,9 +13,9 @@ div {
 }
 
 
-h5 {
+.test-h5 {
   position: fixed;
-  animation: spin 0.5s ease 0s infinite;
+  animation: spin 2s ease 0s infinite;
 }
 
 
