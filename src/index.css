@@ -1,0 +1,12 @@
+body {
+  height: 2000px;
+}
+
+div {
+  position: relative;
+  transform: translate(30%, 30%);
+}
+
+#root {
+  height: inherit;
+}
