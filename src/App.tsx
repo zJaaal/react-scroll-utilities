@@ -4,12 +4,12 @@ import useProximity from "./hooks/useProximity";
 function App() {
   const ref = useRef<HTMLDivElement>(null);
 
-  const [element, setElement] = useState<HTMLDivElement | null>();
+  const [element, setElement] = useState<HTMLDivElement | null>(null);
 
   const proximity = useProximity(element);
 
   useLayoutEffect(() => {
-    setElement(ref.current);
+    if (ref.current) setElement(ref.current);
   }, []);
 
   return <div ref={ref}>{proximity}</div>;
