@@ -32,10 +32,10 @@ const ScrollDirection: FC<any> = ({ children }) => {
   useEffect(() => {
     if (lastPosition > position) {
       setDirection(Directions.up);
-      setLastPosition(position);
+      setLastPosition(position < 0 ? 0 : position);
     } else {
       setDirection(Directions.down);
-      setLastPosition(position);
+      setLastPosition(position < 0 ? 0 : position);
     }
   }, [position]);
 
