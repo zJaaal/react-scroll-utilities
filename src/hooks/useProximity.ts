@@ -10,8 +10,12 @@ const useProximity = (element: any) => {
 
   useEffect(() => {
     window.addEventListener("scroll", handleProximity);
+    document.body.addEventListener("touchmove", handleProximity);
 
-    return () => window.removeEventListener("scroll", handleProximity);
+    return () => {
+      window.removeEventListener("scroll", handleProximity);
+      document.body.removeEventListener("touchmove", handleProximity);
+    };
   }, [element]);
 
   return proximity;
