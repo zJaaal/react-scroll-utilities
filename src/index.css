@@ -13,7 +13,7 @@ body {
 }
 
 
-.test-h5 {
+.test-h3 {
   position: fixed;
   animation: spin 2s ease 0s infinite;
 }
