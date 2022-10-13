@@ -1,7 +1,13 @@
-import React, { useEffect, useState } from "react";
+import React, { RefObject, useEffect, useLayoutEffect, useState } from "react";
 
-const useProximity = (element: HTMLElement | null) => {
+const useProximity = (ref: RefObject<any>) => {
   const [proximity, setProximity] = useState(0);
+
+  const [element, setElement] = useState<HTMLElement | null>(null);
+
+  useLayoutEffect(() => {
+    if (ref) setElement(ref.current);
+  }, []);
 
   const handleProximity = () =>
     setProximity(
