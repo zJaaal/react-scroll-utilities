@@ -19,7 +19,7 @@ ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
             transform: "translate(30%, 50%)",
           }}
         >
-          <h3 className="test-h5">I'm spinning</h3>
+          <h3 className="test-h3">I'm spinning</h3>
         </Render>
       </BackgroundChange>
     </ScrollDirection>
