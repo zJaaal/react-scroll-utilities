@@ -4,7 +4,7 @@ body {
 
 div {
   position: relative;
-  transform: translate(30%, 30%);
+  transform: translate(30%, 50%);
 }
 
 #root {
