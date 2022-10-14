@@ -14,7 +14,7 @@ const BackgroundChange: FC<any> = ({ children }) => {
   const { red, blue, green } = colors;
 
   const [backgroundColors, setBackgroundColors] = useState({
-    backgroundColor: `rgb(${red}, ${blue}, ${green})`,
+    backgroundColor: `rgb(${red}, ${green}, ${blue})`,
   });
 
   const direction = useDirection();
@@ -25,18 +25,18 @@ const BackgroundChange: FC<any> = ({ children }) => {
   useEffect(() => {
     switch (direction) {
       case Directions.up: {
-        setColors(({ red, blue, green }) => ({
+        setColors(({ red, green, blue }) => ({
           red: red + steps,
-          blue: blue + steps,
           green: green + steps,
+          blue: blue + steps,
         }));
         break;
       }
       case Directions.down: {
-        setColors(({ red, blue, green }) => ({
+        setColors(({ red, green, blue }) => ({
           red: red - steps,
-          blue: blue - steps,
           green: green - steps,
+          blue: blue - steps,
         }));
         break;
       }
@@ -46,7 +46,7 @@ const BackgroundChange: FC<any> = ({ children }) => {
   useEffect(
     () =>
       setBackgroundColors({
-        backgroundColor: `rgb(${red}, ${blue}, ${green})`,
+        backgroundColor: `rgb(${red}, ${green}, ${blue})`,
       }),
     [colors]
   );
