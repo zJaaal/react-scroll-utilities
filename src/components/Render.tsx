@@ -7,7 +7,7 @@ const Render: FC<any> = ({ children, style }) => {
   const proximity = useProximity(ref);
 
   return (
-    <div style={style} ref={ref}>
+    <div style={{ height: "inherit", ...style }} ref={ref}>
       {proximity >= 0 && proximity <= 2 ? children : null}
     </div>
   );
