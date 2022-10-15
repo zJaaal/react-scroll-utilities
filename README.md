@@ -116,3 +116,7 @@ function Example() {
   );
 }
 ```
+
+## Directions enum
+
+This lib provides an enum for TypeScript users, it just has two properties at the moment: Directions.up and Directions.down, that returns the value of "UP" and "DOWN", you can use it as helper for useDirection hook.

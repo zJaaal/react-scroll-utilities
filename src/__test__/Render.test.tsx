@@ -1,7 +1,7 @@
 import { cleanup, fireEvent, render } from "@testing-library/react";
 import { afterEach, beforeAll, describe, expect, it } from "vitest";
-import Render from "../components/Render";
-import ScrollWatcher from "../components/ScrollWatcher";
+import Render from "../lib/components/Render";
+import ScrollWatcher from "../lib/components/ScrollWatcher";
 import getBoundingClientRectMock from "./mock/getBoundingClientRectMock";
 
 describe("Render Component", () => {

@@ -1,5 +1,5 @@
 import { useLayoutEffect, useRef, useState } from "react";
-import useProximity from "./hooks/useProximity";
+import useProximity from "./lib/hooks/useProximity";
 
 function App() {
   const ref = useRef<HTMLDivElement>(null);

@@ -1,6 +1,6 @@
 import { render } from "@testing-library/react";
 import { describe, expect, it } from "vitest";
-import ScrollWatcher from "../components/ScrollWatcher";
+import ScrollWatcher from "../lib/components/ScrollWatcher";
 
 describe("ScrollWatcher Context", () => {
   it("Should render its children", () => {

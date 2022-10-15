@@ -1,5 +1,5 @@
 import React from "react";
-import useDirection from "../../hooks/useDirection";
+import useDirection from "../../lib/hooks/useDirection";
 
 const UseDirection = () => {
   const direction = useDirection();
