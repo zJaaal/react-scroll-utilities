@@ -1,8 +1,22 @@
-import React, { useContext } from "react";
-import ScrollDirectionContext from "../context/ScrollDirectionContext";
+import React, { useContext, useEffect, useState } from "react";
+import ScrollContext from "../context/ScrollContext";
+import ScrollDirectionContext from "../context/ScrollContext";
+import { Directions } from "../types";
 
 const useDirection = () => {
-  const direction = useContext(ScrollDirectionContext);
+  const scrollState = useContext(ScrollContext);
+  const [direction, setDirection] = useState(Directions.down);
+  const [lastPosition, setLastPosition] = useState(0);
+
+  useEffect(() => {
+    if (lastPosition > scrollState) {
+      setDirection(Directions.up);
+    } else {
+      setDirection(Directions.down);
+    }
+
+    setLastPosition(scrollState < 0 ? 0 : scrollState);
+  }, [scrollState]);
 
   return direction;
 };
