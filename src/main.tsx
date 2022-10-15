@@ -2,14 +2,14 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App";
 import Render from "./components/Render";
-import ScrollDirection from "./components/ScrollDirection";
+import ScrollWatcher from "./components/ScrollWatcher";
 import "./index.css";
 import BackgroundChange from "./test-components/BackgroundChange";
 
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
   <React.StrictMode>
     <h1>Scroll!</h1>
-    <ScrollDirection>
+    <ScrollWatcher>
       <App />
       <BackgroundChange>
         <Render
@@ -22,6 +22,6 @@ ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
           <h3 className="test-h3">I'm spinning</h3>
         </Render>
       </BackgroundChange>
-    </ScrollDirection>
+    </ScrollWatcher>
   </React.StrictMode>
 );

@@ -1,16 +1,12 @@
 import React, { FC, useEffect, useState } from "react";
-import ScrollDirectionContext from "../context/ScrollDirectionContext";
-import { Directions } from "../types";
+import ScrollContext from "../context/ScrollContext";
 
-const ScrollDirection: FC<any> = ({ children }) => {
-  const [direction, setDirection] = useState(Directions.down);
+const ScrollWatcher: FC<any> = ({ children }) => {
   const [position, setPosition] = useState(
     typeof window.scrollY == "undefined"
       ? document.documentElement.scrollTop
       : window.scrollY
   );
-
-  const [lastPosition, setLastPosition] = useState(0);
 
   const handlePosition = () =>
     setPosition(
@@ -29,21 +25,9 @@ const ScrollDirection: FC<any> = ({ children }) => {
     };
   }, []);
 
-  useEffect(() => {
-    if (lastPosition > position) {
-      setDirection(Directions.up);
-      setLastPosition(position < 0 ? 0 : position);
-    } else {
-      setDirection(Directions.down);
-      setLastPosition(position < 0 ? 0 : position);
-    }
-  }, [position]);
-
   return (
-    <ScrollDirectionContext.Provider value={direction}>
-      {children}
-    </ScrollDirectionContext.Provider>
+    <ScrollContext.Provider value={position}>{children}</ScrollContext.Provider>
   );
 };
 
-export default ScrollDirection;
+export default ScrollWatcher;
