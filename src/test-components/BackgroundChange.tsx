@@ -1,7 +1,7 @@
 import React, { FC, useEffect, useRef, useState } from "react";
-import useDirection from "../hooks/useDirection";
-import useProximity from "../hooks/useProximity";
-import { Directions } from "../types";
+import useDirection from "../lib/hooks/useDirection";
+import useProximity from "../lib/hooks/useProximity";
+import { Directions } from "../lib/types";
 
 const steps = 1;
 

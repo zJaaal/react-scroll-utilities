@@ -6,6 +6,7 @@ import React, {
   useState,
 } from "react";
 import ScrollContext from "../context/ScrollContext";
+import validateScrollValue from "../../utils/validateScrollValue";
 
 const useProximity = (ref: RefObject<any>) => {
   const scrollState = useContext(ScrollContext);
@@ -17,7 +18,7 @@ const useProximity = (ref: RefObject<any>) => {
   useLayoutEffect(() => {
     if (ref) setElement(ref.current);
   }, []);
-
+  useEffect(() => validateScrollValue(scrollState), []);
   useEffect(() => {
     if (!element) return;
 

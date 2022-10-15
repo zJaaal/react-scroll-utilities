@@ -1,6 +1,6 @@
 import { cleanup, fireEvent, render } from "@testing-library/react";
 import { afterEach, beforeAll, describe, expect, it } from "vitest";
-import ScrollWatcher from "../components/ScrollWatcher";
+import ScrollWatcher from "../lib/components/ScrollWatcher";
 import UseDirection from "./components/UseDirection";
 import getBoundingClientRectMock from "./mock/getBoundingClientRectMock";
 

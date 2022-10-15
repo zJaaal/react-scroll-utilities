@@ -1,15 +1,15 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App";
-import Render from "./components/Render";
-import ScrollWatcher from "./components/ScrollWatcher";
+import Render from "./lib/components/Render";
+import ScrollWatcher from "./lib/components/ScrollWatcher";
 import "./index.css";
 import BackgroundChange from "./test-components/BackgroundChange";
 
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
   <React.StrictMode>
-    <h1>Scroll!</h1>
     <ScrollWatcher>
+      <h1>Scroll!</h1>
       <App />
       <BackgroundChange>
         <Render
