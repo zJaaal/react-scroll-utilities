@@ -1,6 +1,6 @@
 import { cleanup, fireEvent, render } from "@testing-library/react";
 import { afterEach, beforeAll, describe, expect, it } from "vitest";
-import ScrollDirection from "../components/ScrollDirection";
+import ScrollWatcher from "../components/ScrollWatcher";
 import UseDirection from "./components/UseDirection";
 import getBoundingClientRectMock from "./mock/getBoundingClientRectMock";
 
@@ -9,9 +9,9 @@ describe("useDirection hook", () => {
 
   it("Should display the default direction value", () => {
     const UseDirectionTestComponent = render(
-      <ScrollDirection>
+      <ScrollWatcher>
         <UseDirection />
-      </ScrollDirection>
+      </ScrollWatcher>
     );
 
     expect(
@@ -21,9 +21,9 @@ describe("useDirection hook", () => {
   }),
     it("Should display the current scroll direction", () => {
       const UseDirectionTestComponent = render(
-        <ScrollDirection>
+        <ScrollWatcher>
           <UseDirection />
-        </ScrollDirection>
+        </ScrollWatcher>
       );
 
       fireEvent.scroll(window, {

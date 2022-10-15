@@ -1,5 +1,6 @@
 import { render, cleanup, fireEvent } from "@testing-library/react";
 import { describe, it, expect, beforeAll, afterEach } from "vitest";
+import ScrollWatcher from "../components/ScrollWatcher";
 import UseProximity from "./components/UseProximity";
 import getBoundingClientRectMock from "./mock/getBoundingClientRectMock";
 
@@ -11,7 +12,11 @@ describe("useProximity custom hook", () => {
   });
 
   it("should return default proximity", () => {
-    const useProximityTestComponent = render(<UseProximity />);
+    const useProximityTestComponent = render(
+      <ScrollWatcher>
+        <UseProximity />
+      </ScrollWatcher>
+    );
 
     expect(
       useProximityTestComponent.getByText("0"),
@@ -19,7 +24,11 @@ describe("useProximity custom hook", () => {
     ).toBeTruthy();
   }),
     it("should change value on scroll", () => {
-      const useProximityTestComponent = render(<UseProximity />);
+      const useProximityTestComponent = render(
+        <ScrollWatcher>
+          <UseProximity />
+        </ScrollWatcher>
+      );
 
       fireEvent.scroll(window, { target: { scrollY: 700 } });
 
@@ -29,7 +38,11 @@ describe("useProximity custom hook", () => {
       ).toBeFalsy();
     }),
     it("should return a value approximately to 1 for visibility", () => {
-      const useProximityTestComponent = render(<UseProximity />);
+      const useProximityTestComponent = render(
+        <ScrollWatcher>
+          <UseProximity />
+        </ScrollWatcher>
+      );
 
       //window.innerHeight / 2 because is the middle of the screen
       fireEvent.scroll(window, {
