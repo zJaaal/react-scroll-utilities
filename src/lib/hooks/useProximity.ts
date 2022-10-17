@@ -8,6 +8,11 @@ import React, {
 import ScrollContext from "../context/ScrollContext";
 import validateScrollValue from "../utils/validateScrollValue";
 
+/**
+ * @description This hooks returns the proximity of the viewport from the component.
+ * @param ref A reference to the HTMLElement
+ * @returns A float value that represents the proximity to the component. The closer to 1 the closer is the middle of the screen from the component.
+ */
 const useProximity = (ref: RefObject<any>) => {
   const scrollState = useContext(ScrollContext);
 
