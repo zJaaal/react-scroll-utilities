@@ -1,9 +1,9 @@
 {
   "name": "react-scroll-utilities",
   "private": false,
-  "version": "0.2.5",
+  "version": "0.2.6",
   "type": "module",
-  "main": "src/lib",
+  "main": "src/lib/index.ts",
   "homepage": "https://github.com/zJaaal/react-scroll-utilities#readme",
   "keywords": [
     "scroll",
