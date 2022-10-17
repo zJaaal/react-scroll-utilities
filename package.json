@@ -1,7 +1,7 @@
 {
   "name": "react-scroll-utilities",
   "private": false,
-  "version": "0.2.1",
+  "version": "0.2.2",
   "type": "module",
   "author": {"name": "Jalinson Diaz",    "email" : "zjaaaldev@gmail.com",
   "url" : "https://zjaaaldev.netlify.app"},
