@@ -1,6 +1,6 @@
-# React Scroll (Beta)
+# React Scroll Utils (Beta)
 
-React Scroll is a Lightweight library to track scroll events like, proximity to components, direction of scroll and render a component if it's on screen sight. I'll be adding more features and improving the functionality. I'm also open to read any request or change that you think that would be a good addition. This library only supports vertical scroll at the moment.
+React Scroll Utils is a Lightweight library to track scroll events like, proximity to components, direction of scroll and render a component if it's on screen sight. I'll be adding more features and improving the functionality. I'm also open to read any request or change that you think that would be a good addition. This library only supports vertical scroll at the moment.
 
 ## ScrollWatcher Component
 
