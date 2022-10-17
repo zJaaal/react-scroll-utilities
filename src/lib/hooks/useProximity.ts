@@ -6,7 +6,7 @@ import React, {
   useState,
 } from "react";
 import ScrollContext from "../context/ScrollContext";
-import validateScrollValue from "../../utils/validateScrollValue";
+import validateScrollValue from "../utils/validateScrollValue";
 
 const useProximity = (ref: RefObject<any>) => {
   const scrollState = useContext(ScrollContext);

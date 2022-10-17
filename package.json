@@ -1,17 +1,24 @@
 {
   "name": "react-scroll-utilities",
   "private": false,
-  "version": "0.2.3",
+  "version": "0.2.4",
   "type": "module",
-  "main": "src/lib/index.tsx",
+  "main": "./src/lib/index.tsx",
   "homepage": "https://github.com/zJaaal/react-scroll-utilities#readme",
-  "keywords": ["scroll", "react-components", "react-hooks", "utils"],
+  "keywords": [
+    "scroll",
+    "react-components",
+    "react-hooks",
+    "utils"
+  ],
   "author": {
     "name": "Jalinson Diaz",
     "email": "zjaaaldev@gmail.com",
     "url": "https://zjaaaldev.netlify.app"
   },
-  "files": ["src/lib"],
+  "files": [
+    "src/lib"
+  ],
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
