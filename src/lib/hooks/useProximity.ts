@@ -6,6 +6,8 @@ import React, {
   useState,
 } from "react";
 import ScrollContext from "../context/ScrollContext";
+import { Coors } from "../types";
+import getProximity from "../utils/getProximity";
 import validateScrollValue from "../utils/validateScrollValue";
 
 /**
@@ -14,9 +16,14 @@ import validateScrollValue from "../utils/validateScrollValue";
  * @returns A float value that represents the proximity to the component. The closer to 1 the closer is the middle of the screen from the component.
  */
 const useProximity = (ref: RefObject<any>) => {
+  const initialState: Coors = {
+    x: 0,
+    y: 0,
+  };
+
   const scrollState = useContext(ScrollContext);
 
-  const [proximity, setProximity] = useState(0);
+  const [proximity, setProximity] = useState(initialState);
 
   const [element, setElement] = useState<HTMLElement | null>(null);
 
@@ -24,14 +31,11 @@ const useProximity = (ref: RefObject<any>) => {
     if (ref) setElement(ref.current);
   }, []);
   useEffect(() => validateScrollValue(scrollState), []);
+
   useEffect(() => {
     if (!element) return;
 
-    setProximity(
-      ((element as HTMLElement).getBoundingClientRect().y /
-        window.innerHeight) *
-        2
-    );
+    setProximity(getProximity(element as HTMLElement));
   }, [scrollState]);
 
   return proximity;
