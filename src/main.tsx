@@ -22,7 +22,10 @@ ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
         >
           <h3 className="test-h3">I'm spinning</h3>
         </Render>
-        <Circle />
+
+        <Circle>
+          <h3 className="test-h3">I'm spinning</h3>
+        </Circle>
       </BackgroundChange>
     </ScrollWatcher>
   </React.StrictMode>

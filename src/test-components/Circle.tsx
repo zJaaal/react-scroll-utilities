@@ -1,8 +1,8 @@
-import React, { CSSProperties, useEffect, useRef, useState } from "react";
+import React, { CSSProperties, FC, useEffect, useRef, useState } from "react";
 import { preview } from "vite";
 import { Directions, useDirection, useProximity } from "../lib";
 
-const Circle = () => {
+const Circle: FC<any> = ({ children }) => {
   const steps = 6;
   const [styles, setStyles] = useState("");
   const [deg, setDeg] = useState(31);
@@ -29,7 +29,9 @@ const Circle = () => {
   }, [y]);
 
   return (
-    <div className="circle" style={{ background: styles }} ref={ref}></div>
+    <div className="circle" style={{ background: styles }} ref={ref}>
+      <div className="inner-circle">{children}</div>
+    </div>
   );
 };
 

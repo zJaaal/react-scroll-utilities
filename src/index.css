@@ -5,8 +5,8 @@ body {
 
 .circle {
   position: relative;
-  height: 430px;
-  width: 430px;
+  height: 200px;
+  width: 200px;
   background: conic-gradient(#ff32f3 31deg, #FFF 0deg);
   border-radius: 50%;
   display: flex;
@@ -14,11 +14,14 @@ body {
   justify-content: center;
 }
 
-.circle::before {
+.inner-circle {
   position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   content: "";
-  height: 428px;
-  width: 428px;
+  height: 198px;
+  width: 198px;
   background-color: #FFF;
   border-radius: 50%;
 }
@@ -35,7 +38,6 @@ body {
 
 
 .test-h3 {
-  position: fixed;
   animation: spin 2s ease 0s infinite;
 }
 
