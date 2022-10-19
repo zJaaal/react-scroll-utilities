@@ -1,5 +1,26 @@
 body {
   height: 2000px;
+  width: 2000px;
+}
+
+.circle {
+  position: relative;
+  height: 430px;
+  width: 430px;
+  background: conic-gradient(#ff32f3 31deg, #FFF 0deg);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.circle::before {
+  position: absolute;
+  content: "";
+  height: 428px;
+  width: 428px;
+  background-color: #FFF;
+  border-radius: 50%;
 }
 
 .test {
