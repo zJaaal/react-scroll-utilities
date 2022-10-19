@@ -6,10 +6,6 @@ const Render: FC<any> = ({ children, style }) => {
 
   const { x, y } = useProximity(ref);
 
-  useEffect(() => {
-    console.log(x, y);
-  }, [x, y]);
-
   return (
     <div style={{ height: "inherit", ...style }} ref={ref}>
       {y >= 0 && y <= 2 && x >= 0 && x <= 3 ? children : null}
