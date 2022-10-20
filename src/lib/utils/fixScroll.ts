@@ -1,5 +1,3 @@
-import React from "react";
-import { CorsOrigin } from "vite";
 import { Coors } from "../types";
 
 const fixScroll = (coors: Coors): Coors => {

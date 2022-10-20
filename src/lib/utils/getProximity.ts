@@ -1,4 +1,3 @@
-import React from "react";
 import { Coors } from "../types";
 
 const getProximity = (element: HTMLElement): Coors => {
