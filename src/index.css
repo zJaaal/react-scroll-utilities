@@ -1,5 +1,29 @@
 body {
   height: 2000px;
+  width: 2000px;
+}
+
+.circle {
+  position: relative;
+  height: 200px;
+  width: 200px;
+  background: conic-gradient(#ff32f3 31deg, #FFF 0deg);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.inner-circle {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  content: "";
+  height: 198px;
+  width: 198px;
+  background-color: #FFF;
+  border-radius: 50%;
 }
 
 .test {
@@ -14,7 +38,6 @@ body {
 
 
 .test-h3 {
-  position: fixed;
   animation: spin 2s ease 0s infinite;
 }
 

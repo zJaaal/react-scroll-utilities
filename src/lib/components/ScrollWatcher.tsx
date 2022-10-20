@@ -1,19 +1,17 @@
 import React, { FC, useEffect, useState } from "react";
 import ScrollContext from "../context/ScrollContext";
+import { Coors } from "../types";
+import getCoors from "../utils/getCoors";
 
 const ScrollWatcher: FC<any> = ({ children }) => {
-  const [position, setPosition] = useState(
-    typeof window.scrollY == "undefined"
-      ? document.documentElement.scrollTop
-      : window.scrollY
-  );
+  const initialState: Coors = getCoors();
 
-  const handlePosition = () =>
-    setPosition(
-      typeof window.scrollY == "undefined"
-        ? document.documentElement.scrollTop
-        : window.scrollY
-    );
+  const [position, setPosition] = useState(initialState);
+
+  const handlePosition = (e: Event) => {
+    e.preventDefault();
+    setPosition(getCoors());
+  };
 
   useEffect(() => {
     window.addEventListener("scroll", handlePosition);
