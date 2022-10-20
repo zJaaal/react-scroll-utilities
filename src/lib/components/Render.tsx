@@ -1,4 +1,4 @@
-import { FC, useRef } from "react";
+import React, { FC, useRef } from "react";
 import useProximity from "../hooks/useProximity";
 
 const Render: FC<any> = ({ children, style }) => {
