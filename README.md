@@ -37,7 +37,7 @@ This hook only take one argument that should be a ref to an HTML Element. This h
 ```js
 //TypeScript
 function Example() {
-  const ref = useRef <HTMLDivElement>(null);
+  const ref = useRef<HTMLDivElement>(null);
 
   //I'm destructuring the object but you can easily use it without destructuring
   const { x, y } = useProximity(ref);
