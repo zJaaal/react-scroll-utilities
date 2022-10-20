@@ -6,7 +6,7 @@ import validateScrollValue from "../utils/validateScrollValue";
 
 /**
  * @description This hooks calculates the direction of your scroll
- * @returns direction: "UP" or "DOWN"
+ * @returns direction: "UP", "DOWN", "RIGHT" or "LEFT"
  */
 const useDirection = () => {
   const initialState: Coors = {
