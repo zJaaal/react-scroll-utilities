@@ -40,6 +40,22 @@ const BackgroundChange: FC<any> = ({ children }) => {
         }));
         break;
       }
+      case Directions.left: {
+        setColors(({ red, green, blue }) => ({
+          red: red + steps / 2,
+          green: green + steps / 2,
+          blue: blue + steps,
+        }));
+        break;
+      }
+      case Directions.right: {
+        setColors(({ red, green, blue }) => ({
+          red: red - steps / 2,
+          green: green - steps,
+          blue: blue - steps / 2,
+        }));
+        break;
+      }
     }
   }, [direction, proximity]);
 

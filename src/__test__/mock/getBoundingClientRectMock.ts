@@ -4,7 +4,7 @@ const getBoundingClientRectMock = (): DOMRect => {
   return {
     height: 0,
     width: 0,
-    x: 0,
+    x: window.innerWidth - window.scrollX,
     y: window.innerHeight - window.scrollY,
     bottom: 0,
     left: 0,

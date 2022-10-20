@@ -1,8 +1,7 @@
 import { cleanup, fireEvent, render } from "@testing-library/react";
-import { afterEach, beforeAll, describe, expect, it } from "vitest";
+import { afterEach, describe, expect, it } from "vitest";
 import ScrollWatcher from "../lib/components/ScrollWatcher";
 import UseDirection from "./components/UseDirection";
-import getBoundingClientRectMock from "./mock/getBoundingClientRectMock";
 
 describe("useDirection hook", () => {
   afterEach(cleanup);
@@ -15,11 +14,11 @@ describe("useDirection hook", () => {
     );
 
     expect(
-      UseDirectionTestComponent.getByText("DOWN"),
+      UseDirectionTestComponent.queryByText("DOWN"),
       "Should display 'DOWN'"
     ).toBeTruthy();
   }),
-    it("Should display the current scroll direction", () => {
+    it("Should display 'UP' for up scroll", () => {
       const UseDirectionTestComponent = render(
         <ScrollWatcher>
           <UseDirection />
@@ -31,17 +30,40 @@ describe("useDirection hook", () => {
       });
 
       expect(
-        UseDirectionTestComponent.getByText("UP"),
+        UseDirectionTestComponent.queryByText("UP"),
         "Should display 'UP'"
       ).toBeTruthy();
+    }),
+    it("Should display 'RIGHT' for right scroll", () => {
+      const UseDirectionTestComponent = render(
+        <ScrollWatcher>
+          <UseDirection />
+        </ScrollWatcher>
+      );
 
       fireEvent.scroll(window, {
-        target: { scrollY: window.innerHeight * 2 },
+        target: { scrollX: window.innerWidth * 2 },
       });
 
       expect(
-        UseDirectionTestComponent.getByText("DOWN"),
-        "Should display 'DOWN'"
+        UseDirectionTestComponent.queryByText("RIGHT"),
+        "Should display 'RIGHT'"
+      ).toBeTruthy();
+    }),
+    it("Should display 'LEFT' for left scroll", () => {
+      const UseDirectionTestComponent = render(
+        <ScrollWatcher>
+          <UseDirection />
+        </ScrollWatcher>
+      );
+
+      fireEvent.scroll(window, {
+        target: { scrollX: window.innerWidth * -2 },
+      });
+
+      expect(
+        UseDirectionTestComponent.queryByText("LEFT"),
+        "Should display 'LEFT'"
       ).toBeTruthy();
     });
 });

@@ -1,5 +1,6 @@
 import { createContext } from "react";
+import { Coors } from "../types";
 
-const ScrollContext = createContext<number | undefined>(undefined);
+const ScrollContext = createContext<Coors | undefined>(undefined);
 
 export default ScrollContext;

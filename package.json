@@ -1,7 +1,8 @@
 {
   "name": "react-scroll-utilities",
   "private": false,
-  "version": "0.2.8",
+  "version": "0.3.0",
+  "license": "MIT",
   "type": "module",
   "main": "src/lib/index.ts",
   "homepage": "https://github.com/zJaaal/react-scroll-utilities#readme",
