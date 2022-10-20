@@ -37,7 +37,7 @@ This hook only take one argument that should be a ref to an HTML Element. This h
 ```js
 //TypeScript
 function Example() {
-  const ref = useRef <HTMLDivElement>(null);
+  const ref = useRef < HTMLDivElement > null;
 
   //I'm destructuring the object but you can easily use it without destructuring
   const { x, y } = useProximity(ref);
@@ -139,4 +139,4 @@ function Example() {
 
 ## Directions enum
 
-This lib provides an enum for TypeScript users, it just has two properties at the moment: Directions.up, Directions.down, Directions.right and Directions.left that returns the value of "UP", "DOWN" "RIGHT" and "LEFT", you can use it as helper for useDirection hook.
+This lib provides an enum for TypeScript users, it just has four properties at the moment: Directions.up, Directions.down, Directions.right and Directions.left that returns the value of "UP", "DOWN" "RIGHT" and "LEFT", you can use it as helper for useDirection hook.
