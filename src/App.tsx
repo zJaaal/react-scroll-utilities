@@ -1,5 +1,4 @@
-import { useEffect, useLayoutEffect, useRef, useState } from "react";
-
+import { useRef } from "react";
 import useProximity from "./lib/hooks/useProximity";
 
 function App() {

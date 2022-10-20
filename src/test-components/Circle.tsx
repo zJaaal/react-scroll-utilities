@@ -1,5 +1,4 @@
-import React, { CSSProperties, FC, useEffect, useRef, useState } from "react";
-import { preview } from "vite";
+import React, { FC, useEffect, useRef, useState } from "react";
 import { Directions, useDirection, useProximity } from "../lib";
 
 const Circle: FC<any> = ({ children }) => {
