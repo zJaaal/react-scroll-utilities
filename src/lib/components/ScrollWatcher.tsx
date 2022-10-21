@@ -8,18 +8,22 @@ const ScrollWatcher: FC<any> = ({ children }) => {
 
   const [position, setPosition] = useState(initialState);
 
-  const handlePosition = (e: Event) => {
-    e.preventDefault();
+  const handlePosition = (event: Event) => {
+    event.preventDefault();
+    setPosition(getCoors());
+  };
+  const handlePositionMobile = (event: Event) => {
     setPosition(getCoors());
   };
 
   useEffect(() => {
-    window.addEventListener("scroll", handlePosition);
-    document.body.addEventListener("touchmove", handlePosition);
+    if (window.matchMedia("(pointer: coarse)").matches) {
+      window.addEventListener("touchmove", handlePositionMobile, false);
+    } else window.addEventListener("scroll", handlePosition, false);
 
     return () => {
       window.removeEventListener("scroll", handlePosition);
-      document.body.removeEventListener("touchmove", handlePosition);
+      window.removeEventListener("touchmove", handlePositionMobile);
     };
   }, []);
 
