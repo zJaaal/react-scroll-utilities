@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useMemo, useRef, useState } from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
 import ScrollContext from "../context/ScrollContext";
 import { Coors, Directions } from "../types";
 import fixScroll from "../utils/fixScroll";
