@@ -1,11 +1,4 @@
-import React, {
-  RefObject,
-  useContext,
-  useEffect,
-  useLayoutEffect,
-  useMemo,
-  useState,
-} from "react";
+import React, { RefObject, useContext, useLayoutEffect, useMemo } from "react";
 import ScrollContext from "../context/ScrollContext";
 import { Coors } from "../types";
 import getProximity from "../utils/getProximity";
