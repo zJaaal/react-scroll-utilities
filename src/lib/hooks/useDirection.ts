@@ -44,29 +44,3 @@ const useDirection = () => {
 };
 
 export default useDirection;
-
-//Tests
-
-// const lastDirection = useRef(Directions.down);
-// const direction = useMemo(() => {
-//   if (typeof scrollState == "undefined") return lastDirection;
-
-//   let direction = lastDirection.current;
-//   if (lastY > currentY && direction != Directions.up) {
-//     direction = Directions.up;
-//   } else if (lastY < currentY && direction != Directions.down) {
-//     direction = Directions.down;
-//   }
-
-//   if (lastX > currentX && direction != Directions.left) {
-//     direction = Directions.left;
-//   } else if (lastX < currentX && direction != Directions.right) {
-//     direction = Directions.right;
-//   }
-
-//   lastPosition.current = scrollState;
-
-//   lastDirection.current = direction;
-
-//   return direction;
-// }, [scrollState]);
