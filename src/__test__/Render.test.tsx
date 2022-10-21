@@ -3,12 +3,14 @@ import { afterEach, beforeAll, describe, expect, it } from "vitest";
 import Render from "../lib/components/Render";
 import ScrollWatcher from "../lib/components/ScrollWatcher";
 import getBoundingClientRectMock from "./mock/getBoundingClientRectMock";
+import matchMediaMock from "./mock/matchMediaMock";
 
 describe("Render Component", () => {
   afterEach(cleanup);
 
   beforeAll(() => {
     HTMLElement.prototype.getBoundingClientRect = getBoundingClientRectMock;
+    matchMediaMock();
   });
 
   it("should render on a proximity between 0 and 2 for Y", () => {
