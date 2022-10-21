@@ -3,6 +3,7 @@ import React, {
   useContext,
   useEffect,
   useLayoutEffect,
+  useMemo,
   useState,
 } from "react";
 import ScrollContext from "../context/ScrollContext";
@@ -24,23 +25,17 @@ const useProximity = (ref: RefObject<HTMLElement>) => {
 
   const scrollState = useContext(ScrollContext);
 
-  const [proximity, setProximity] = useState(initialState);
-
-  const [element, setElement] = useState<HTMLElement | null>(null);
-
   useLayoutEffect(() => {
+    validateScrollValue(scrollState);
     if (ref.current) {
       validateRef(ref.current);
-      setElement(ref.current);
     }
   }, []);
 
-  useEffect(() => validateScrollValue(scrollState), []);
+  const proximity = useMemo(() => {
+    if (!ref.current) return initialState;
 
-  useEffect(() => {
-    if (!element) return;
-
-    setProximity(getProximity(element as HTMLElement));
+    return getProximity(ref.current as HTMLElement);
   }, [scrollState]);
 
   return proximity;
