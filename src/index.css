@@ -7,7 +7,7 @@ body {
   position: relative;
   height: 200px;
   width: 200px;
-  background: conic-gradient(#ff32f3 31deg, #FFF 0deg);
+  background: conic-gradient(red 31deg, transparent 0deg);
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -20,8 +20,8 @@ body {
   align-items: center;
   justify-content: center;
   content: "";
-  height: 198px;
-  width: 198px;
+  height: 196px;
+  width: 196px;
   background-color: #FFF;
   border-radius: 50%;
 }
