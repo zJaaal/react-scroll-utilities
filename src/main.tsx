@@ -5,6 +5,7 @@ import Render from "./lib/components/Render";
 import ScrollWatcher from "./lib/components/ScrollWatcher";
 import "./index.css";
 import BackgroundChange from "./test-components/BackgroundChange";
+import Rectangle from "./lib/components/rectangle/Rectangle";
 import Circle from "./lib/components/circle/Circle";
 
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
@@ -60,7 +61,7 @@ ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
         <h3>I'm stuck!</h3>
       </Circle>
       <Circle stroke={10}>
-        <h3>I'm wider!</h3>
+        <h3>I'm strong!</h3>
       </Circle>
       <Circle stroke={10} color={"#620d7e"}>
         <h3 style={{ textAlign: "center" }}>I can be your favorite color</h3>
@@ -98,6 +99,91 @@ ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
           </h3>
         </Circle>
       </Circle>
+    </div>
+    <div
+      style={{
+        display: "flex",
+        alignItems: "center",
+        gap: 10,
+        rowGap: 100,
+        width: 1200,
+        flexWrap: "wrap",
+        height: "100%",
+      }}
+    >
+      <Rectangle width={300} height={300} startDegree={10}>
+        <h2>I'm bigger</h2>
+      </Rectangle>
+      <Rectangle startDegree={10}>
+        <h3>I only have children</h3>
+      </Rectangle>
+      <Rectangle width={100} height={100} startDegree={10}>
+        <h4>I'm smaller</h4>
+      </Rectangle>
+      <Rectangle width={100} height={400} startDegree={10}>
+        <h4>I'm taller</h4>
+      </Rectangle>
+      <Rectangle width={400} height={100} startDegree={10}>
+        <h4>I'm wider</h4>
+      </Rectangle>
+      <Rectangle startDegree={10}>
+        <Rectangle width={100} height={100} startDegree={40}>
+          <h4>I'm inside</h4>
+        </Rectangle>
+      </Rectangle>
+      <Rectangle startDegree={10} speed={14}>
+        <h3>Gotta go fast</h3>
+      </Rectangle>
+      <Rectangle startDegree={10} speed={2}>
+        <h3>Turtles are cool tho!</h3>
+      </Rectangle>
+      <Rectangle speed={2} startDegree={120}>
+        <h3>I started with offset</h3>
+      </Rectangle>
+      <Rectangle endDegree={60}>
+        <h3>I'm stuck!</h3>
+      </Rectangle>
+      <Rectangle stroke={10}>
+        <h3>I'm strong!</h3>
+      </Rectangle>
+      <Rectangle stroke={10} color={"#620d7e"}>
+        <h3 style={{ textAlign: "center" }}>I can be your favorite color</h3>
+      </Rectangle>
+      <Rectangle stroke={10} color={"#620d7e"} backgroundColor="#00b982">
+        <h3 style={{ textAlign: "center", color: "white" }}>
+          I can change my background
+        </h3>
+      </Rectangle>
+      <Rectangle clockwise={false}>
+        <h3 style={{ textAlign: "center" }}>I'm going counter clockwise</h3>
+      </Rectangle>
+      <Rectangle rotate={90}>
+        <h3 style={{ textAlign: "center" }}>I'm starting from the center</h3>
+      </Rectangle>
+      <Rectangle
+        width={300}
+        height={300}
+        startDegree={30}
+        rotate={90}
+        speed={3}
+        color={"#620d7e"}
+        backgroundColor="#00b982"
+        stroke={10}
+      >
+        <Rectangle
+          width={250}
+          height={250}
+          stroke={10}
+          color={"black"}
+          speed={6}
+          backgroundColor="#620d7e"
+          clockwise={false}
+        >
+          <h3 style={{ textAlign: "center", color: "white" }}>
+            I can be all of that at the same time!
+          </h3>
+        </Rectangle>
+      </Rectangle>
     </div>
   </ScrollWatcher>
   // </React.StrictMode>
