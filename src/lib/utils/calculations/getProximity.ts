@@ -1,4 +1,4 @@
-import { Coors } from "../types";
+import { Coors } from "../../types";
 
 const getProximity = (element: HTMLElement): Coors => {
   const { x, y } = element.getBoundingClientRect();
