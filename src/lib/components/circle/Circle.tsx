@@ -16,9 +16,8 @@ const Circle: FC<CircleProps> = ({
   endDegree = 360,
   rotate = 0,
 }) => {
-  const [deg, setDeg] = useState(startDegree);
-
   const ref = useRef(null);
+  const degRef = useRef(startDegree);
   const { y } = useProximity(ref);
   const direction = useDirection();
 
@@ -42,13 +41,13 @@ const Circle: FC<CircleProps> = ({
   useEffect(() => {
     switch (direction) {
       case Directions.up: {
-        if (deg < startDegree || y < 0) return;
-        setDeg((prev) => prev - speed);
+        if (degRef.current < startDegree || y < 0) return;
+        degRef.current -= speed;
         break;
       }
       case Directions.down: {
-        if (deg > endDegree || y > 2 || y == 0) return;
-        setDeg((prev) => prev + speed);
+        if (degRef.current > endDegree || y > 2 || y == 0) return;
+        degRef.current += speed;
         break;
       }
     }
@@ -58,7 +57,7 @@ const Circle: FC<CircleProps> = ({
     <div
       className="circle"
       style={{
-        background: `conic-gradient(${color} ${deg}deg, ${backgroundColor} 0deg)`,
+        background: `conic-gradient(${color} ${degRef.current}deg, ${backgroundColor} 0deg)`,
         ...circleStyles,
       }}
       ref={ref}
