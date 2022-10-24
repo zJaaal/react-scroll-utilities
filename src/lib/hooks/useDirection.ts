@@ -1,8 +1,8 @@
 import React, { useContext, useEffect, useRef, useState } from "react";
 import ScrollContext from "../context/ScrollContext";
 import { Coors, Directions } from "../types";
-import fixScroll from "../utils/fixScroll";
-import validateScrollValue from "../utils/validateScrollValue";
+import fixScroll from "../utils/calculations/fixScroll";
+import validateScrollValue from "../utils/validations/validateScrollValue";
 
 /**
  * @description This hooks calculates the direction of your scroll

@@ -1,9 +1,9 @@
 import React, { RefObject, useContext, useLayoutEffect, useMemo } from "react";
 import ScrollContext from "../context/ScrollContext";
 import { Coors } from "../types";
-import getProximity from "../utils/getProximity";
-import validateRef from "../utils/validateRef";
-import validateScrollValue from "../utils/validateScrollValue";
+import getProximity from "../utils/calculations/getProximity";
+import validateRef from "../utils/validations/validateRef";
+import validateScrollValue from "../utils/validations/validateScrollValue";
 
 /**
  * @description This hooks returns the proximity of the viewport from the component.
