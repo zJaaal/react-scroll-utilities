@@ -1,4 +1,4 @@
-import React, { RefObject, useContext, useLayoutEffect, useMemo } from "react";
+import React, { RefObject, useContext, useLayoutEffect, useRef } from "react";
 import ScrollContext from "../context/ScrollContext";
 import { Coors } from "../types";
 import getProximity from "../utils/calculations/getProximity";
@@ -17,21 +17,18 @@ const useProximity = (ref: RefObject<HTMLElement>) => {
   };
 
   const scrollState = useContext(ScrollContext);
+  const proximityRef = useRef<Coors>(initialState);
 
   useLayoutEffect(() => {
     validateScrollValue(scrollState);
-    if (ref.current) {
-      validateRef(ref.current);
-    }
+    validateRef(ref.current as HTMLElement);
   }, []);
 
-  const proximity = useMemo(() => {
-    if (!ref.current) return initialState;
-
-    return getProximity(ref.current as HTMLElement);
+  useLayoutEffect(() => {
+    proximityRef.current = getProximity(ref.current as HTMLElement);
   }, [scrollState]);
 
-  return proximity;
+  return proximityRef.current;
 };
 
 export default useProximity;
