@@ -1,7 +1,7 @@
 import React, { CSSProperties, FC, useEffect, useRef, useState } from "react";
 import { Directions, useDirection, useProximity } from "../../index";
-import { CircleProps } from "../../types";
 import { validateCircleProps } from "../../utils/validations/validateCircleProps";
+import { CircleProps } from "./types";
 import "./Circle.style.css";
 
 const Circle: FC<CircleProps> = ({

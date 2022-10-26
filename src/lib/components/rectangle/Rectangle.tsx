@@ -1,7 +1,7 @@
 import React, { CSSProperties, FC, useEffect, useRef, useState } from "react";
 import { Directions, useDirection, useProximity } from "../../index";
-import { RectangleProps } from "../../types";
 import { validateRectangleProps } from "../../utils/validations/validateRectangleProps";
+import { RectangleProps } from "./types";
 import "./Rectangle.style.css";
 
 const Rectangle: FC<RectangleProps> = ({
