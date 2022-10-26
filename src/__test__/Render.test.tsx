@@ -13,18 +13,19 @@ describe("Render Component", () => {
     matchMediaMock();
   });
 
-  it("should render on a proximity between 0 and 2 for Y", () => {
+  it("should render on a proximity between 0 and 2 for Y and between 0 and 3 for X", () => {
     const RenderTestComponent = render(
       <ScrollWatcher>
         <Render>Hi i'm being rendered</Render>
       </ScrollWatcher>
     );
-    fireEvent.scroll(window, {
-      target: { scrollY: window.innerHeight / 2 },
-    });
 
     fireEvent.scroll(window, {
       target: { scrollX: window.innerWidth / 2 },
+    });
+
+    fireEvent.scroll(window, {
+      target: { scrollY: window.innerHeight / 2 },
     });
 
     expect(
