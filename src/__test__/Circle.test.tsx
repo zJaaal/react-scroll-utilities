@@ -198,5 +198,18 @@ describe("Circle Component", () => {
         CircleTestComponent.getByTestId("circle"),
         `Circle rotate should be equal to ${rotate}`
       ).toHaveStyle(`transform: rotate(${60}deg) scaleX(1)`);
+    }),
+    it("Should throw an error for incorrect values in props", () => {
+      let error = null;
+      try {
+        render(
+          <ScrollWatcher>
+            <Circle stroke={-10} />
+          </ScrollWatcher>
+        );
+      } catch (err) {
+        error = err;
+      }
+      expect(error).toBeTruthy();
     });
 });
