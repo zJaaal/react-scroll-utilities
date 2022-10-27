@@ -55,6 +55,7 @@ const Circle: FC<CircleProps> = ({
 
   return (
     <div
+      data-testid="circle"
       className="circle"
       style={{
         background: `conic-gradient(${color} ${degRef.current}deg, ${backgroundColor} 0deg)`,
@@ -62,7 +63,11 @@ const Circle: FC<CircleProps> = ({
       }}
       ref={ref}
     >
-      <div className="inner-circle" style={innerCircleStyles}>
+      <div
+        className="inner-circle"
+        data-testid="inner-circle"
+        style={innerCircleStyles}
+      >
         {children || null}
       </div>
     </div>
