@@ -102,7 +102,7 @@ describe("Circle Component", () => {
 
       // expect(
       //   someValue,
-      //   "Circle should be greater than the last deg calculation since is faster"
+      //   "Circle deg should be greater than the last deg calculation since is faster"
       // ).toBeGreaterThan(lastCalculation));
     }),
     it("Should change its stroke when setting stroke prop", () => {
