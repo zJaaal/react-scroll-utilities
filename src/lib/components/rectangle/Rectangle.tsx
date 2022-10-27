@@ -64,6 +64,7 @@ const Rectangle: FC<RectangleProps> = ({
 
   return (
     <div
+      data-testid="rectangle"
       className="rectangle"
       style={{
         background: `conic-gradient(${color} ${degRef.current}deg, ${backgroundColor} 0deg)`,
@@ -71,7 +72,11 @@ const Rectangle: FC<RectangleProps> = ({
       }}
       ref={ref}
     >
-      <div className="inner-rectangle" style={innerRectangleStyles}>
+      <div
+        data-testid="inner-rectangle"
+        className="inner-rectangle"
+        style={innerRectangleStyles}
+      >
         {children || null}
       </div>
     </div>
