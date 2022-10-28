@@ -1,5 +1,3 @@
-import { ReactElement } from "react";
-
 export enum Directions {
   up = "UP",
   down = "DOWN",
