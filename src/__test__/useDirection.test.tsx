@@ -1,10 +1,12 @@
 import { cleanup, fireEvent, render } from "@testing-library/react";
-import { afterEach, describe, expect, it } from "vitest";
+import { afterEach, beforeAll, describe, expect, it } from "vitest";
 import ScrollWatcher from "../lib/components/ScrollWatcher";
 import UseDirection from "./components/UseDirection";
+import matchMediaMock from "./mock/matchMediaMock";
 
 describe("useDirection hook", () => {
   afterEach(cleanup);
+  beforeAll(() => matchMediaMock());
 
   it("Should display the default direction value", () => {
     const UseDirectionTestComponent = render(

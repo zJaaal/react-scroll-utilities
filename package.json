@@ -1,7 +1,7 @@
 {
   "name": "react-scroll-utilities",
   "private": false,
-  "version": "0.3.1",
+  "version": "0.4.0",
   "license": "MIT",
   "type": "module",
   "main": "src/lib/index.ts",
@@ -31,6 +31,7 @@
     "react-dom": "^18.2.0"
   },
   "devDependencies": {
+    "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
     "@types/react": "^18.0.17",
     "@types/react-dom": "^18.0.6",

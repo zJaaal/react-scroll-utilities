@@ -1,0 +1,14 @@
+.rectangle {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.inner-rectangle {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  content: "";
+}
