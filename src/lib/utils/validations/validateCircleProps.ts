@@ -11,7 +11,7 @@ export const validateCircleProps = (
     );
 
   if (stroke <= 0)
-    throw new Error(`stroke should be at least 1 and is "${stroke}"`);
+    throw new Error(`stroke should be more than 0 and is "${stroke}"`);
 
   if (radius <= 0)
     throw new Error(
