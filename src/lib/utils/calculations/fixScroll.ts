@@ -1,4 +1,4 @@
-import { Coors } from "../types";
+import { Coors } from "../../types";
 
 const fixScroll = (coors: Coors): Coors => {
   return {

@@ -1,8 +1,8 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
 import ScrollContext from "../context/ScrollContext";
 import { Coors, Directions } from "../types";
-import fixScroll from "../utils/fixScroll";
-import validateScrollValue from "../utils/validateScrollValue";
+import fixScroll from "../utils/calculations/fixScroll";
+import validateScrollValue from "../utils/validations/validateScrollValue";
 
 /**
  * @description This hooks calculates the direction of your scroll
@@ -15,29 +15,29 @@ const useDirection = () => {
   };
   const scrollState = useContext(ScrollContext);
   const [direction, setDirection] = useState(Directions.down);
-  const [lastPosition, setLastPosition] = useState(initialState);
+  const lastPosition = useRef(initialState);
 
   const { x: currentX, y: currentY } = scrollState as Coors;
-  const { x: lastX, y: lastY } = lastPosition;
+  const { x: lastX, y: lastY } = lastPosition.current;
 
   useEffect(() => validateScrollValue(scrollState), []);
 
   useEffect(() => {
     if (typeof scrollState == "undefined") return;
 
-    if (lastY > currentY) {
+    if (lastY > currentY && direction != Directions.up) {
       setDirection(Directions.up);
-    } else if (lastY < currentY) {
+    } else if (lastY < currentY && direction != Directions.down) {
       setDirection(Directions.down);
     }
 
-    if (lastX > currentX) {
+    if (lastX > currentX && direction != Directions.left) {
       setDirection(Directions.left);
-    } else if (lastX < currentX) {
+    } else if (lastX < currentX && direction != Directions.right) {
       setDirection(Directions.right);
     }
 
-    setLastPosition(fixScroll(scrollState));
+    lastPosition.current = scrollState;
   }, [scrollState]);
 
   return direction;

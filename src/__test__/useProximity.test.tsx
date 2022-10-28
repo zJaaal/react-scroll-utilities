@@ -4,6 +4,7 @@ import ScrollWatcher from "../lib/components/ScrollWatcher";
 import UseProximityX from "./components/UseProximityX";
 import UseProximityY from "./components/UseProximityY";
 import getBoundingClientRectMock from "./mock/getBoundingClientRectMock";
+import matchMediaMock from "./mock/matchMediaMock";
 
 const isYInRange = (y: number) => y >= 0 && y <= 2;
 const isXInRange = (x: number) => x >= 0 && x <= 3;
@@ -13,6 +14,7 @@ describe("useProximity custom hook", () => {
 
   beforeAll(() => {
     HTMLElement.prototype.getBoundingClientRect = getBoundingClientRectMock;
+    matchMediaMock();
   });
 
   it("should return default proximity for Y", () => {

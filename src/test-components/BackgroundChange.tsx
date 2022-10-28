@@ -13,62 +13,58 @@ const BackgroundChange: FC<any> = ({ children }) => {
   });
   const { red, blue, green } = colors;
 
-  const [backgroundColors, setBackgroundColors] = useState({
-    backgroundColor: `rgb(${red}, ${green}, ${blue})`,
-  });
-
   const direction = useDirection();
 
   const ref = useRef<HTMLDivElement>(null);
   const proximity = useProximity(ref);
 
   useEffect(() => {
-    switch (direction) {
-      case Directions.up: {
-        setColors(({ red, green, blue }) => ({
-          red: red + steps,
-          green: green + steps,
-          blue: blue + steps,
-        }));
-        break;
-      }
-      case Directions.down: {
-        setColors(({ red, green, blue }) => ({
-          red: red - steps,
-          green: green - steps,
-          blue: blue - steps,
-        }));
-        break;
-      }
-      case Directions.left: {
-        setColors(({ red, green, blue }) => ({
-          red: red + steps / 2,
-          green: green + steps / 2,
-          blue: blue + steps,
-        }));
-        break;
-      }
-      case Directions.right: {
-        setColors(({ red, green, blue }) => ({
-          red: red - steps / 2,
-          green: green - steps,
-          blue: blue - steps / 2,
-        }));
-        break;
+    if (proximity.y != 0) {
+      switch (direction) {
+        case Directions.up: {
+          setColors(({ red, green, blue }) => ({
+            red: red + steps,
+            green: green + steps,
+            blue: blue + steps,
+          }));
+          break;
+        }
+        case Directions.down: {
+          setColors(({ red, green, blue }) => ({
+            red: red - steps,
+            green: green - steps,
+            blue: blue - steps,
+          }));
+          break;
+        }
+        case Directions.left: {
+          setColors(({ red, green, blue }) => ({
+            red: red + steps / 2,
+            green: green + steps / 2,
+            blue: blue + steps,
+          }));
+          break;
+        }
+        case Directions.right: {
+          setColors(({ red, green, blue }) => ({
+            red: red - steps / 2,
+            green: green - steps,
+            blue: blue - steps / 2,
+          }));
+          break;
+        }
       }
     }
-  }, [direction, proximity]);
-
-  useEffect(
-    () =>
-      setBackgroundColors({
-        backgroundColor: `rgb(${red}, ${green}, ${blue})`,
-      }),
-    [colors]
-  );
+  }, [proximity]);
 
   return (
-    <div style={{ ...backgroundColors, height: "inherit" }} ref={ref}>
+    <div
+      style={{
+        backgroundColor: `rgb(${red}, ${green}, ${blue})`,
+        height: "inherit",
+      }}
+      ref={ref}
+    >
       <h1>This background react to the direction of your scroll!</h1>
       {children}
     </div>

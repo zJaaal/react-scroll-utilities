@@ -1,20 +1,14 @@
-import React, {
-  RefObject,
-  useContext,
-  useEffect,
-  useLayoutEffect,
-  useState,
-} from "react";
+import React, { RefObject, useContext, useLayoutEffect, useRef } from "react";
 import ScrollContext from "../context/ScrollContext";
 import { Coors } from "../types";
-import getProximity from "../utils/getProximity";
-import validateRef from "../utils/validateRef";
-import validateScrollValue from "../utils/validateScrollValue";
+import getProximity from "../utils/calculations/getProximity";
+import validateRef from "../utils/validations/validateRef";
+import validateScrollValue from "../utils/validations/validateScrollValue";
 
 /**
  * @description This hooks returns the proximity of the viewport from the component.
  * @param ref A reference to the HTMLElement
- * @returns An object with 2 properties: x amd y. Values that represents the proximity to the component. The closer to 1 the closer is the middle of the screen from the component.
+ * @returns An object with 2 properties: x and y. Values that represents the proximity to the component. The closer to 1 the closer is the middle of the screen from the component.
  */
 const useProximity = (ref: RefObject<HTMLElement>) => {
   const initialState: Coors = {
@@ -23,27 +17,18 @@ const useProximity = (ref: RefObject<HTMLElement>) => {
   };
 
   const scrollState = useContext(ScrollContext);
-
-  const [proximity, setProximity] = useState(initialState);
-
-  const [element, setElement] = useState<HTMLElement | null>(null);
+  const proximityRef = useRef<Coors>(initialState);
 
   useLayoutEffect(() => {
-    if (ref.current) {
-      validateRef(ref.current);
-      setElement(ref.current);
-    }
+    validateScrollValue(scrollState);
+    validateRef(ref.current as HTMLElement);
   }, []);
 
-  useEffect(() => validateScrollValue(scrollState), []);
-
-  useEffect(() => {
-    if (!element) return;
-
-    setProximity(getProximity(element as HTMLElement));
+  useLayoutEffect(() => {
+    proximityRef.current = getProximity(ref.current as HTMLElement);
   }, [scrollState]);
 
-  return proximity;
+  return proximityRef.current;
 };
 
 export default useProximity;
