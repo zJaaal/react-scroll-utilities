@@ -12,7 +12,7 @@ ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
   <ScrollWatcher>
     <h1>Scroll!</h1>
     <App />
-    <DynamicBackground startColor={[123, 200, 12]} endColor={[65, 130, 200]} />
+    <DynamicBackground startColor={[150, 2, 0]} endColor={[47, 72, 88]} />
     {/* <Render
         style={{
           position: "relative",
