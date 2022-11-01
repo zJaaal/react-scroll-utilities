@@ -27,22 +27,20 @@ const DynamicBackground: FC<BackgroundProps> = ({
       case Directions.up: {
         if (onSight && color.current.some((color, i) => color != startColor[i]))
           color.current = color.current.map((color, i) =>
-            Math.ceil(
-              clamp(startColor[i], endColor[i], color - steps.current[i])
-            )
+            clamp(startColor[i], endColor[i], color - steps.current[i])
           );
         break;
       }
       case Directions.down: {
         if (onSight && color.current.some((color, i) => color != endColor[i]))
           color.current = color.current.map((color, i) =>
-            Math.ceil(
-              clamp(startColor[i], endColor[i], color + steps.current[i])
-            )
+            clamp(startColor[i], endColor[i], color + steps.current[i])
           );
         break;
       }
     }
+    // console.log(color.current);
+    // console.log(steps.current);
   }, [y]);
 
   return (
@@ -50,7 +48,7 @@ const DynamicBackground: FC<BackgroundProps> = ({
       ref={ref}
       style={{
         backgroundColor: `rgb(${color.current[0]}, ${color.current[1]}, ${color.current[2]})`,
-        height: "300px",
+        height: "3000px",
       }}
     >
       <h1>This background react to the direction of your scroll!</h1>
