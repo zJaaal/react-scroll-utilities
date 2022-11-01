@@ -4,26 +4,26 @@ import App from "./App";
 import Render from "./lib/components/Render";
 import ScrollWatcher from "./lib/components/ScrollWatcher";
 import "./index.css";
-import BackgroundChange from "./test-components/BackgroundChange";
 import Rectangle from "./lib/components/rectangle/Rectangle";
 import Circle from "./lib/components/circle/Circle";
+import DynamicBackground from "./lib/components/dynamicBackground/DynamicBackground";
 
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
   <ScrollWatcher>
     <h1>Scroll!</h1>
     <App />
-    <BackgroundChange>
-      <Render
+    <DynamicBackground />
+    {/* <Render
         style={{
-          height: "inherit",
           position: "relative",
-          transform: "translate(80%, 50%)",
+          transform: "translate(50%, 50%)",
         }}
       >
-        <h3 className="test-h3">I'm spinning</h3>
-      </Render>
-    </BackgroundChange>
-    <div
+        <h3 style={{ backgroundColor: "red" }}>I'm spinning</h3>
+      </Render> */}
+    {/* </DynamicBackground> */}
+    <div style={{ height: "2000px" }}></div>
+    {/* <div
       style={{
         display: "flex",
         alignItems: "center",
@@ -184,7 +184,7 @@ ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
           </h3>
         </Rectangle>
       </Rectangle>
-    </div>
+    </div> */}
   </ScrollWatcher>
   // </React.StrictMode>
   //         <React.StrictMode>
