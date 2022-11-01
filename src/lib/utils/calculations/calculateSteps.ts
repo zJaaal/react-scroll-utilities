@@ -10,13 +10,8 @@ const calculateSteps = (
     if (color == endColor[i]) return steps.push(0);
 
     if (color > endColor[i])
-      steps.push(
-        Math.floor((endColor[i] - color) / element.clientHeight - 0.9999)
-      );
-    else
-      steps.push(
-        Math.ceil((endColor[i] - color) / element.clientHeight + 0.9999)
-      );
+      steps.push(Math.floor((endColor[i] - color) / element.clientHeight));
+    else steps.push(Math.ceil((endColor[i] - color) / element.clientHeight));
   });
 
   return steps;
