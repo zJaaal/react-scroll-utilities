@@ -9,3 +9,7 @@ export type Coors = {
   x: number;
   y: number;
 };
+
+export interface ProximityState extends Coors {
+  onSight: boolean;
+}

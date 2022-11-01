@@ -4,11 +4,11 @@ import useProximity from "../hooks/useProximity";
 const Render: FC<any> = ({ children, style }) => {
   const ref = useRef<HTMLDivElement>(null);
 
-  const { x, y } = useProximity(ref);
+  const { onSight } = useProximity(ref);
 
   return (
     <div style={{ height: "inherit", ...style }} ref={ref}>
-      {y >= 0 && y <= 2 && x >= 0 && x <= 3 ? children : null}
+      {onSight ? children : null}
     </div>
   );
 };
