@@ -15,11 +15,17 @@ const Circle: FC<CircleProps> = ({
   startDegree = 0,
   endDegree = 360,
   rotate = 0,
+  __background = "",
+  dynamicBackground = false,
 }) => {
   const ref = useRef(null);
   const degRef = useRef(startDegree);
   const { y, onSight } = useProximity(ref);
   const direction = useDirection();
+
+  const backgroundReference = useRef(
+    dynamicBackground && __background.length ? __background : backgroundColor
+  );
 
   const circleStyles: CSSProperties = {
     width: `${radius}px`,
@@ -29,7 +35,7 @@ const Circle: FC<CircleProps> = ({
   const innerCircleStyles: CSSProperties = {
     width: `${radius - stroke}px`,
     height: `${radius - stroke}px`,
-    backgroundColor: backgroundColor,
+    backgroundColor: backgroundReference.current,
     transform: `rotate(-${rotate}deg) scaleX(${clockwise ? 1 : -1})`,
   };
 
@@ -39,6 +45,8 @@ const Circle: FC<CircleProps> = ({
   );
 
   useEffect(() => {
+    backgroundReference.current =
+      dynamicBackground && __background.length ? __background : backgroundColor;
     switch (direction) {
       case Directions.up: {
         if (degRef.current < startDegree || !onSight) return;
@@ -58,7 +66,7 @@ const Circle: FC<CircleProps> = ({
       data-testid="circle"
       className="circle"
       style={{
-        background: `conic-gradient(${color} ${degRef.current}deg, ${backgroundColor} 0deg)`,
+        background: `conic-gradient(${color} ${degRef.current}deg, ${backgroundReference.current} 0deg)`,
         ...circleStyles,
       }}
       ref={ref}
