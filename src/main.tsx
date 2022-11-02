@@ -12,17 +12,17 @@ ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
   <ScrollWatcher>
     <h1>Scroll!</h1>
     <App />
-    <DynamicBackground startColor={[150, 2, 0]} endColor={[2, 85, 230]} />
-    {/* <DynamicBackground startColor={[47, 72, 88]} endColor={[2, 85, 230]} /> */}
-    {/* <Render
+    <DynamicBackground startColor={[150, 2, 0]} endColor={[2, 85, 230]}>
+      {/* <DynamicBackground startColor={[47, 72, 88]} endColor={[2, 85, 230]} /> */}
+      <Render
         style={{
           position: "relative",
           transform: "translate(50%, 50%)",
         }}
       >
         <h3 style={{ backgroundColor: "red" }}>I'm spinning</h3>
-      </Render> */}
-    {/* </DynamicBackground> */}
+      </Render>
+    </DynamicBackground>
     <div style={{ height: "2000px" }}></div>
     {/* <div
       style={{
