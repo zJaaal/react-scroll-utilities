@@ -19,7 +19,7 @@ const Rectangle: FC<RectangleProps> = ({
 }) => {
   const ref = useRef(null);
   const degRef = useRef(startDegree);
-  const { y } = useProximity(ref);
+  const { y, onSight } = useProximity(ref);
   const direction = useDirection();
 
   const rectangleStyles: CSSProperties = {
@@ -50,12 +50,12 @@ const Rectangle: FC<RectangleProps> = ({
   useEffect(() => {
     switch (direction) {
       case Directions.up: {
-        if (degRef.current < startDegree || y < 0) return;
+        if (degRef.current < startDegree || !onSight) return;
         degRef.current -= speed;
         break;
       }
       case Directions.down: {
-        if (degRef.current > endDegree || y > 2 || y == 0) return;
+        if (degRef.current > endDegree || !onSight) return;
         degRef.current += speed;
         break;
       }
