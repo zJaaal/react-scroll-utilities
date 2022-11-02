@@ -8,7 +8,6 @@ const getSteps = (
 ): number[] => {
   let steps: number[] = [];
 
-  //need to make this smarter
   startColor.forEach((color, i) => {
     if (color == endColor[i]) return steps.push(0);
 
@@ -16,7 +15,6 @@ const getSteps = (
       [0, element.clientHeight],
       [startColor[i], endColor[i]]
     );
-    // console.log(slopeValue);
 
     const colorLinearValue = linearValue(
       slopeValue,

@@ -39,9 +39,6 @@ const DynamicBackground: FC<BackgroundProps> = ({
         break;
       }
     }
-    console.log(color.current);
-    // console.log(direction);
-    console.log(steps.current);
   }, [y]);
 
   return (
