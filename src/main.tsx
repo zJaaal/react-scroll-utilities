@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App";
-import Render from "./lib/components/Render";
+import Render from "./lib/components/render/Render";
 import ScrollWatcher from "./lib/components/ScrollWatcher";
 import "./index.css";
 import Rectangle from "./lib/components/rectangle/Rectangle";
@@ -13,19 +13,35 @@ ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
     <h1>Scroll!</h1>
     <div style={{ height: "2000px" }}></div>
     <App />
-    {/* <DynamicBackground startColor={[47, 72, 88]} endColor={[2, 85, 230]} /> */}
-    <DynamicBackground startColor={[150, 2, 0]} endColor={[2, 85, 230]}>
+    <DynamicBackground startColor={[47, 72, 88]} endColor={[2, 85, 230]} />
+    <DynamicBackground startColor={[48, 242, 242]} endColor={[106, 46, 53]}>
       <Render
         style={{
-          position: "relative",
-          transform: "translate(50%, 50%)",
+          transform: "translate(0, 1000px)",
+          height: "100px",
         }}
+        dynamicBackground={true}
       >
-        <h3 style={{ backgroundColor: "red" }}>I'm spinning</h3>
+        <h3>I'm spinning</h3>
       </Render>
+      <Circle
+        radius={600}
+        stroke={10}
+        color={"#620d7e"}
+        dynamicBackground={true}
+      >
+        <h3 style={{ textAlign: "center", color: "white" }}>
+          I can change my background
+        </h3>
+      </Circle>
+      <Rectangle stroke={10} color={"#620d7e"} dynamicBackground={true}>
+        <h3 style={{ textAlign: "center", color: "white" }}>
+          I can change my background
+        </h3>
+      </Rectangle>
     </DynamicBackground>
-    {/* <div style={{ height: "2000px" }}></div> */}
-    <div
+    <div style={{ height: "2000px" }}></div>
+    {/* <div
       style={{
         display: "flex",
         alignItems: "center",
@@ -186,7 +202,7 @@ ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
           </h3>
         </Rectangle>
       </Rectangle>
-    </div>
+    </div> */}
   </ScrollWatcher>
   // </React.StrictMode>
   //         <React.StrictMode>

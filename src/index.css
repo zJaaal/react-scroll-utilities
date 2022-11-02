@@ -16,10 +16,6 @@ body {
 }
 
 
-.test-h3 {
-  animation: spin 2s ease 0s infinite;
-}
-
 
 @keyframes spin {
   from {

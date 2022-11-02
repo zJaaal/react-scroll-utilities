@@ -1,5 +1,5 @@
 import { Directions } from "./types";
-import Render from "./components/Render";
+import Render from "./components/render/Render";
 import ScrollWatcher from "./components/ScrollWatcher";
 import useDirection from "./hooks/useDirection";
 import useProximity from "./hooks/useProximity";
