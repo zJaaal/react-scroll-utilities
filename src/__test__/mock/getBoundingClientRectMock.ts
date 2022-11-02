@@ -5,8 +5,6 @@ const getBoundingClientRectMock = (): void => {
     return {
       height: 500,
       width: 500,
-
-      //Not sure about this but is working
       x: window.innerWidth - window.scrollX,
       y: window.innerHeight - window.scrollY,
 
