@@ -2,8 +2,8 @@ import React, { FC, useEffect, useLayoutEffect, useRef } from "react";
 import useDirection from "../../hooks/useDirection";
 import useProximity from "../../hooks/useProximity";
 import { Directions } from "../../types";
-import calculateSteps from "../../utils/calculations/calculateSteps";
-import clamp from "../../utils/validations/clamp";
+import getSteps from "../../utils/calculations/getSteps";
+import clamp from "../../utils/calculations/clamp";
 import { BackgroundProps } from "./types";
 
 const DynamicBackground: FC<BackgroundProps> = ({
@@ -19,7 +19,7 @@ const DynamicBackground: FC<BackgroundProps> = ({
   const direction = useDirection();
 
   useLayoutEffect(() => {
-    steps.current = calculateSteps(startColor, endColor, ref.current!);
+    steps.current = getSteps(startColor, endColor, ref.current!);
   }, []);
 
   useEffect(() => {
@@ -39,8 +39,9 @@ const DynamicBackground: FC<BackgroundProps> = ({
         break;
       }
     }
-    // console.log(color.current);
-    // console.log(steps.current);
+    console.log(color.current);
+    // console.log(direction);
+    console.log(steps.current);
   }, [y]);
 
   return (
@@ -48,10 +49,9 @@ const DynamicBackground: FC<BackgroundProps> = ({
       ref={ref}
       style={{
         backgroundColor: `rgb(${color.current[0]}, ${color.current[1]}, ${color.current[2]})`,
-        height: "3000px",
+        height: "780px",
       }}
     >
-      <h1>This background react to the direction of your scroll!</h1>
       {children}
     </div>
   );
