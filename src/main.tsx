@@ -13,7 +13,6 @@ ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
     <h1>Scroll!</h1>
     <div style={{ height: "2000px" }}></div>
     <App />
-    <DynamicBackground startColor={[47, 72, 88]} endColor={[2, 85, 230]} />
     <DynamicBackground startColor={[48, 242, 242]} endColor={[106, 46, 53]}>
       <Render
         style={{
