@@ -18,14 +18,13 @@ const Circle: FC<CircleProps> = ({
   __background = "",
   dynamicBackground = false,
 }) => {
+  const backgroundReference = useRef(
+    dynamicBackground && __background.length ? __background : backgroundColor
+  );
   const ref = useRef(null);
   const degRef = useRef(startDegree);
   const { y, onSight } = useProximity(ref);
   const direction = useDirection();
-
-  const backgroundReference = useRef(
-    dynamicBackground && __background.length ? __background : backgroundColor
-  );
 
   const circleStyles: CSSProperties = {
     width: `${radius}px`,
