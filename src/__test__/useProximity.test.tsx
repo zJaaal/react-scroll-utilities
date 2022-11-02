@@ -1,4 +1,4 @@
-import { render, cleanup, fireEvent } from "@testing-library/react";
+import { render, cleanup, fireEvent, screen } from "@testing-library/react";
 import { describe, it, expect, beforeAll, afterEach } from "vitest";
 import ScrollWatcher from "../lib/components/ScrollWatcher";
 import UseProximityX from "./components/UseProximityX";
@@ -6,14 +6,20 @@ import UseProximityY from "./components/UseProximityY";
 import getBoundingClientRectMock from "./mock/getBoundingClientRectMock";
 import matchMediaMock from "./mock/matchMediaMock";
 
-const isYInRange = (y: number) => y >= 0 && y <= 2;
-const isXInRange = (x: number) => x >= 0 && x <= 3;
+//for Y and X useProximity returns the distance to the center of the component
+//So if its not in the center, the value where the component is on sight
+//is between -((the size of the screen)/2) and (the size of the screen /2)
+//where 0 is exactly the middle of the screen
+const isYInRange = (y: number) =>
+  y <= window.innerHeight / 2 && y >= (window.innerHeight / 2) * -1;
+const isXInRange = (x: number) =>
+  x <= window.innerWidth / 2 && x >= (window.innerWidth / 2) * -1;
 
 describe("useProximity custom hook", () => {
   afterEach(cleanup);
 
   beforeAll(() => {
-    HTMLElement.prototype.getBoundingClientRect = getBoundingClientRectMock;
+    getBoundingClientRectMock();
     matchMediaMock();
   });
 
@@ -43,7 +49,7 @@ describe("useProximity custom hook", () => {
         "Component should not show 0 anymore for Y"
       ).toBeFalsy();
     }),
-    it("should return a value approximately to 1 for visibility for Y", () => {
+    it("should return a value in an acceptable range for Y", () => {
       const useProximityTestComponent = render(
         <ScrollWatcher>
           <UseProximityY />
@@ -61,7 +67,7 @@ describe("useProximity custom hook", () => {
 
       expect(
         proximity,
-        "Component should show a value between 0 and 2 for Y "
+        "Component should show a value between -window.innerHeight / 2 and window.innerHeight / 2 for Y"
       ).toSatisfy(isYInRange);
     }),
     it("should return default proximity for X", () => {
@@ -90,7 +96,7 @@ describe("useProximity custom hook", () => {
         "Component should not show 0 anymore for X"
       ).toBeFalsy();
     }),
-    it("should return a value approximately to 1 for visibility for X", () => {
+    it("should return a value value in an acceptable range for X", () => {
       const useProximityTestComponent = render(
         <ScrollWatcher>
           <UseProximityX />
@@ -108,7 +114,7 @@ describe("useProximity custom hook", () => {
 
       expect(
         proximity,
-        "Component should show a number between 0 and 3 for X"
+        "Component should show a number between - window.innerWidth / 2 and window.innerWidth / 2 for X"
       ).toSatisfy(isXInRange);
     });
 });

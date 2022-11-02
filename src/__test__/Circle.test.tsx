@@ -9,7 +9,7 @@ describe("Circle Component", () => {
   afterEach(cleanup);
 
   beforeAll(() => {
-    HTMLElement.prototype.getBoundingClientRect = getBoundingClientRectMock;
+    getBoundingClientRectMock();
     matchMediaMock();
   });
 
