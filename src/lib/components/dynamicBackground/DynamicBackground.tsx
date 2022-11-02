@@ -10,6 +10,8 @@ const DynamicBackground: FC<BackgroundProps> = ({
   startColor = [0, 0, 0],
   endColor = [255, 255, 255],
   children,
+  style = {},
+  className = "",
 }) => {
   const ref = useRef(null);
   const steps = useRef<number[]>([1, 1, 1]);
@@ -45,9 +47,12 @@ const DynamicBackground: FC<BackgroundProps> = ({
     <div
       ref={ref}
       style={{
+        height: "inherit",
+        width: "100%",
+        ...style,
         backgroundColor: `rgb(${color.current[0]}, ${color.current[1]}, ${color.current[2]})`,
-        height: "780px",
       }}
+      className={className}
     >
       {children}
     </div>
