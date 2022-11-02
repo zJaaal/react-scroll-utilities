@@ -7,6 +7,7 @@ import "./index.css";
 import Rectangle from "./lib/components/rectangle/Rectangle";
 import Circle from "./lib/components/circle/Circle";
 import DynamicBackground from "./lib/components/dynamicBackground/DynamicBackground";
+import IconTest from "./IconTest";
 
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
   <ScrollWatcher>
@@ -21,7 +22,7 @@ ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
         }}
         dynamicBackground={true}
       >
-        <h3>I'm spinning</h3>
+        <h3>I'm Render Component using this beautiful background</h3>
       </Render>
       <Circle
         radius={600}
@@ -38,6 +39,7 @@ ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
           I can change my background
         </h3>
       </Rectangle>
+      <IconTest />
     </DynamicBackground>
     <div style={{ height: "2000px" }}></div>
     {/* <div
