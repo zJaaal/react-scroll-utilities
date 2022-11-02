@@ -1,4 +1,10 @@
-import React, { FC, useEffect, useLayoutEffect, useRef } from "react";
+import React, {
+  cloneElement,
+  FC,
+  useEffect,
+  useLayoutEffect,
+  useRef,
+} from "react";
 import useDirection from "../../hooks/useDirection";
 import useProximity from "../../hooks/useProximity";
 import { Directions } from "../../types";
@@ -54,7 +60,13 @@ const DynamicBackground: FC<BackgroundProps> = ({
       }}
       className={className}
     >
-      {children}
+      {children
+        ? React.Children.map(children, (child) =>
+            cloneElement(child, {
+              __background: `rgb(${color.current[0]}, ${color.current[1]}, ${color.current[2]})`,
+            })
+          )
+        : null}
     </div>
   );
 };
