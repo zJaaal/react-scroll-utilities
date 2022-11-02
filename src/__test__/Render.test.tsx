@@ -1,6 +1,6 @@
 import { cleanup, fireEvent, render, screen } from "@testing-library/react";
 import { afterEach, beforeAll, describe, expect, it } from "vitest";
-import Render from "../lib/components/Render";
+import Render from "../lib/components/render/Render";
 import ScrollWatcher from "../lib/components/ScrollWatcher";
 import getBoundingClientRectMock from "./mock/getBoundingClientRectMock";
 import matchMediaMock from "./mock/matchMediaMock";
@@ -39,6 +39,14 @@ describe("Render Component", () => {
           <Render>Hi i'm not being rendered</Render>
         </ScrollWatcher>
       );
+
+      fireEvent.scroll(window, {
+        target: { scrollX: window.innerWidth * 2 },
+      });
+
+      fireEvent.scroll(window, {
+        target: { scrollY: window.innerHeight * 2 },
+      });
 
       expect(
         RenderTestComponent.queryByText("Hi i'm not being rendered"),
