@@ -17,11 +17,13 @@ const Rectangle: FC<RectangleProps> = ({
   endDegree = 360,
   rotate = 0,
   dynamicBackground = false,
-  __background = "",
+  __dynamicColor = "",
 }) => {
   const ref = useRef(null);
   const backgroundReference = useRef(
-    dynamicBackground && __background.length ? __background : backgroundColor
+    dynamicBackground && __dynamicColor.length
+      ? __dynamicColor
+      : backgroundColor
   );
   const degRef = useRef(startDegree);
   const { y, onSight } = useProximity(ref);
@@ -53,8 +55,8 @@ const Rectangle: FC<RectangleProps> = ({
   );
 
   useEffect(() => {
-    backgroundReference.current =
-      dynamicBackground && __background.length ? __background : backgroundColor;
+    if (dynamicBackground && __dynamicColor.length)
+      backgroundReference.current = __dynamicColor;
     switch (direction) {
       case Directions.up: {
         if (degRef.current < startDegree || !onSight) return;

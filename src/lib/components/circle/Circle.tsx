@@ -15,11 +15,13 @@ const Circle: FC<CircleProps> = ({
   startDegree = 0,
   endDegree = 360,
   rotate = 0,
-  __background = "",
+  __dynamicColor = "",
   dynamicBackground = false,
 }) => {
   const backgroundReference = useRef(
-    dynamicBackground && __background.length ? __background : backgroundColor
+    dynamicBackground && __dynamicColor.length
+      ? __dynamicColor
+      : backgroundColor
   );
   const ref = useRef(null);
   const degRef = useRef(startDegree);
@@ -44,8 +46,9 @@ const Circle: FC<CircleProps> = ({
   );
 
   useEffect(() => {
-    backgroundReference.current =
-      dynamicBackground && __background.length ? __background : backgroundColor;
+    if (dynamicBackground && __dynamicColor.length)
+      backgroundReference.current = __dynamicColor;
+
     switch (direction) {
       case Directions.up: {
         if (degRef.current < startDegree || !onSight) return;

@@ -4,7 +4,7 @@ import { RenderProps } from "./types";
 
 const Render: FC<RenderProps> = ({
   dynamicBackground = false,
-  __background = "",
+  __dynamicColor = "",
   style = {},
   children,
   className = "",
@@ -17,8 +17,8 @@ const Render: FC<RenderProps> = ({
     width: "100%",
     ...style,
     backgroudColor:
-      dynamicBackground && __background.length
-        ? __background
+      dynamicBackground && __dynamicColor.length
+        ? __dynamicColor
         : style.backgroundColor,
   };
   return (
