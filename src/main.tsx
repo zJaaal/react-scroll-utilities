@@ -11,9 +11,10 @@ import DynamicBackground from "./lib/components/dynamicBackground/DynamicBackgro
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
   <ScrollWatcher>
     <h1>Scroll!</h1>
+    <div style={{ height: "2000px" }}></div>
     <App />
+    {/* <DynamicBackground startColor={[47, 72, 88]} endColor={[2, 85, 230]} /> */}
     <DynamicBackground startColor={[150, 2, 0]} endColor={[2, 85, 230]}>
-      {/* <DynamicBackground startColor={[47, 72, 88]} endColor={[2, 85, 230]} /> */}
       <Render
         style={{
           position: "relative",
@@ -23,8 +24,8 @@ ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
         <h3 style={{ backgroundColor: "red" }}>I'm spinning</h3>
       </Render>
     </DynamicBackground>
-    <div style={{ height: "2000px" }}></div>
-    {/* <div
+    {/* <div style={{ height: "2000px" }}></div> */}
+    <div
       style={{
         display: "flex",
         alignItems: "center",
@@ -185,7 +186,7 @@ ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
           </h3>
         </Rectangle>
       </Rectangle>
-    </div> */}
+    </div>
   </ScrollWatcher>
   // </React.StrictMode>
   //         <React.StrictMode>

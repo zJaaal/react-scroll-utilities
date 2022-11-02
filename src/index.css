@@ -6,7 +6,9 @@ body {
 .test {
   height: inherit;
   position: relative;
-  transform: translate(30%, 50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 #root {
