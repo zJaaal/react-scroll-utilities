@@ -1,12 +1,13 @@
-import { Coors, ProximityState } from "../../types";
+import { ProximityState } from "../../types";
 
 const getProximity = (element: HTMLElement): ProximityState => {
-  const { x, y, top, bottom, left, right } = element.getBoundingClientRect();
+  const { x, y, top, bottom, left, right, height, width } =
+    element.getBoundingClientRect();
 
-  //y - height / 2 -> this put the y coor in the center of the component
   return {
-    x: x,
-    y: y,
+    //This calculations return the coordinates of the center of the component
+    x: x + width / 2 - window.innerWidth / 2,
+    y: y + height / 2 - window.innerHeight / 2,
     onSight:
       !(bottom < 0 || top - window.innerHeight >= 0) &&
       !(right < 0 || left - window.innerWidth >= 0),
