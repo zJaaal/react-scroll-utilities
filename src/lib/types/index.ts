@@ -12,4 +12,5 @@ export type Coors = {
 
 export interface ProximityState extends Coors {
   onSight: boolean;
+  scrollState: Coors | undefined;
 }

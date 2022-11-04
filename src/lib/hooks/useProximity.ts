@@ -11,13 +11,13 @@ import validateScrollValue from "../utils/validations/validateScrollValue";
  * @returns An object with 2 properties: x and y. Values that represents the proximity to the component. The closer to 1 the closer is the middle of the screen from the component.
  */
 const useProximity = (ref: RefObject<HTMLElement>) => {
+  const scrollState = useContext(ScrollContext);
   const initialState: ProximityState = {
     x: 0,
     y: 0,
     onSight: false,
+    scrollState: scrollState,
   };
-
-  const scrollState = useContext(ScrollContext);
   const proximityRef = useRef(initialState);
 
   useLayoutEffect(() => {
@@ -26,7 +26,10 @@ const useProximity = (ref: RefObject<HTMLElement>) => {
   }, []);
 
   useLayoutEffect(() => {
-    proximityRef.current = getProximity(ref.current as HTMLElement);
+    proximityRef.current = {
+      ...getProximity(ref.current as HTMLElement),
+      scrollState,
+    };
   }, [scrollState]);
 
   return proximityRef.current;

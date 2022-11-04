@@ -1,6 +1,6 @@
 import { ProximityState } from "../../types";
 
-const getProximity = (element: HTMLElement): ProximityState => {
+const getProximity = (element: HTMLElement) => {
   const { x, y, top, bottom, left, right, height, width } =
     element.getBoundingClientRect();
 
