@@ -35,7 +35,7 @@ const getSteps = (
     );
 
     // I use the difference between the end color and the new color as a step and divide by 2 to make smooth the animation
-    steps.push((endColor[i] - colorLinearValue) / 2);
+    steps.push(endColor[i] - colorLinearValue);
   });
 
   return steps;
