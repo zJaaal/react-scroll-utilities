@@ -16,6 +16,9 @@ const ScrollWatcher: FC<any> = ({ children }) => {
   useEffect(() => {
     window.addEventListener("scroll", handlePosition);
 
+    //To eliminate jitter on chrome
+    window.addEventListener("wheel", () => {});
+
     return () => {
       window.removeEventListener("scroll", handlePosition);
     };
