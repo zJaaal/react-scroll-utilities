@@ -16,7 +16,6 @@ const useProximity = (ref: RefObject<HTMLElement>) => {
     x: 0,
     y: 0,
     onSight: false,
-    scrollState: scrollState,
   };
   const proximityRef = useRef(initialState);
 
@@ -28,7 +27,6 @@ const useProximity = (ref: RefObject<HTMLElement>) => {
   useLayoutEffect(() => {
     proximityRef.current = {
       ...getProximity(ref.current as HTMLElement),
-      scrollState,
     };
   }, [scrollState]);
 

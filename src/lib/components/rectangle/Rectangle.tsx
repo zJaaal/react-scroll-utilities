@@ -32,7 +32,7 @@ const Rectangle: FC<RectangleProps> = ({
       : backgroundColor
   );
   const degRef = useRef(startDegree);
-  const { scrollState, onSight } = useProximity(ref);
+  const { y, onSight } = useProximity(ref);
   const direction = useDirection();
 
   const rectangleStyles: CSSProperties = {
@@ -79,7 +79,7 @@ const Rectangle: FC<RectangleProps> = ({
         break;
       }
     }
-  }, [scrollState?.y]);
+  }, [y]);
 
   return (
     <div

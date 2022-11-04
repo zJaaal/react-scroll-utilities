@@ -17,7 +17,7 @@ const DynamicBackground: FC<BackgroundProps> = ({
   const steps = useRef<number[]>([1, 1, 1]);
   const color = useRef<number[]>([...startColor]);
 
-  const { onSight, scrollState } = useProximity(ref);
+  const { onSight, y } = useProximity(ref);
   const direction = useDirection();
 
   useLayoutEffect(() => {
@@ -41,7 +41,7 @@ const DynamicBackground: FC<BackgroundProps> = ({
         break;
       }
     }
-  }, [scrollState?.y]);
+  }, [y]);
 
   return (
     <div

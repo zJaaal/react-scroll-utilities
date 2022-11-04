@@ -31,7 +31,7 @@ const Circle: FC<CircleProps> = ({
   );
   const ref = useRef(null);
   const degRef = useRef(startDegree);
-  const { scrollState, onSight } = useProximity(ref);
+  const { y, onSight } = useProximity(ref);
   const direction = useDirection();
 
   const circleStyles: CSSProperties = {
@@ -71,7 +71,7 @@ const Circle: FC<CircleProps> = ({
         break;
       }
     }
-  }, [scrollState?.y]);
+  }, [y]);
 
   return (
     <div
