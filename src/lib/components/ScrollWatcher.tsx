@@ -12,18 +12,12 @@ const ScrollWatcher: FC<any> = ({ children }) => {
     event.preventDefault();
     setPosition(getCoors());
   };
-  const handlePositionMobile = (event: Event) => {
-    setPosition(getCoors());
-  };
 
   useEffect(() => {
-    if (window.matchMedia("(pointer: coarse)").matches) {
-      window.addEventListener("touchmove", handlePositionMobile, false);
-    } else window.addEventListener("scroll", handlePosition, false);
+    window.addEventListener("scroll", handlePosition);
 
     return () => {
       window.removeEventListener("scroll", handlePosition);
-      window.removeEventListener("touchmove", handlePositionMobile);
     };
   }, []);
 
