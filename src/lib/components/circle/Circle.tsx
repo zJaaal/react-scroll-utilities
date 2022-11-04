@@ -32,12 +32,16 @@ const Circle: FC<CircleProps> = ({
     width: `${radius}px`,
     height: `${radius}px`,
     transform: `rotate(${rotate}deg) scaleX(${clockwise ? 1 : -1})`,
+    WebkitTransform: `rotate(-${rotate}deg) scaleX(${clockwise ? 1 : -1})`,
+    msTransform: `rotate(-${rotate}deg) scaleX(${clockwise ? 1 : -1})`,
   };
   const innerCircleStyles: CSSProperties = {
     width: `${radius - stroke}px`,
     height: `${radius - stroke}px`,
     backgroundColor: backgroundReference.current,
     transform: `rotate(-${rotate}deg) scaleX(${clockwise ? 1 : -1})`,
+    WebkitTransform: `rotate(-${rotate}deg) scaleX(${clockwise ? 1 : -1})`,
+    msTransform: `rotate(-${rotate}deg) scaleX(${clockwise ? 1 : -1})`,
   };
 
   useEffect(
