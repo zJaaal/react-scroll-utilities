@@ -1,4 +1,10 @@
-import React, { CSSProperties, FC, useEffect, useRef, useState } from "react";
+import React, {
+  CSSProperties,
+  FC,
+  useEffect,
+  useLayoutEffect,
+  useRef,
+} from "react";
 import { Directions, useDirection, useProximity } from "../../index";
 import { validateCircleProps } from "../../utils/validations/validateCircleProps";
 import { CircleProps } from "./types";
@@ -49,7 +55,7 @@ const Circle: FC<CircleProps> = ({
     []
   );
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     if (dynamicBackground && __dynamicColor.length)
       backgroundReference.current = __dynamicColor;
 

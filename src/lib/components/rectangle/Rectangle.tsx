@@ -1,4 +1,10 @@
-import React, { CSSProperties, FC, useEffect, useRef, useState } from "react";
+import React, {
+  CSSProperties,
+  FC,
+  useEffect,
+  useLayoutEffect,
+  useRef,
+} from "react";
 import { Directions, useDirection, useProximity } from "../../index";
 import { validateRectangleProps } from "../../utils/validations/validateRectangleProps";
 import { RectangleProps } from "./types";
@@ -58,7 +64,7 @@ const Rectangle: FC<RectangleProps> = ({
     []
   );
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     if (dynamicBackground && __dynamicColor.length)
       backgroundReference.current = __dynamicColor;
     switch (direction) {

@@ -1,10 +1,4 @@
-import React, {
-  cloneElement,
-  FC,
-  useEffect,
-  useLayoutEffect,
-  useRef,
-} from "react";
+import React, { cloneElement, FC, useLayoutEffect, useRef } from "react";
 import useDirection from "../../hooks/useDirection";
 import useProximity from "../../hooks/useProximity";
 import { Directions } from "../../types";
@@ -30,7 +24,7 @@ const DynamicBackground: FC<BackgroundProps> = ({
     steps.current = getSteps(startColor, endColor, ref.current!);
   }, []);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     switch (direction) {
       case Directions.up: {
         if (onSight && color.current.some((color, i) => color != startColor[i]))
@@ -62,9 +56,11 @@ const DynamicBackground: FC<BackgroundProps> = ({
     >
       {children
         ? React.Children.map(children, (child) =>
-            cloneElement(child, {
-              __dynamicColor: `rgb(${color.current[0]}, ${color.current[1]}, ${color.current[2]})`,
-            })
+            child.props.dynamicBackground
+              ? cloneElement(child, {
+                  __dynamicColor: `rgb(${color.current[0]}, ${color.current[1]}, ${color.current[2]})`,
+                })
+              : child
           )
         : null}
     </div>
