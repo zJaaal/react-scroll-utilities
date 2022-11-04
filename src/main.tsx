@@ -11,10 +11,14 @@ import IconTest from "./IconTest";
 
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
   <ScrollWatcher>
-    <h1>Scroll!</h1>
-    <div style={{ height: "2000px" }}></div>
-    <App />
-    <DynamicBackground startColor={[48, 242, 242]} endColor={[106, 46, 53]}>
+    <DynamicBackground
+      startColor={[48, 242, 242]}
+      endColor={[106, 46, 53]}
+      style={{ height: "100%" }}
+    >
+      <h1>Scroll!</h1>
+      <div style={{ height: "2000px" }}></div>
+      <App />
       <Render
         style={{
           transform: "translate(0, 1000px)",
@@ -39,9 +43,9 @@ ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
           I can change my background
         </h3>
       </Rectangle>
-      <IconTest />
+      <IconTest dynamicBackground={true} />
+      <div style={{ height: "2000px" }}></div>
     </DynamicBackground>
-    <div style={{ height: "2000px" }}></div>
     {/* <div
       style={{
         display: "flex",
