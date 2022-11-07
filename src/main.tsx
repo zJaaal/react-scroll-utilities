@@ -18,13 +18,31 @@ ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
     >
       {(color) => (
         <div>
+          <h1>Scroll!</h1>
+          <div style={{ height: "2000px" }}></div>
+          <App />
+          <Render
+            style={{
+              transform: "translate(0, 1000px)",
+              height: "100px",
+              backgroundColor: "transparent",
+            }}
+          >
+            <h3>I'm Render Component using this beautiful background</h3>
+          </Render>
           <Circle
             radius={600}
             stroke={10}
             color={"#620d7e"}
             backgroundColor={"white"}
           >
-            <Circle color={color} backgroundColor={"white"} speed={2}>
+            <Circle
+              radius={300}
+              stroke={10}
+              color={color}
+              backgroundColor={"white"}
+              speed={2}
+            >
               <h3 style={{ textAlign: "center", color: "white" }}>
                 I can change my background
               </h3>
@@ -36,6 +54,7 @@ ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
             </h3>
           </Rectangle>
           <IconTest iconColor={color} />
+          <div style={{ height: "2000px" }} />
         </div>
       )}
     </DynamicBackground>
