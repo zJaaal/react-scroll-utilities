@@ -22,15 +22,9 @@ const Rectangle: FC<RectangleProps> = ({
   startDegree = 0,
   endDegree = 360,
   rotate = 0,
-  dynamicBackground = false,
-  __dynamicColor = "",
 }) => {
   const ref = useRef(null);
-  const backgroundReference = useRef(
-    dynamicBackground && __dynamicColor.length
-      ? __dynamicColor
-      : backgroundColor
-  );
+
   const degRef = useRef(startDegree);
   const { y, onSight } = useProximity(ref);
   const direction = useDirection();
@@ -45,7 +39,7 @@ const Rectangle: FC<RectangleProps> = ({
   const innerRectangleStyles: CSSProperties = {
     width: `${width - stroke}px`,
     height: `${height - stroke}px`,
-    backgroundColor: backgroundReference.current,
+    backgroundColor: backgroundColor,
     transform: `rotate(-${rotate}deg) scaleX(${clockwise ? 1 : -1})`,
     WebkitTransform: `rotate(-${rotate}deg) scaleX(${clockwise ? 1 : -1})`,
     msTransform: `rotate(-${rotate}deg) scaleX(${clockwise ? 1 : -1})`,
@@ -65,8 +59,6 @@ const Rectangle: FC<RectangleProps> = ({
   );
 
   useLayoutEffect(() => {
-    if (dynamicBackground && __dynamicColor.length)
-      backgroundReference.current = __dynamicColor;
     switch (direction) {
       case Directions.up: {
         if (degRef.current < startDegree || !onSight) return;
@@ -86,7 +78,7 @@ const Rectangle: FC<RectangleProps> = ({
       data-testid="rectangle"
       className="rectangle"
       style={{
-        background: `conic-gradient(${color} ${degRef.current}deg, ${backgroundReference.current} 0deg)`,
+        background: `conic-gradient(${color} ${degRef.current}deg, ${backgroundColor} 0deg)`,
         ...rectangleStyles,
       }}
       ref={ref}

@@ -21,14 +21,7 @@ const Circle: FC<CircleProps> = ({
   startDegree = 0,
   endDegree = 360,
   rotate = 0,
-  __dynamicColor = "",
-  dynamicBackground = false,
 }) => {
-  const backgroundReference = useRef(
-    dynamicBackground && __dynamicColor.length
-      ? __dynamicColor
-      : backgroundColor
-  );
   const ref = useRef(null);
   const degRef = useRef(startDegree);
   const { y, onSight } = useProximity(ref);
@@ -44,7 +37,7 @@ const Circle: FC<CircleProps> = ({
   const innerCircleStyles: CSSProperties = {
     width: `${radius - stroke}px`,
     height: `${radius - stroke}px`,
-    backgroundColor: backgroundReference.current,
+    backgroundColor: backgroundColor,
     transform: `rotate(-${rotate}deg) scaleX(${clockwise ? 1 : -1})`,
     WebkitTransform: `rotate(-${rotate}deg) scaleX(${clockwise ? 1 : -1})`,
     msTransform: `rotate(-${rotate}deg) scaleX(${clockwise ? 1 : -1})`,
@@ -56,9 +49,6 @@ const Circle: FC<CircleProps> = ({
   );
 
   useLayoutEffect(() => {
-    if (dynamicBackground && __dynamicColor.length)
-      backgroundReference.current = __dynamicColor;
-
     switch (direction) {
       case Directions.up: {
         if (degRef.current < startDegree || !onSight) return;
@@ -78,7 +68,7 @@ const Circle: FC<CircleProps> = ({
       data-testid="circle"
       className="circle"
       style={{
-        background: `conic-gradient(${color} ${degRef.current}deg, ${backgroundReference.current} 0deg)`,
+        background: `conic-gradient(${color} ${degRef.current}deg, ${backgroundColor} 0deg)`,
         ...circleStyles,
       }}
       ref={ref}

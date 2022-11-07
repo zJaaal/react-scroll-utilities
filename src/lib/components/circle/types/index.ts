@@ -11,6 +11,4 @@ export type CircleProps = {
   startDegree?: number;
   endDegree?: number;
   rotate?: number;
-  __dynamicColor?: string;
-  dynamicBackground?: boolean;
 };

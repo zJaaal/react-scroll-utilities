@@ -54,15 +54,11 @@ const DynamicBackground: FC<BackgroundProps> = ({
       }}
       className={className}
     >
-      {children
-        ? React.Children.map(children, (child) =>
-            child.props.dynamicBackground
-              ? cloneElement(child, {
-                  __dynamicColor: `rgb(${color.current[0]}, ${color.current[1]}, ${color.current[2]})`,
-                })
-              : child
+      {typeof children == "function"
+        ? children(
+            `rgb(${color.current[0]}, ${color.current[1]}, ${color.current[2]})`
           )
-        : null}
+        : children}
     </div>
   );
 };
