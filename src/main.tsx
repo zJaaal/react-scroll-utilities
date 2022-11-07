@@ -16,35 +16,28 @@ ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
       endColor={[106, 46, 53]}
       style={{ height: "100%" }}
     >
-      <h1>Scroll!</h1>
-      <div style={{ height: "2000px" }}></div>
-      <App />
-      <Render
-        style={{
-          transform: "translate(0, 1000px)",
-          height: "100px",
-        }}
-        dynamicBackground={true}
-      >
-        <h3>I'm Render Component using this beautiful background</h3>
-      </Render>
-      <Circle
-        radius={600}
-        stroke={10}
-        color={"#620d7e"}
-        dynamicBackground={true}
-      >
-        <h3 style={{ textAlign: "center", color: "white" }}>
-          I can change my background
-        </h3>
-      </Circle>
-      <Rectangle stroke={10} color={"#620d7e"} dynamicBackground={true}>
-        <h3 style={{ textAlign: "center", color: "white" }}>
-          I can change my background
-        </h3>
-      </Rectangle>
-      <IconTest dynamicBackground={true} />
-      <div style={{ height: "2000px" }}></div>
+      {(color) => (
+        <div>
+          <Circle
+            radius={600}
+            stroke={10}
+            color={"#620d7e"}
+            backgroundColor={"white"}
+          >
+            <Circle color={color} backgroundColor={"white"} speed={2}>
+              <h3 style={{ textAlign: "center", color: "white" }}>
+                I can change my background
+              </h3>
+            </Circle>
+          </Circle>
+          <Rectangle stroke={10} color={"#620d7e"} backgroundColor={color}>
+            <h3 style={{ textAlign: "center", color: "white" }}>
+              I can change my background
+            </h3>
+          </Rectangle>
+          <IconTest iconColor={color} />
+        </div>
+      )}
     </DynamicBackground>
     {/* <div
       style={{

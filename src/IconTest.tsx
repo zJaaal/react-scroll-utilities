@@ -1,6 +1,6 @@
 import React, { FC } from "react";
 
-const IconTest: FC<any> = ({ __dynamicColor }) => {
+const IconTest: FC<any> = ({ iconColor }) => {
   return (
     <div
       style={{
@@ -29,7 +29,7 @@ const IconTest: FC<any> = ({ __dynamicColor }) => {
             borderRadius: "50%",
             height: "50px",
             width: "50px",
-            backgroundColor: __dynamicColor,
+            backgroundColor: iconColor,
           }}
         ></div>
         <div
@@ -37,7 +37,7 @@ const IconTest: FC<any> = ({ __dynamicColor }) => {
             borderRadius: "50%",
             height: "90px",
             width: "90px",
-            backgroundColor: __dynamicColor,
+            backgroundColor: iconColor,
           }}
         ></div>
         <div
@@ -45,11 +45,11 @@ const IconTest: FC<any> = ({ __dynamicColor }) => {
             borderRadius: "50%",
             height: "50px",
             width: "50px",
-            backgroundColor: __dynamicColor,
+            backgroundColor: iconColor,
           }}
         ></div>
       </div>
-      <h2 style={{ color: __dynamicColor, textAlign: "center" }}>
+      <h2 style={{ color: iconColor, textAlign: "center" }}>
         {" "}
         Some random text with the color of the background
       </h2>
