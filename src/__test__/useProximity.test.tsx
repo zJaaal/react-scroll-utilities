@@ -1,6 +1,7 @@
 import { render, cleanup, fireEvent, screen } from "@testing-library/react";
 import { describe, it, expect, beforeAll, afterEach } from "vitest";
 import ScrollWatcher from "../lib/components/ScrollWatcher";
+import UseProximityOnSight from "./components/UseProximityOnSight";
 import UseProximityX from "./components/UseProximityX";
 import UseProximityY from "./components/UseProximityY";
 import getBoundingClientRectMock from "./mock/getBoundingClientRectMock";
@@ -96,7 +97,7 @@ describe("useProximity custom hook", () => {
         "Component should not show 0 anymore for X"
       ).toBeFalsy();
     }),
-    it("should return a value value in an acceptable range for X", () => {
+    it("should return a value in an acceptable range for X", () => {
       const useProximityTestComponent = render(
         <ScrollWatcher>
           <UseProximityX />
@@ -116,5 +117,37 @@ describe("useProximity custom hook", () => {
         proximity,
         "Component should show a number between - window.innerWidth / 2 and window.innerWidth / 2 for X"
       ).toSatisfy(isXInRange);
+    }),
+    it("should return onSight with its default value", () => {
+      const useProximityTestComponent = render(
+        <ScrollWatcher>
+          <UseProximityOnSight />
+        </ScrollWatcher>
+      );
+
+      expect(
+        useProximityTestComponent.getAllByText("false"),
+        "should return false as default value"
+      ).toBeTruthy();
+    }),
+    it("should return onSight as true with acceptable values ", () => {
+      const useProximityTestComponent = render(
+        <ScrollWatcher>
+          <UseProximityOnSight />
+        </ScrollWatcher>
+      );
+
+      fireEvent.scroll(window, {
+        target: { scrollX: window.innerWidth / 2 },
+      });
+
+      fireEvent.scroll(window, {
+        target: { scrollY: window.innerHeight / 2 },
+      });
+
+      expect(
+        useProximityTestComponent.getAllByText("true"),
+        "should return true for a component on sight"
+      ).toBeTruthy();
     });
 });
