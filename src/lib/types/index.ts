@@ -1,3 +1,5 @@
+import { RefObject } from "react";
+
 export enum Directions {
   up = "UP",
   down = "DOWN",
@@ -13,3 +15,9 @@ export type Coors = {
 export interface ProximityState extends Coors {
   onSight: boolean;
 }
+
+export type DynamicColor = {
+  startColor: number[];
+  endColor: number[];
+  elementRef: RefObject<HTMLElement>;
+};
