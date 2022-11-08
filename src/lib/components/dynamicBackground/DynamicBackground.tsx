@@ -1,4 +1,4 @@
-import React, { cloneElement, FC, useLayoutEffect, useRef } from "react";
+import React, { FC, useLayoutEffect, useRef } from "react";
 import useDirection from "../../hooks/useDirection";
 import useProximity from "../../hooks/useProximity";
 import { Directions } from "../../types";
@@ -53,6 +53,7 @@ const DynamicBackground: FC<BackgroundProps> = ({
         backgroundColor: `rgb(${color.current[0]}, ${color.current[1]}, ${color.current[2]})`,
       }}
       className={className}
+      data-testid="dynamic-background"
     >
       {typeof children == "function"
         ? children(
