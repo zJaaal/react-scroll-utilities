@@ -16,7 +16,9 @@ describe("Render Component", () => {
   it("should render when the useProximity hook returns onSight as true", () => {
     const RenderTestComponent = render(
       <ScrollWatcher>
-        <Render>Hi i'm being rendered</Render>
+        <Render>
+          <p>Hi i'm being rendered</p>
+        </Render>
       </ScrollWatcher>
     );
 
@@ -36,7 +38,9 @@ describe("Render Component", () => {
     it("should not render the useProximity hook returns onSight as false", () => {
       const RenderTestComponent = render(
         <ScrollWatcher>
-          <Render>Hi i'm not being rendered</Render>
+          <Render>
+            <p>Hi i'm not being rendered</p>
+          </Render>
         </ScrollWatcher>
       );
 
