@@ -1,5 +1,5 @@
 import { useRef } from "react";
-import useProximity from "../../lib/hooks/useProximity";
+import useProximity from "../../../lib/hooks/useProximity";
 
 const UseProximityX = () => {
   const ref = useRef<HTMLDivElement>(null);

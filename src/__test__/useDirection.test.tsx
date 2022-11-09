@@ -1,7 +1,7 @@
 import { cleanup, fireEvent, render } from "@testing-library/react";
 import { afterEach, beforeAll, describe, expect, it } from "vitest";
 import ScrollWatcher from "../lib/components/ScrollWatcher";
-import UseDirection from "./components/UseDirection";
+import UseDirection from "./components/direction/UseDirection";
 import matchMediaMock from "./mock/matchMediaMock";
 
 describe("useDirection hook", () => {

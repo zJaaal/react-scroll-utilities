@@ -1,9 +1,9 @@
 import { render, cleanup, fireEvent, screen } from "@testing-library/react";
 import { describe, it, expect, beforeAll, afterEach } from "vitest";
 import ScrollWatcher from "../lib/components/ScrollWatcher";
-import UseProximityOnSight from "./components/UseProximityOnSight";
-import UseProximityX from "./components/UseProximityX";
-import UseProximityY from "./components/UseProximityY";
+import UseProximityOnSight from "./components/proximity/UseProximityOnSight";
+import UseProximityX from "./components/proximity/UseProximityX";
+import UseProximityY from "./components/proximity/UseProximityY";
 import getBoundingClientRectMock from "./mock/getBoundingClientRectMock";
 import matchMediaMock from "./mock/matchMediaMock";
 
