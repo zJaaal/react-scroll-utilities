@@ -8,6 +8,25 @@ body {
   margin: 0;
 }
 
+.ease-in {
+  margin-bottom: 20px;
+  animation-name: ease-in;
+  animation-duration: 1s;
+  animation-timing-function: linear;
+}
+
+@keyframes ease-in {
+  0% {
+    transform: translate(0, 100px);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translate(0, 0);
+    opacity: 1;
+  }
+}
+
 
 .test {
   height: inherit;

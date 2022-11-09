@@ -1,12 +1,12 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App";
-import Render from "./lib/components/render/Render";
+import Render from "./example-components/render/Render";
 import ScrollWatcher from "./lib/components/ScrollWatcher";
 import "./index.css";
 import Rectangle from "./lib/components/rectangle/Rectangle";
 import Circle from "./lib/components/circle/Circle";
-import DynamicBackground from "./lib/components/dynamicBackground/DynamicBackground";
+import DynamicBackground from "./example-components/dynamicBackground/DynamicBackground";
 import IconTest from "./IconTest";
 
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
@@ -18,17 +18,14 @@ ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
     >
       {(color) => (
         <div>
-          <h1>Scroll!</h1>
+          <h1>Scroll! (Arrow recommended)</h1>
           <div style={{ height: "2000px" }}></div>
           <App />
-          <Render
-            style={{
-              transform: "translate(0, 1000px)",
-              height: "100px",
-              backgroundColor: "transparent",
-            }}
-          >
-            <h3>I'm Render Component using this beautiful background</h3>
+          <Render>
+            <h3 className="ease-in">
+              I'm Render Component using this beautiful background and I also
+              have an entry animation
+            </h3>
           </Render>
           <Circle
             radius={600}
@@ -58,7 +55,7 @@ ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
         </div>
       )}
     </DynamicBackground>
-    {/* <div
+    <div
       style={{
         display: "flex",
         alignItems: "center",
@@ -219,7 +216,7 @@ ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
           </h3>
         </Rectangle>
       </Rectangle>
-    </div> */}
+    </div>
   </ScrollWatcher>
   // </React.StrictMode>
   //         <React.StrictMode>
