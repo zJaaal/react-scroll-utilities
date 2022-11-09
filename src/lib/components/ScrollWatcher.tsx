@@ -9,7 +9,6 @@ const ScrollWatcher: FC<any> = ({ children }) => {
   const [position, setPosition] = useState(initialState);
 
   const handlePosition = (event: Event) => {
-    event.preventDefault();
     setPosition(getCoors());
   };
 
