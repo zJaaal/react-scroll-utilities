@@ -33,8 +33,8 @@ const Rectangle: FC<RectangleProps> = ({
     width: `${width}px`,
     height: `${height}px`,
     transform: `rotate(${rotate}deg) scaleX(${clockwise ? 1 : -1})`,
-    WebkitTransform: `rotate(-${rotate}deg) scaleX(${clockwise ? 1 : -1})`,
-    msTransform: `rotate(-${rotate}deg) scaleX(${clockwise ? 1 : -1})`,
+    WebkitTransform: `rotate(${rotate}deg) scaleX(${clockwise ? 1 : -1})`,
+    msTransform: `rotate(${rotate}deg) scaleX(${clockwise ? 1 : -1})`,
   };
   const innerRectangleStyles: CSSProperties = {
     width: `${width - stroke}px`,
