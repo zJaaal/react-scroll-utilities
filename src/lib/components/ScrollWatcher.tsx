@@ -9,21 +9,17 @@ const ScrollWatcher: FC<any> = ({ children }) => {
   const [position, setPosition] = useState(initialState);
 
   const handlePosition = (event: Event) => {
-    event.preventDefault();
-    setPosition(getCoors());
-  };
-  const handlePositionMobile = (event: Event) => {
     setPosition(getCoors());
   };
 
   useEffect(() => {
-    if (window.matchMedia("(pointer: coarse)").matches) {
-      window.addEventListener("touchmove", handlePositionMobile, false);
-    } else window.addEventListener("scroll", handlePosition, false);
+    window.addEventListener("scroll", handlePosition);
+
+    //To eliminate jitter on chrome
+    window.addEventListener("wheel", () => {});
 
     return () => {
       window.removeEventListener("scroll", handlePosition);
-      window.removeEventListener("touchmove", handlePositionMobile);
     };
   }, []);
 

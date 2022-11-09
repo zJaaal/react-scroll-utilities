@@ -1,4 +1,10 @@
-import React, { CSSProperties, FC, useEffect, useRef, useState } from "react";
+import React, {
+  CSSProperties,
+  FC,
+  useEffect,
+  useLayoutEffect,
+  useRef,
+} from "react";
 import { Directions, useDirection, useProximity } from "../../index";
 import { validateCircleProps } from "../../utils/validations/validateCircleProps";
 import { CircleProps } from "./types";
@@ -18,19 +24,23 @@ const Circle: FC<CircleProps> = ({
 }) => {
   const ref = useRef(null);
   const degRef = useRef(startDegree);
-  const { y } = useProximity(ref);
+  const { y, onSight } = useProximity(ref);
   const direction = useDirection();
 
   const circleStyles: CSSProperties = {
     width: `${radius}px`,
     height: `${radius}px`,
     transform: `rotate(${rotate}deg) scaleX(${clockwise ? 1 : -1})`,
+    WebkitTransform: `rotate(${rotate}deg) scaleX(${clockwise ? 1 : -1})`,
+    msTransform: `rotate(${rotate}deg) scaleX(${clockwise ? 1 : -1})`,
   };
   const innerCircleStyles: CSSProperties = {
     width: `${radius - stroke}px`,
     height: `${radius - stroke}px`,
     backgroundColor: backgroundColor,
     transform: `rotate(-${rotate}deg) scaleX(${clockwise ? 1 : -1})`,
+    WebkitTransform: `rotate(-${rotate}deg) scaleX(${clockwise ? 1 : -1})`,
+    msTransform: `rotate(-${rotate}deg) scaleX(${clockwise ? 1 : -1})`,
   };
 
   useEffect(
@@ -38,15 +48,15 @@ const Circle: FC<CircleProps> = ({
     []
   );
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     switch (direction) {
       case Directions.up: {
-        if (degRef.current < startDegree || y < 0) return;
+        if (degRef.current < startDegree || !onSight) return;
         degRef.current -= speed;
         break;
       }
       case Directions.down: {
-        if (degRef.current > endDegree || y > 2 || y == 0) return;
+        if (degRef.current > endDegree || !onSight) return;
         degRef.current += speed;
         break;
       }

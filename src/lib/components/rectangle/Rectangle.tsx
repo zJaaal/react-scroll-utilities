@@ -1,4 +1,10 @@
-import React, { CSSProperties, FC, useEffect, useRef, useState } from "react";
+import React, {
+  CSSProperties,
+  FC,
+  useEffect,
+  useLayoutEffect,
+  useRef,
+} from "react";
 import { Directions, useDirection, useProximity } from "../../index";
 import { validateRectangleProps } from "../../utils/validations/validateRectangleProps";
 import { RectangleProps } from "./types";
@@ -18,20 +24,25 @@ const Rectangle: FC<RectangleProps> = ({
   rotate = 0,
 }) => {
   const ref = useRef(null);
+
   const degRef = useRef(startDegree);
-  const { y } = useProximity(ref);
+  const { y, onSight } = useProximity(ref);
   const direction = useDirection();
 
   const rectangleStyles: CSSProperties = {
     width: `${width}px`,
     height: `${height}px`,
     transform: `rotate(${rotate}deg) scaleX(${clockwise ? 1 : -1})`,
+    WebkitTransform: `rotate(${rotate}deg) scaleX(${clockwise ? 1 : -1})`,
+    msTransform: `rotate(${rotate}deg) scaleX(${clockwise ? 1 : -1})`,
   };
   const innerRectangleStyles: CSSProperties = {
     width: `${width - stroke}px`,
     height: `${height - stroke}px`,
     backgroundColor: backgroundColor,
     transform: `rotate(-${rotate}deg) scaleX(${clockwise ? 1 : -1})`,
+    WebkitTransform: `rotate(-${rotate}deg) scaleX(${clockwise ? 1 : -1})`,
+    msTransform: `rotate(-${rotate}deg) scaleX(${clockwise ? 1 : -1})`,
   };
 
   useEffect(
@@ -47,15 +58,15 @@ const Rectangle: FC<RectangleProps> = ({
     []
   );
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     switch (direction) {
       case Directions.up: {
-        if (degRef.current < startDegree || y < 0) return;
+        if (degRef.current < startDegree || !onSight) return;
         degRef.current -= speed;
         break;
       }
       case Directions.down: {
-        if (degRef.current > endDegree || y > 2 || y == 0) return;
+        if (degRef.current > endDegree || !onSight) return;
         degRef.current += speed;
         break;
       }
