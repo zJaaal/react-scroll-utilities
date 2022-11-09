@@ -29,11 +29,17 @@ body {
 
 
 .test {
-  height: inherit;
+  height: 100px;
   position: relative;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  justify-content: space-between;
   align-items: center;
+}
+
+ul {
+  list-style: none;
+  list-style-type: none;
 }
 
 #root {

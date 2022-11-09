@@ -16,7 +16,7 @@ ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
       endColor={[106, 46, 53]}
       style={{ height: "100%" }}
     >
-      {(color) => (
+      {(color: string) => (
         <div>
           <h1>Scroll! (Arrow recommended)</h1>
           <div style={{ height: "2000px" }}></div>
