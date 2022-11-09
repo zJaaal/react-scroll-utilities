@@ -1,6 +1,6 @@
 import React, { FC, useRef } from "react";
 import { BackgroundProps } from "./types";
-import useDynamicColor from "../../hooks/useDynamicColor";
+import useDynamicColor from "../../lib/hooks/useDynamicColor";
 
 const DynamicBackground: FC<BackgroundProps> = ({
   startColor = [0, 0, 0],

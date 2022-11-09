@@ -1,5 +1,5 @@
 import React, { FC, useEffect, useRef } from "react";
-import useProximity from "../../hooks/useProximity";
+import useProximity from "../../lib/hooks/useProximity";
 import { RenderProps } from "./types";
 
 const Render: FC<RenderProps> = ({ style = {}, children, className = "" }) => {
