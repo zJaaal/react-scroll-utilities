@@ -6,6 +6,9 @@
 
 React Scroll Utilities is a Lightweight library to track scroll events like, proximity to components, direction of scroll and render a component if it's on screen sight. I'll be adding more features and improving the functionality. I'm also open to read any request or change that you think that would be a good addition.
 
+## Disclaimer
+
+This library is still on Beta phase, some components could get deprecated, implementations can change and generate breaking changes, so until futher notice I don't recommend to use it on real projects. Anyways I would be grateful if you use it and experiment with it. I'm still figuring out how to make some things and optimize implementations. So, if you have any ideas of new implementations/hooks/components please don't hesitate to open an issue. 
 
 ## Installation
 
@@ -42,7 +45,7 @@ You only need to render this component on the top level of your app, it provides
 
 ## useProximity hook
 
-This hook lets you know how far is the screen from the component, it returns an object with two properties: x and y. Which values represents the proximity the component has to the center of the current viewport as a float value. For Y the acceptable value where the component is on sigth is between 0 and 2. For X the acceptable value where the component is on sigth is between 0 and 3.
+This hook lets you know how far is the screen from the component, it returns an object with 3 properties: "x", "y" and "onSight". "x" and "y", represents the proximity of the component from the center of the screen, it works as a Cartesian Plane, where up and right are positive values for "y" and "x", and down and left are negative values for "y" and "x", the values goes from -innerHeight/2 to +innerHeight/2 or -height/2 to -height/2 in case that the component is bigger than the viewport, that is for "y" value, for "x" is the same but using the width of the viewport or the width of the component. onSight is a boolean that tells you if the component is inside the viewport or not.
 
 ### Usage
 
@@ -80,32 +83,87 @@ function Example() {
     </div>
   );
 }
+
+// Since the implementation of Render got this simple, I just use it as an example
+// Basically, with this property you can add classNames for entry animations or exit animations.
+// Of course to determinate entry or exit, you could use useDirection 
+
+//TypeScript
+function Render:FC<RenderProps>({ children }) {
+  const ref = useRef<HTMLDivElement>(null);
+
+  //I'm destructuring the object but you can easily use it without destructuring
+  const { onSight } = useProximity(ref);
+
+  return (
+    <div ref={ref}>
+      //if this component is not on sight, its children won't render
+      {onSight && children}
+    </div>
+  );
+}
+
+//JavaScript
+function Render({ children }) {
+  const ref = useRef(null);
+
+  //I'm destructuring the object but you can easily use it without destructuring
+  const { onSight } = useProximity(ref);
+
+  return (
+    <div ref={ref}>
+      //if this component is not on sight, its children won't render
+      {onSight && children}
+    </div>
+  );
+}
 ```
 
-## Render Component
+## useDynamicColor Hook
 
-This component implements the useProximity hook, and will only render your component if proximity is on an acceptable value (between 0 and 2 for Y and between 0 and 3 for X). So you can use it to add animations to your components on render, like an entry transition.
+This hook returns an RGB color that changes with the scroll, using an startColor, an endColor and a HTML Reference to calculate the current color on scroll.
 
 ### Usage
 
-This component needs a React Children to work, it also accepts custom styles, this component inherits the parent height by default, in case you need to modify its height you can overwrite it by passing inline styles. This component won't work if ScrollWatcher is not implemented.
+This hook takes an object with 3 properties, "startColor" and "endColor" that are arrays of number with a length of 3. Each value in the array is a color representing RGB, so each value should be between 0 and 255. That means that each array should be like: [123, 2, 215] or [0, 0, 0] or [255, 255, 255 ]. The third property is "elementRef" that is an HTML Reference that you can get using the useRef hook. 
+
+It returns and string as: ```"rgb(123, 0, 43)"```
 
 ### Example
 
 ```js
-//Some JSX...
 
-<Render
-  style={
-    {
-      //Here you can add your custom styles if needed
-    }
+//Here I created an example of a DynamicBackground
+const DynamicBackground = ({
+  startColor = [0, 0, 0],
+  endColor = [255, 255, 255],
+}) => {
+  const elementRef = useRef(null);
+
+  //color is a CSS valid color, it returns an string like: "rgb(123, 43, 67)"
+  const color = useDynamicColor({ startColor, endColor, elementRef });
+
+  //You can use it like this too
+  const colorObj = {
+    startColor: [123, 0, 24], //The color will vary from here
+    endColor: [45, 34, 12], // To here
+    elementRef: elementRef //Using the height and the position of this element
   }
->
-  <YourComponent className="some-animation-class" />
-</Render>
 
-//The rest of your JSX...
+  const colorWithExternalObject = useDynamicColor(colorObj);
+
+  return (
+    <div
+      ref={elementRef}
+      style={{
+        //So you just use the color wherever you want, background, font color, icon color, etc.
+        backgroundColor: color,
+      }}
+    >
+      {children}
+    </div>
+  );
+};
 ```
 
 ## useDirection hook
@@ -231,7 +289,3 @@ This will render a rectangle that has a height of 400px , a width of 100px, a li
 
 //The rest of your JSX...
 ```
-
-## DynamicBackground Component
-
-Work in progress...
