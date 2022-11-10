@@ -23,7 +23,6 @@ const DynamicBackground: FC<BackgroundProps> = ({
         backgroundColor: color,
       }}
       className={className}
-      data-testid="dynamic-background"
     >
       {typeof children == "function" ? children(color) : children}
     </div>

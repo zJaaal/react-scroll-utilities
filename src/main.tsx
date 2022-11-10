@@ -13,7 +13,7 @@ ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
   <ScrollWatcher>
     <DynamicBackground
       startColor={[48, 242, 242]}
-      endColor={[106, 46, 53]}
+      endColor={[200, 46, 53]}
       style={{ height: "100%" }}
     >
       {(color: string) => (
