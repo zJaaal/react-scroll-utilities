@@ -2,6 +2,7 @@ import { useRef, useLayoutEffect } from "react";
 import { DynamicColor, Directions } from "../types";
 import clamp from "../utils/calculations/clamp";
 import getSteps from "../utils/calculations/getSteps";
+import validateColors from "../utils/validations/validateColors";
 import useDirection from "./useDirection";
 import useProximity from "./useProximity";
 
@@ -17,6 +18,7 @@ const useDynamicColor = ({
   const direction = useDirection();
 
   useLayoutEffect(() => {
+    validateColors(startColor, endColor);
     steps.current = getSteps(startColor, endColor, elementRef.current!);
   }, []);
 
