@@ -9,7 +9,7 @@ describe("Rectangle Component", () => {
   afterEach(cleanup);
 
   beforeAll(() => {
-    HTMLElement.prototype.getBoundingClientRect = getBoundingClientRectMock;
+    getBoundingClientRectMock();
     matchMediaMock();
   });
 

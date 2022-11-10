@@ -1,28 +1,60 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App";
-import Render from "./lib/components/Render";
+import Render from "./example-components/render/Render";
 import ScrollWatcher from "./lib/components/ScrollWatcher";
 import "./index.css";
-import BackgroundChange from "./test-components/BackgroundChange";
 import Rectangle from "./lib/components/rectangle/Rectangle";
 import Circle from "./lib/components/circle/Circle";
+import DynamicBackground from "./example-components/dynamicBackground/DynamicBackground";
+import IconTest from "./IconTest";
 
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
   <ScrollWatcher>
-    <h1>Scroll!</h1>
-    <App />
-    <BackgroundChange>
-      <Render
-        style={{
-          height: "inherit",
-          position: "relative",
-          transform: "translate(80%, 50%)",
-        }}
-      >
-        <h3 className="test-h3">I'm spinning</h3>
-      </Render>
-    </BackgroundChange>
+    <DynamicBackground
+      startColor={[48, 242, 242]}
+      endColor={[200, 46, 53]}
+      style={{ height: "100%" }}
+    >
+      {(color: string) => (
+        <div>
+          <h1>Scroll! (Arrow recommended)</h1>
+          <div style={{ height: "2000px" }}></div>
+          <App />
+          <Render>
+            <h3 className="ease-in">
+              I'm Render Component using this beautiful background and I also
+              have an entry animation
+            </h3>
+          </Render>
+          <Circle
+            radius={600}
+            stroke={10}
+            color={"#620d7e"}
+            backgroundColor={"white"}
+          >
+            <Circle
+              radius={300}
+              stroke={10}
+              color={color}
+              backgroundColor={"white"}
+              speed={2}
+            >
+              <h3 style={{ textAlign: "center", color: "white" }}>
+                I can change my background
+              </h3>
+            </Circle>
+          </Circle>
+          <Rectangle stroke={10} color={"#620d7e"} backgroundColor={color}>
+            <h3 style={{ textAlign: "center", color: "white" }}>
+              I can change my background
+            </h3>
+          </Rectangle>
+          <IconTest iconColor={color} />
+          <div style={{ height: "2000px" }} />
+        </div>
+      )}
+    </DynamicBackground>
     <div
       style={{
         display: "flex",

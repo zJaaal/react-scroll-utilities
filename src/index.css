@@ -1,22 +1,51 @@
 body {
-  height: 2000px;
+  height: 100%;
   width: 2000px;
 }
 
+* {
+  padding: 0;
+  margin: 0;
+}
+
+.ease-in {
+  margin-bottom: 20px;
+  animation-name: ease-in;
+  animation-duration: 1s;
+  animation-timing-function: linear;
+}
+
+@keyframes ease-in {
+  0% {
+    transform: translate(0, 100px);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translate(0, 0);
+    opacity: 1;
+  }
+}
+
+
 .test {
-  height: inherit;
+  height: 100px;
   position: relative;
-  transform: translate(30%, 50%);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+ul {
+  list-style: none;
+  list-style-type: none;
 }
 
 #root {
   height: inherit;
 }
 
-
-.test-h3 {
-  animation: spin 2s ease 0s infinite;
-}
 
 
 @keyframes spin {
