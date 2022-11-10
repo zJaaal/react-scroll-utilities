@@ -45,7 +45,9 @@ You only need to render this component on the top level of your app, it provides
 
 ## useProximity hook
 
-This hook lets you know how far is the screen from the component, it returns an object with 3 properties: "x", "y" and "onSight". "x" and "y", represents the proximity of the component from the center of the screen, it works as a Cartesian Plane, where up and right are positive values for "y" and "x", and down and left are negative values for "y" and "x", the values goes from -innerHeight/2 to +innerHeight/2 or -height/2 to -height/2 in case that the component is bigger than the viewport, that is for "y" value, for "x" is the same but using the width of the viewport or the width of the component. onSight is a boolean that tells you if the component is inside the viewport or not.
+This hook lets you know how far is the screen from the component, it returns an object with 3 properties: "x", "y" and "onSight". "x" and "y", represents the proximity of the component from the center of the screen, it works as a Cartesian Plane, where up and right are positive values for "y" and "x", and down and left are negative values for "y" and "x", the values goes from -innerHeight/2 to +innerHeight/2 or -height/2 to +height/2 in case that the component is bigger than the viewport, that is for "y" value, for "x" is the same but using the width of the viewport or the width of the component. onSight is a boolean that tells you if the component is inside the viewport or not.
+
+So if your component is 2000h x 1000w it will go from -1000 to 1000 for Y axis, and from -500 to 500 for X axis. In case that your viewport is bigger than your component lets say 3000h x 2000w (hypothetical values). Proximity values will go from -1500 to 1500 for Y axis and from -1000 to 1000 for X axis. In both cases, 0 for X or 0 for Y is exactly the center of the component in the center of the viewport.
 
 ### Usage
 
