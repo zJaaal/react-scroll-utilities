@@ -10,11 +10,7 @@ function App() {
 
   return (
     <div className="test" ref={ref}>
-      <ul>
-        <li>{"Proximity Y: " + proximity.y}</li>
-        <li>{"Proximity X: " + proximity.x}</li>
-        <li>{"Direction: " + direction}</li>
-      </ul>
+      <h5>Welcome to react scroll utilities</h5>
     </div>
   );
 }
