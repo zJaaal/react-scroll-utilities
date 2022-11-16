@@ -8,6 +8,4 @@ ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
   <ScrollWatcher>
     <App />
   </ScrollWatcher>
-  // </React.StrictMode>
-  //         <React.StrictMode>
 );

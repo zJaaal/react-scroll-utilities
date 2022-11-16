@@ -1,18 +1,11 @@
+html,
 body,
-html {
+#root {
   height: 100%;
   width: 100%;
+  font-family: 'Sono', sans-serif;
 }
 
-#root {
-  height: inherit;
-  width: inherit;
-}
-
-#root>div {
-  height: inherit;
-  width: inherit;
-}
 
 * {
   padding: 0;
