@@ -1,9 +1,15 @@
-import React from "react";
+import React, { useRef } from "react";
 import Render from "../../../example-components/render/Render";
-import { Circle } from "../../../lib";
+import { Circle, Rectangle, useProximity } from "../../../lib";
 import "./Proximity.styles.css";
 
 const Proximity = () => {
+  const circleOneRef = useRef(null);
+  const circleTwoRef = useRef(null);
+
+  const { y: oneY } = useProximity(circleOneRef);
+  const { y: twoY } = useProximity(circleTwoRef);
+
   return (
     <div
       style={{
@@ -12,11 +18,19 @@ const Proximity = () => {
         flexDirection: "column",
         alignItems: "center",
         backgroundColor: "black",
+        paddingTop: "30px",
       }}
     >
-      <h1 style={{ color: "white", marginTop: "40px", fontSize: "40px" }}>
-        useProximity
-      </h1>
+      <Rectangle
+        backgroundColor="black"
+        color="white"
+        stroke={5}
+        width={window.innerWidth / 2}
+        height={100}
+        speed={1.2}
+      >
+        <h1 style={{ color: "white", fontSize: "40px" }}>useProximity</h1>
+      </Rectangle>
       <div
         style={{
           height: "100%",
@@ -53,7 +67,7 @@ const Proximity = () => {
               }}
               className="left"
             >
-              These cool animations was made with useProximity custom hook
+              These cool animations were made with useProximity custom hook
             </p>
           </Render>
           <div style={{ width: "50%", height: "100%" }}></div>
@@ -65,6 +79,7 @@ const Proximity = () => {
             display: "flex",
             justifyContent: "center",
           }}
+          ref={circleOneRef}
         >
           <Circle
             color="white"
@@ -76,7 +91,20 @@ const Proximity = () => {
             startDegree={0}
             endDegree={120}
             stroke={5}
-          />
+          >
+            <p
+              style={{
+                color: "white",
+                textAlign: "center",
+                fontWeight: 500,
+                fontSize: "18px",
+              }}
+            >
+              I'm
+              <span style={{ color: oneY > 0 ? "blue" : "red" }}> {oneY} </span>
+              pixels away from the center in Y axis
+            </p>
+          </Circle>
         </div>
         <div
           style={{
@@ -104,12 +132,13 @@ const Proximity = () => {
               }}
               className="right"
             >
-              useProximity onSight property, lets you know if a component is
-              inside of the viewport
+              useProximity onSight property, returns if a component is inside of
+              the viewport
             </p>
           </Render>
         </div>
         <div
+          ref={circleTwoRef}
           style={{
             height: "100%",
             width: "100%",
@@ -127,7 +156,20 @@ const Proximity = () => {
             startDegree={0}
             endDegree={140}
             stroke={5}
-          />
+          >
+            <p
+              style={{
+                color: "white",
+                textAlign: "center",
+                fontWeight: 500,
+                fontSize: "18px",
+              }}
+            >
+              I'm
+              <span style={{ color: twoY > 0 ? "blue" : "red" }}> {twoY} </span>
+              pixels away from the center in Y axis
+            </p>
+          </Circle>
         </div>
         <div
           style={{
@@ -156,7 +198,7 @@ const Proximity = () => {
               className="left"
             >
               useProximity also returns the proximity of the component to the
-              center of the screen
+              center of the screen, for both axis Y and X
             </p>
           </Render>
           <div style={{ width: "50%", height: "100%" }}>
