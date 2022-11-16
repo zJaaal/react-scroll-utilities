@@ -53,28 +53,11 @@ const Direction = () => {
         }}
       >
         <img
-          src="../../../assets/arrow.png"
+          src="./assets/arrow.png"
           className={direction == "UP" ? "arrow reverse" : "arrow"}
         />
         <img
-          src="../../../assets/arrow.png"
-          className={direction == "UP" ? "arrow reverse" : "arrow"}
-        />
-      </div>
-      <div
-        style={{
-          display: "flex",
-          justifyContent: "space-around",
-          width: "100%",
-          paddingTop: 50,
-        }}
-      >
-        <img
-          src="../../../assets/arrow.png"
-          className={direction == "UP" ? "arrow reverse" : "arrow"}
-        />
-        <img
-          src="../../../assets/arrow.png"
+          src="./assets/arrow.png"
           className={direction == "UP" ? "arrow reverse" : "arrow"}
         />
       </div>
@@ -87,11 +70,11 @@ const Direction = () => {
         }}
       >
         <img
-          src="../../../assets/arrow.png"
+          src="./assets/arrow.png"
           className={direction == "UP" ? "arrow reverse" : "arrow"}
         />
         <img
-          src="../../../assets/arrow.png"
+          src="./assets/arrow.png"
           className={direction == "UP" ? "arrow reverse" : "arrow"}
         />
       </div>
@@ -104,11 +87,28 @@ const Direction = () => {
         }}
       >
         <img
-          src="../../../assets/arrow.png"
+          src="./assets/arrow.png"
           className={direction == "UP" ? "arrow reverse" : "arrow"}
         />
         <img
-          src="../../../assets/arrow.png"
+          src="./assets/arrow.png"
+          className={direction == "UP" ? "arrow reverse" : "arrow"}
+        />
+      </div>
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "space-around",
+          width: "100%",
+          paddingTop: 50,
+        }}
+      >
+        <img
+          src="./assets/arrow.png"
+          className={direction == "UP" ? "arrow reverse" : "arrow"}
+        />
+        <img
+          src="./assets/arrow.png"
           className={direction == "UP" ? "arrow reverse" : "arrow"}
         />
       </div>
@@ -121,7 +121,7 @@ const Direction = () => {
         }}
       >
         <img
-          src="../../../assets/arrow.png"
+          src="./assets/arrow.png"
           className={direction == "UP" ? "arrow reverse" : "arrow"}
         />
         <div
@@ -137,7 +137,7 @@ const Direction = () => {
           </h2>
         </div>
         <img
-          src="../../../assets/arrow.png"
+          src="./assets/arrow.png"
           className={direction == "UP" ? "arrow reverse" : "arrow"}
         />
       </div>
@@ -150,11 +150,11 @@ const Direction = () => {
         }}
       >
         <img
-          src="../../../assets/arrow.png"
+          src="./assets/arrow.png"
           className={direction == "UP" ? "arrow reverse" : "arrow"}
         />
         <img
-          src="../../../assets/arrow.png"
+          src="./assets/arrow.png"
           className={direction == "UP" ? "arrow reverse" : "arrow"}
         />
       </div>
@@ -167,12 +167,12 @@ const Direction = () => {
         }}
       >
         <img
-          src="../../../assets/arrow.png"
+          src="./assets/arrow.png"
           className={direction == "UP" ? "arrow reverse" : "arrow"}
         />
 
         <img
-          src="../../../assets/arrow.png"
+          src="./assets/arrow.png"
           className={direction == "UP" ? "arrow reverse" : "arrow"}
         />
       </div>
@@ -185,28 +185,11 @@ const Direction = () => {
         }}
       >
         <img
-          src="../../../assets/arrow.png"
+          src="./assets/arrow.png"
           className={direction == "UP" ? "arrow reverse" : "arrow"}
         />
         <img
-          src="../../../assets/arrow.png"
-          className={direction == "UP" ? "arrow reverse" : "arrow"}
-        />
-      </div>
-      <div
-        style={{
-          display: "flex",
-          justifyContent: "space-around",
-          width: "100%",
-          paddingTop: 50,
-        }}
-      >
-        <img
-          src="../../../assets/arrow.png"
-          className={direction == "UP" ? "arrow reverse" : "arrow"}
-        />
-        <img
-          src="../../../assets/arrow.png"
+          src="./assets/arrow.png"
           className={direction == "UP" ? "arrow reverse" : "arrow"}
         />
       </div>
@@ -219,11 +202,28 @@ const Direction = () => {
         }}
       >
         <img
-          src="../../../assets/arrow.png"
+          src="./assets/arrow.png"
           className={direction == "UP" ? "arrow reverse" : "arrow"}
         />
         <img
-          src="../../../assets/arrow.png"
+          src="./assets/arrow.png"
+          className={direction == "UP" ? "arrow reverse" : "arrow"}
+        />
+      </div>
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "space-around",
+          width: "100%",
+          paddingTop: 50,
+        }}
+      >
+        <img
+          src="./assets/arrow.png"
+          className={direction == "UP" ? "arrow reverse" : "arrow"}
+        />
+        <img
+          src="./assets/arrow.png"
           className={direction == "UP" ? "arrow reverse" : "arrow"}
         />
       </div>
@@ -236,7 +236,7 @@ const Direction = () => {
         }}
       >
         <img
-          src="../../../assets/arrow.png"
+          src="./assets/arrow.png"
           className={direction == "UP" ? "arrow reverse" : "arrow"}
         />
         <div
@@ -250,7 +250,7 @@ const Direction = () => {
           <h2 style={{ color, textAlign: "center" }}>Pretty cool right!</h2>
         </div>
         <img
-          src="../../../assets/arrow.png"
+          src="./assets/arrow.png"
           className={direction == "UP" ? "arrow reverse" : "arrow"}
         />
       </div>
@@ -263,11 +263,11 @@ const Direction = () => {
         }}
       >
         <img
-          src="../../../assets/arrow.png"
+          src="./assets/arrow.png"
           className={direction == "UP" ? "arrow reverse" : "arrow"}
         />
         <img
-          src="../../../assets/arrow.png"
+          src="./assets/arrow.png"
           className={direction == "UP" ? "arrow reverse" : "arrow"}
         />
       </div>
@@ -280,11 +280,11 @@ const Direction = () => {
         }}
       >
         <img
-          src="../../../assets/arrow.png"
+          src="./assets/arrow.png"
           className={direction == "UP" ? "arrow reverse" : "arrow"}
         />
         <img
-          src="../../../assets/arrow.png"
+          src="./assets/arrow.png"
           className={direction == "UP" ? "arrow reverse" : "arrow"}
         />
       </div>
