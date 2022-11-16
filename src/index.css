@@ -4,6 +4,7 @@ body,
   height: 100%;
   width: 100%;
   font-family: 'Sono', sans-serif;
+  overflow-x: clip;
 }
 
 

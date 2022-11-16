@@ -6,7 +6,6 @@ function App() {
     <div style={{ height: "100%" }}>
       <Header />
       <Proximity />
-      {/* <div style={{ height: "1000px" }}></div> */}
     </div>
   );
 }

@@ -7,7 +7,7 @@ const Proximity = () => {
   return (
     <div
       style={{
-        height: "100%",
+        minHeight: "100%",
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
@@ -69,7 +69,7 @@ const Proximity = () => {
           <Circle
             color="white"
             backgroundColor="black"
-            speed={1.3}
+            speed={1}
             clockwise={false}
             rotate={-60}
             radius={400}
@@ -94,7 +94,6 @@ const Proximity = () => {
               height: "3rem",
               width: "40%",
               zIndex: 10,
-              paddingBottom: 10,
             }}
           >
             <p
@@ -102,13 +101,13 @@ const Proximity = () => {
                 color: "white",
                 display: "inline-block",
                 textAlign: "center",
-
+                paddingRight: 30,
                 fontSize: "1.3rem",
               }}
               className="right"
             >
-              useProximity onSight property, lets you know if a component is on
-              sight
+              useProximity onSight property, lets you know if a component is
+              inside of the viewport
             </p>
           </Render>
         </div>
@@ -118,18 +117,51 @@ const Proximity = () => {
             width: "100%",
             display: "flex",
             justifyContent: "center",
+            paddingLeft: 30,
           }}
         >
           <Circle
             color="white"
             backgroundColor="black"
-            speed={1.3}
-            rotate={60}
+            speed={1}
+            rotate={45}
             radius={400}
             startDegree={0}
-            endDegree={120}
+            endDegree={140}
             stroke={5}
           />
+        </div>
+        <div
+          style={{
+            height: "100%",
+            width: "100%",
+            display: "flex",
+            justifyContent: "space-around",
+          }}
+        >
+          <Render
+            style={{
+              height: "100%",
+              width: "40%",
+              zIndex: 10,
+            }}
+          >
+            <p
+              style={{
+                color: "white",
+                display: "inline-block",
+                textAlign: "center",
+                paddingLeft: 30,
+                paddingBottom: 30,
+                fontSize: "1.3rem",
+              }}
+              className="left"
+            >
+              useProximity also returns the proximity of the component to the
+              center of the screen
+            </p>
+          </Render>
+          <div style={{ width: "50%", height: "100%" }}></div>
         </div>
       </div>
     </div>
