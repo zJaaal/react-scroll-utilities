@@ -1,0 +1,11 @@
+.arrow {
+  height: 60px;
+  width: 60px;
+  transition: all 1s ease-in-out;
+}
+
+
+.reverse {
+  transform: rotate(180deg);
+  filter: invert(100%);
+}
