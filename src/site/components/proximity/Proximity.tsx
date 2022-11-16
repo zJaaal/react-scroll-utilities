@@ -29,7 +29,7 @@ const Proximity = () => {
         height={100}
         speed={1.2}
       >
-        <h1 style={{ color: "white", fontSize: "40px" }}>useProximity</h1>
+        <h1 style={{ color: "#49BEAA", fontSize: "40px" }}>useProximity</h1>
       </Rectangle>
       <div
         style={{
@@ -67,7 +67,11 @@ const Proximity = () => {
               }}
               className="left"
             >
-              These cool animations were made with useProximity custom hook
+              These cool animations were made with{" "}
+              <span style={{ color: "#49BEAA", fontWeight: 700 }}>
+                useProximity
+              </span>{" "}
+              custom hook
             </p>
           </Render>
           <div style={{ width: "50%", height: "100%" }}></div>
@@ -132,8 +136,10 @@ const Proximity = () => {
               }}
               className="right"
             >
-              useProximity onSight property, returns if a component is inside of
-              the viewport
+              <span style={{ color: "#49BEAA", fontWeight: 700 }}>
+                useProximity
+              </span>{" "}
+              onSight property, returns if a component is inside of the viewport
             </p>
           </Render>
         </div>
@@ -197,8 +203,11 @@ const Proximity = () => {
               }}
               className="left"
             >
-              useProximity also returns the proximity of the component to the
-              center of the screen, for both axis Y and X
+              <span style={{ color: "#49BEAA", fontWeight: 700 }}>
+                useProximity
+              </span>{" "}
+              also returns the proximity of the component to the center of the
+              screen, for both axis Y and X
             </p>
           </Render>
           <div style={{ width: "50%", height: "100%" }}>
