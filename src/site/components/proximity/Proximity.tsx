@@ -86,9 +86,7 @@ const Proximity = () => {
             justifyContent: "space-around",
           }}
         >
-          <div style={{ width: "50%", marginBottom: 60 }}>
-            <div style={{ height: "50px" }}></div>
-          </div>
+          <div style={{ width: "50%" }}></div>
           <Render
             style={{
               height: "3rem",
@@ -161,7 +159,10 @@ const Proximity = () => {
               center of the screen
             </p>
           </Render>
-          <div style={{ width: "50%", height: "100%" }}></div>
+          <div style={{ width: "50%", height: "100%" }}>
+            {" "}
+            <div style={{ height: "100px" }}></div>
+          </div>
         </div>
       </div>
     </div>
