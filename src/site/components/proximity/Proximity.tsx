@@ -1,6 +1,6 @@
-import React, { useRef } from "react";
+import React from "react";
 import Render from "../../../example-components/render/Render";
-import { Circle, useDynamicColor } from "../../../lib";
+import { Circle } from "../../../lib";
 import "./Proximity.styles.css";
 
 const Proximity = () => {
