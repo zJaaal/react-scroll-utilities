@@ -46,8 +46,8 @@ const Direction = () => {
       <h2 style={{ marginTop: "20px", color }}>
         These arrows react to the scroll direction
       </h2>
-      {[0, 0, 0, 0].map((_) => (
-        <Arrows direction={direction} />
+      {[0, 0, 0, 0].map((_, i) => (
+        <Arrows key={i} direction={direction} />
       ))}
       <div
         style={{
@@ -78,8 +78,8 @@ const Direction = () => {
           className={direction == "UP" ? "arrow reverse" : "arrow"}
         />
       </div>
-      {[0, 0, 0, 0, 0].map((_) => (
-        <Arrows direction={direction} />
+      {[0, 0, 0, 0, 0].map((_, i) => (
+        <Arrows key={i} direction={direction} />
       ))}
       <div
         style={{
@@ -108,8 +108,8 @@ const Direction = () => {
           className={direction == "UP" ? "arrow reverse" : "arrow"}
         />
       </div>
-      {[0, 0, 0, 0].map((_) => (
-        <Arrows direction={direction} />
+      {[0, 0, 0, 0].map((_, i) => (
+        <Arrows key={i} direction={direction} />
       ))}
     </div>
   );
