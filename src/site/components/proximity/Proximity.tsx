@@ -1,7 +1,6 @@
 import React, { useRef } from "react";
 import Render from "../../../example-components/render/Render";
 import { Circle, Rectangle, useProximity } from "../../../lib";
-import "./Proximity.styles.css";
 
 const Proximity = () => {
   const circleOneRef = useRef(null);
