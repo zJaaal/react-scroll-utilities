@@ -40,9 +40,13 @@ const Rectangle: FC<RectangleProps> = ({
     width: `${width - stroke}px`,
     height: `${height - stroke}px`,
     backgroundColor: backgroundColor,
-    transform: `rotate(-${rotate}deg) scaleX(${clockwise ? 1 : -1})`,
-    WebkitTransform: `rotate(-${rotate}deg) scaleX(${clockwise ? 1 : -1})`,
-    msTransform: `rotate(-${rotate}deg) scaleX(${clockwise ? 1 : -1})`,
+    transform: `rotate(-${Math.abs(rotate)}deg) scaleX(${clockwise ? 1 : -1})`,
+    WebkitTransform: `rotate(-${Math.abs(rotate)}deg) scaleX(${
+      clockwise ? 1 : -1
+    })`,
+    msTransform: `rotate(-${Math.abs(rotate)}deg) scaleX(${
+      clockwise ? 1 : -1
+    })`,
   };
 
   useEffect(

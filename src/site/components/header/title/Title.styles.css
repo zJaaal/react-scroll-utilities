@@ -1,0 +1,105 @@
+.title {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-size: 40px;
+}
+
+h1 {
+  text-align: center;
+  word-break: break-word;
+}
+
+.char {
+  display: inline-block;
+  animation-fill-mode: forwards;
+  transform: translateY(1000px);
+}
+
+.char-0 {
+  animation-name: char-enter;
+  animation-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  animation-duration: 1.2s;
+}
+
+.char-1 {
+  animation-name: char-enter;
+  animation-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  animation-duration: 1.2s;
+  animation-delay: 0.3s;
+}
+
+.char-2 {
+  animation-name: char-enter;
+  animation-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  animation-duration: 1.2s;
+  animation-delay: 0.6s;
+}
+
+.char-3 {
+  animation-name: char-enter;
+  animation-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  animation-duration: 1.2s;
+  animation-delay: 0.9s;
+}
+
+.char-4 {
+  animation-name: char-enter;
+  animation-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  animation-duration: 1.2s;
+  animation-delay: 1.2s;
+}
+
+.char-5 {
+  animation-name: char-enter;
+  animation-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  animation-duration: 1.2s;
+  animation-delay: 0.3s;
+}
+
+.char-6 {
+  animation-name: char-enter;
+  animation-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  animation-duration: 1.2s;
+  animation-delay: 0.6s;
+}
+
+.char-7 {
+  animation-name: char-enter;
+  animation-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  animation-duration: 1.2s;
+  animation-delay: 0.9s;
+}
+
+.char-8 {
+  animation-name: char-enter;
+  animation-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  animation-duration: 1.2s;
+  animation-delay: 1.2s;
+}
+
+.char-9 {
+  animation-name: char-enter;
+  animation-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  animation-duration: 1.2s;
+  animation-delay: 1.5s;
+
+}
+
+
+@keyframes char-enter {
+  from {
+    opacity: 0;
+    transform: translateY(1000px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+
+}

@@ -1,59 +1,53 @@
-body {
+html,
+body,
+#root {
   height: 100%;
-  width: 2000px;
+  width: 100%;
+  font-family: 'Sono', sans-serif;
+  overflow-x: clip;
 }
+
 
 * {
   padding: 0;
   margin: 0;
 }
 
-.ease-in {
-  margin-bottom: 20px;
-  animation-name: ease-in;
-  animation-duration: 1s;
-  animation-timing-function: linear;
+.left {
+  animation-name: left;
+  animation-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  animation-duration: 2s;
 }
 
-@keyframes ease-in {
-  0% {
-    transform: translate(0, 100px);
-    opacity: 0;
-  }
-
-  100% {
-    transform: translate(0, 0);
-    opacity: 1;
-  }
+.right {
+  animation-name: right;
+  animation-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  animation-duration: 2s;
 }
 
+@keyframes left {
 
-.test {
-  height: 100px;
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
-}
-
-ul {
-  list-style: none;
-  list-style-type: none;
-}
-
-#root {
-  height: inherit;
-}
-
-
-
-@keyframes spin {
   from {
-    transform: rotate(0deg);
+    opacity: 0;
+    transform: translateX(-1000px);
   }
 
   to {
-    transform: rotate(360deg);
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+}
+
+@keyframes right {
+
+  from {
+    opacity: 0;
+    transform: translateX(1000px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
   }
 }
