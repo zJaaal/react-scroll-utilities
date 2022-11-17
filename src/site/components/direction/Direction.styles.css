@@ -2,10 +2,17 @@
   height: 60px;
   width: 60px;
   transition: all 1s ease-in-out;
+  -webkit-transition: all 1s ease-in-out;
+  -moz-transition: all 1s ease-in-out;
+  -o-transition: all 1s ease-in-out;
 }
 
 
 .reverse {
   transform: rotate(180deg);
+  -webkit-transform: rotate(180deg);
+  -moz-transform: rotate(180deg);
+  -o-transform: rotate(180deg);
   filter: invert(100%);
+  -webkit-filter: invert(100%);
 }
