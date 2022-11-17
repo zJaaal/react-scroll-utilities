@@ -1,5 +1,6 @@
 import React, { useRef } from "react";
 import { Rectangle, useDirection, useDynamicColor } from "../../../lib";
+import Arrows from "./Arrows";
 
 import "./Direction.styles.css";
 
@@ -27,6 +28,7 @@ const Direction = () => {
         alignItems: "center",
         backgroundColor,
         paddingTop: "30px",
+        paddingBottom: "30px",
       }}
       ref={ref}
     >
@@ -44,74 +46,9 @@ const Direction = () => {
       <h2 style={{ marginTop: "20px", color }}>
         These arrows react to the scroll direction
       </h2>
-      <div
-        style={{
-          display: "flex",
-          justifyContent: "space-around",
-          width: "100%",
-          paddingTop: 50,
-        }}
-      >
-        <img
-          src="arrow.png"
-          className={direction == "UP" ? "arrow reverse" : "arrow"}
-        />
-        <img
-          src="arrow.png"
-          className={direction == "UP" ? "arrow reverse" : "arrow"}
-        />
-      </div>
-      <div
-        style={{
-          display: "flex",
-          justifyContent: "space-around",
-          width: "100%",
-          paddingTop: 50,
-        }}
-      >
-        <img
-          src="arrow.png"
-          className={direction == "UP" ? "arrow reverse" : "arrow"}
-        />
-        <img
-          src="arrow.png"
-          className={direction == "UP" ? "arrow reverse" : "arrow"}
-        />
-      </div>
-      <div
-        style={{
-          display: "flex",
-          justifyContent: "space-around",
-          width: "100%",
-          paddingTop: 50,
-        }}
-      >
-        <img
-          src="arrow.png"
-          className={direction == "UP" ? "arrow reverse" : "arrow"}
-        />
-        <img
-          src="arrow.png"
-          className={direction == "UP" ? "arrow reverse" : "arrow"}
-        />
-      </div>
-      <div
-        style={{
-          display: "flex",
-          justifyContent: "space-around",
-          width: "100%",
-          paddingTop: 50,
-        }}
-      >
-        <img
-          src="arrow.png"
-          className={direction == "UP" ? "arrow reverse" : "arrow"}
-        />
-        <img
-          src="arrow.png"
-          className={direction == "UP" ? "arrow reverse" : "arrow"}
-        />
-      </div>
+      {[0, 0, 0, 0].map((_) => (
+        <Arrows direction={direction} />
+      ))}
       <div
         style={{
           display: "flex",
@@ -141,92 +78,9 @@ const Direction = () => {
           className={direction == "UP" ? "arrow reverse" : "arrow"}
         />
       </div>
-      <div
-        style={{
-          display: "flex",
-          justifyContent: "space-around",
-          width: "100%",
-          paddingTop: 50,
-        }}
-      >
-        <img
-          src="arrow.png"
-          className={direction == "UP" ? "arrow reverse" : "arrow"}
-        />
-        <img
-          src="arrow.png"
-          className={direction == "UP" ? "arrow reverse" : "arrow"}
-        />
-      </div>
-      <div
-        style={{
-          display: "flex",
-          justifyContent: "space-around",
-          width: "100%",
-          paddingTop: 50,
-        }}
-      >
-        <img
-          src="arrow.png"
-          className={direction == "UP" ? "arrow reverse" : "arrow"}
-        />
-
-        <img
-          src="arrow.png"
-          className={direction == "UP" ? "arrow reverse" : "arrow"}
-        />
-      </div>
-      <div
-        style={{
-          display: "flex",
-          justifyContent: "space-around",
-          width: "100%",
-          paddingTop: 50,
-        }}
-      >
-        <img
-          src="arrow.png"
-          className={direction == "UP" ? "arrow reverse" : "arrow"}
-        />
-        <img
-          src="arrow.png"
-          className={direction == "UP" ? "arrow reverse" : "arrow"}
-        />
-      </div>
-      <div
-        style={{
-          display: "flex",
-          justifyContent: "space-around",
-          width: "100%",
-          paddingTop: 50,
-        }}
-      >
-        <img
-          src="arrow.png"
-          className={direction == "UP" ? "arrow reverse" : "arrow"}
-        />
-        <img
-          src="arrow.png"
-          className={direction == "UP" ? "arrow reverse" : "arrow"}
-        />
-      </div>
-      <div
-        style={{
-          display: "flex",
-          justifyContent: "space-around",
-          width: "100%",
-          paddingTop: 50,
-        }}
-      >
-        <img
-          src="arrow.png"
-          className={direction == "UP" ? "arrow reverse" : "arrow"}
-        />
-        <img
-          src="arrow.png"
-          className={direction == "UP" ? "arrow reverse" : "arrow"}
-        />
-      </div>
+      {[0, 0, 0, 0, 0].map((_) => (
+        <Arrows direction={direction} />
+      ))}
       <div
         style={{
           display: "flex",
@@ -254,40 +108,9 @@ const Direction = () => {
           className={direction == "UP" ? "arrow reverse" : "arrow"}
         />
       </div>
-      <div
-        style={{
-          display: "flex",
-          justifyContent: "space-around",
-          width: "100%",
-          paddingTop: 50,
-        }}
-      >
-        <img
-          src="arrow.png"
-          className={direction == "UP" ? "arrow reverse" : "arrow"}
-        />
-        <img
-          src="arrow.png"
-          className={direction == "UP" ? "arrow reverse" : "arrow"}
-        />
-      </div>
-      <div
-        style={{
-          display: "flex",
-          justifyContent: "space-around",
-          width: "100%",
-          paddingTop: 50,
-        }}
-      >
-        <img
-          src="arrow.png"
-          className={direction == "UP" ? "arrow reverse" : "arrow"}
-        />
-        <img
-          src="arrow.png"
-          className={direction == "UP" ? "arrow reverse" : "arrow"}
-        />
-      </div>
+      {[0, 0, 0, 0].map((_) => (
+        <Arrows direction={direction} />
+      ))}
     </div>
   );
 };
