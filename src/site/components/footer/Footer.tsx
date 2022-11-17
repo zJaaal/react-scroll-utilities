@@ -1,4 +1,5 @@
 import React, { useRef } from "react";
+import Render from "../../../example-components/render/Render";
 import { useDynamicColor, Rectangle } from "../../../lib";
 
 const Footer = () => {
@@ -41,13 +42,14 @@ const Footer = () => {
             alt="NPM Logo"
           />
         </a>
+
         <a
           href="https://github.com/zJaaal/react-scroll-utilities"
           target="_blank"
         >
           <img
             style={{ height: "60px", width: "60px" }}
-            src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png"
+            src="github.png"
             alt="Github Logo"
           />
         </a>
