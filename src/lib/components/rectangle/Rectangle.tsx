@@ -5,7 +5,7 @@ import React, {
   useLayoutEffect,
   useRef,
 } from "react";
-import { Directions, useDirection, useProximity } from "../../index";
+import { useLinearValue } from "../../index";
 import { validateRectangleProps } from "../../utils/validations/validateRectangleProps";
 import { RectangleProps } from "./types";
 import "./Rectangle.style.css";
@@ -18,16 +18,13 @@ const Rectangle: FC<RectangleProps> = ({
   backgroundColor = "white",
   color = "red",
   clockwise = true,
-  speed = 8,
   startDegree = 0,
   endDegree = 360,
   rotate = 0,
 }) => {
   const ref = useRef(null);
 
-  const degRef = useRef(startDegree);
-  const { y, onSight } = useProximity(ref);
-  const direction = useDirection();
+  const deg = useLinearValue(startDegree, endDegree, ref);
 
   const rectangleStyles: CSSProperties = {
     width: `${width}px`,
@@ -50,39 +47,16 @@ const Rectangle: FC<RectangleProps> = ({
   };
 
   useEffect(
-    () =>
-      validateRectangleProps(
-        width,
-        height,
-        stroke,
-        startDegree,
-        endDegree,
-        speed
-      ),
+    () => validateRectangleProps(width, height, stroke, startDegree, endDegree),
     []
   );
-
-  useLayoutEffect(() => {
-    switch (direction) {
-      case Directions.up: {
-        if (degRef.current < startDegree || !onSight) return;
-        degRef.current -= speed;
-        break;
-      }
-      case Directions.down: {
-        if (degRef.current > endDegree || !onSight) return;
-        degRef.current += speed;
-        break;
-      }
-    }
-  }, [y]);
 
   return (
     <div
       data-testid="rectangle"
       className="rectangle"
       style={{
-        background: `conic-gradient(${color} ${degRef.current}deg, ${backgroundColor} 0deg)`,
+        background: `conic-gradient(${color} ${deg}deg, ${backgroundColor} 0deg)`,
         ...rectangleStyles,
       }}
       ref={ref}

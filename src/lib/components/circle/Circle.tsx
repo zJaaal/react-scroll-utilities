@@ -1,11 +1,5 @@
-import React, {
-  CSSProperties,
-  FC,
-  useEffect,
-  useLayoutEffect,
-  useRef,
-} from "react";
-import { Directions, useDirection, useProximity } from "../../index";
+import React, { CSSProperties, FC, useEffect, useRef } from "react";
+import { useLinearValue } from "../../index";
 import { validateCircleProps } from "../../utils/validations/validateCircleProps";
 import { CircleProps } from "./types";
 import "./Circle.style.css";
@@ -17,15 +11,12 @@ const Circle: FC<CircleProps> = ({
   backgroundColor = "white",
   color = "red",
   clockwise = true,
-  speed = 8,
   startDegree = 0,
   endDegree = 360,
   rotate = 0,
 }) => {
   const ref = useRef(null);
-  const degRef = useRef(startDegree);
-  const { y, onSight } = useProximity(ref);
-  const direction = useDirection();
+  const deg = useLinearValue(startDegree, endDegree, ref);
 
   const circleStyles: CSSProperties = {
     width: `${radius}px`,
@@ -48,31 +39,16 @@ const Circle: FC<CircleProps> = ({
   };
 
   useEffect(
-    () => validateCircleProps(radius, stroke, startDegree, endDegree, speed),
+    () => validateCircleProps(radius, stroke, startDegree, endDegree),
     []
   );
-
-  useLayoutEffect(() => {
-    switch (direction) {
-      case Directions.up: {
-        if (degRef.current < startDegree || !onSight) return;
-        degRef.current -= speed;
-        break;
-      }
-      case Directions.down: {
-        if (degRef.current > endDegree || !onSight) return;
-        degRef.current += speed;
-        break;
-      }
-    }
-  }, [y]);
 
   return (
     <div
       data-testid="circle"
       className="circle"
       style={{
-        background: `conic-gradient(${color} ${degRef.current}deg, ${backgroundColor} 0deg)`,
+        background: `conic-gradient(${color} ${deg}deg, ${backgroundColor} 0deg)`,
         ...circleStyles,
       }}
       ref={ref}
