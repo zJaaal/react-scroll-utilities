@@ -1,17 +1,22 @@
 import { useRef, useLayoutEffect } from "react";
-import { DynamicColor, Directions } from "../types";
+import { DynamicColor, Directions, DynamicColorOptions } from "../types";
 import clamp from "../utils/calculations/clamp";
 import getCurrentColor from "../utils/calculations/getCurrentColor";
 import validateColors from "../utils/validations/validateColors";
 import useDirection from "./useDirection";
 import useProximity from "./useProximity";
 
+const defautlOptions: DynamicColorOptions = {
+  anchor: "middle",
+};
+
 const useDynamicColor = ({
   startColor,
   endColor,
   elementRef,
-  anchor = "middle",
+  options = defautlOptions,
 }: DynamicColor) => {
+  const { anchor } = options;
   const color = useRef<number[]>([...startColor]);
 
   const { onSight, y } = useProximity(elementRef);

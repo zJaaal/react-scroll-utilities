@@ -1,15 +1,21 @@
 import React, { RefObject, useLayoutEffect, useRef } from "react";
+import { LinearValueOptions, LinearValueProps } from "../types";
 import clamp from "../utils/calculations/clamp";
 import getLinearValue from "../utils/calculations/getLinearValue";
 import { LinearValue } from "../utils/calculations/types";
 import useProximity from "./useProximity";
 
-const useLinearValue = (
-  startValue: number,
-  endValue: number,
-  elementRef: RefObject<HTMLElement>,
-  anchor: "top" | "middle" | "bottom" = "middle"
-) => {
+const defaultOptions: LinearValueOptions = {
+  anchor: "middle",
+};
+
+const useLinearValue = ({
+  startValue,
+  endValue,
+  elementRef,
+  options = defaultOptions,
+}: LinearValueProps) => {
+  const { anchor } = options;
   const { onSight, y } = useProximity(elementRef);
   const value = useRef(startValue);
 

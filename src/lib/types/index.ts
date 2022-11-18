@@ -20,5 +20,20 @@ export type DynamicColor = {
   startColor: number[];
   endColor: number[];
   elementRef: RefObject<HTMLElement>;
+  options?: DynamicColorOptions;
+};
+
+export type DynamicColorOptions = {
+  anchor?: "top" | "middle" | "bottom";
+};
+
+export type LinearValueProps = {
+  startValue: number;
+  endValue: number;
+  elementRef: RefObject<HTMLElement>;
+  options?: LinearValueOptions;
+};
+
+export type LinearValueOptions = {
   anchor?: "top" | "middle" | "bottom";
 };
