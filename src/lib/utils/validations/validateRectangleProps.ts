@@ -3,8 +3,7 @@ export const validateRectangleProps = (
   height: number,
   stroke: number,
   startDegree: number,
-  endDegree: number,
-  speed: number
+  endDegree: number
 ) => {
   if (startDegree > endDegree)
     throw new Error(
@@ -23,7 +22,4 @@ export const validateRectangleProps = (
     throw new Error(
       `height of the rectangle should be more than 0 and is "${height}"`
     );
-
-  if (speed <= 0)
-    throw new Error(`speed should be more than 0 and is "${speed}"`);
 };

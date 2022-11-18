@@ -2,8 +2,7 @@ export const validateCircleProps = (
   radius: number,
   stroke: number,
   startDegree: number,
-  endDegree: number,
-  speed: number
+  endDegree: number
 ) => {
   if (startDegree > endDegree)
     throw new Error(
@@ -17,7 +16,4 @@ export const validateCircleProps = (
     throw new Error(
       `radius of the circle should be more than 0 and is "${radius}"`
     );
-
-  if (speed <= 0)
-    throw new Error(`speed should be more than 0 and is "${speed}"`);
 };
