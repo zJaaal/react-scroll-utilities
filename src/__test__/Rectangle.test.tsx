@@ -89,22 +89,6 @@ describe("Rectangle Component", () => {
         "Rectangle should be rendered with scaleX(-1)"
       ).toHaveStyle("transform: rotate(0deg) scaleX(-1);");
     }),
-    //This test is not working, beacuse there's an issue in JSDom that don't set gradients to background and
-    //there's no way to test the values of the conical gradient
-    it.skip("Should change its speed when setting speed prop", () => {
-      const RectangleTestComponent = render(
-        <ScrollWatcher>
-          <Rectangle speed={10} />
-        </ScrollWatcher>
-      );
-
-      //Should fire the same scroll event and compare the values
-
-      // expect(
-      //   someValue,
-      //   "Rectangle deg should be greater than the last deg calculation since is faster"
-      // ).toBeGreaterThan(lastCalculation));
-    }),
     it("Should change its stroke when setting stroke prop", () => {
       let stroke = 5;
 
