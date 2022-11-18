@@ -26,7 +26,6 @@ const Proximity = () => {
         stroke={5}
         width={window.innerWidth / 2}
         height={100}
-        speed={1.2}
       >
         <h1 style={{ color: "#2ec4b6", fontSize: "40px" }}>useProximity</h1>
       </Rectangle>
@@ -87,7 +86,6 @@ const Proximity = () => {
           <Circle
             color="white"
             backgroundColor="black"
-            speed={1}
             clockwise={false}
             rotate={-60}
             radius={400}
@@ -155,7 +153,6 @@ const Proximity = () => {
           <Circle
             color="white"
             backgroundColor="black"
-            speed={1}
             rotate={45}
             radius={400}
             startDegree={0}

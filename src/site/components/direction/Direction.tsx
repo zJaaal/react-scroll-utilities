@@ -38,7 +38,6 @@ const Direction = () => {
         stroke={5}
         width={window.innerWidth / 2}
         height={100}
-        speed={1.2}
       >
         <h1 style={{ color: "#e71d36", fontSize: "40px" }}>useDirection</h1>
       </Rectangle>

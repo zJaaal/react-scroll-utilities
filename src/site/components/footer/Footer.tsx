@@ -9,6 +9,7 @@ const Footer = () => {
     startColor: [159, 212, 163],
     endColor: [0, 0, 0],
     elementRef: ref,
+    anchor: "bottom",
   });
   return (
     <div
