@@ -28,8 +28,7 @@ const getCurrentColor = ({
 
     //So here i calculate the slope for those points
 
-    let slopeValue,
-      colorLinearValue = 0;
+    let colorLinearValue = 0;
 
     switch (anchor) {
       case "middle": {
