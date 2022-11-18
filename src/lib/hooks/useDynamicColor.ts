@@ -1,7 +1,7 @@
 import { useRef, useLayoutEffect } from "react";
 import { DynamicColor, Directions } from "../types";
 import clamp from "../utils/calculations/clamp";
-import getSteps from "../utils/calculations/getSteps";
+import getCurrentColor from "../utils/calculations/getCurrentColor";
 import validateColors from "../utils/validations/validateColors";
 import useDirection from "./useDirection";
 import useProximity from "./useProximity";
@@ -10,8 +10,9 @@ const useDynamicColor = ({
   startColor,
   endColor,
   elementRef,
+  anchor = "middle",
 }: DynamicColor) => {
-  const steps = useRef<number[]>([1, 1, 1]);
+  // const steps = useRef<number[]>([1, 1, 1]);
   const color = useRef<number[]>([...startColor]);
 
   const { onSight, y } = useProximity(elementRef);
@@ -19,23 +20,30 @@ const useDynamicColor = ({
 
   useLayoutEffect(() => {
     validateColors(startColor, endColor);
-    steps.current = getSteps(startColor, endColor, elementRef.current!);
   }, []);
 
   useLayoutEffect(() => {
     switch (direction) {
       case Directions.up: {
         if (onSight && color.current.some((color, i) => color != startColor[i]))
-          color.current = color.current.map((color, i) =>
-            clamp(startColor[i], endColor[i], color - steps.current[i])
-          );
+          color.current = getCurrentColor({
+            startColor,
+            endColor,
+            element: elementRef.current!,
+            proximity: y,
+            anchor,
+          }).map((color, i) => clamp(startColor[i], endColor[i], color));
         break;
       }
       case Directions.down: {
         if (onSight && color.current.some((color, i) => color != endColor[i]))
-          color.current = color.current.map((color, i) =>
-            clamp(startColor[i], endColor[i], color + steps.current[i])
-          );
+          color.current = getCurrentColor({
+            startColor,
+            endColor,
+            element: elementRef.current!,
+            proximity: y,
+            anchor,
+          }).map((color, i) => clamp(startColor[i], endColor[i], color));
         break;
       }
     }

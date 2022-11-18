@@ -20,4 +20,5 @@ export type DynamicColor = {
   startColor: number[];
   endColor: number[];
   elementRef: RefObject<HTMLElement>;
+  anchor?: "top" | "middle" | "bottom";
 };
