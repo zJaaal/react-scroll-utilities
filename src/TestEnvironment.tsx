@@ -3,9 +3,17 @@ import { useDynamicColor, useLinearValue } from "./lib";
 
 const TestEnvironment = () => {
   const ref = useRef(null);
-  const height = useLinearValue(300, 500, ref);
-  const width = useLinearValue(100, 600, ref);
-  const deg = useLinearValue(0, 360, ref);
+  const height = useLinearValue({
+    startValue: 300,
+    endValue: 500,
+    elementRef: ref,
+  });
+  const width = useLinearValue({
+    startValue: 100,
+    endValue: 600,
+    elementRef: ref,
+  });
+  const deg = useLinearValue({ startValue: 0, endValue: 360, elementRef: ref });
 
   return (
     <div>

@@ -16,7 +16,11 @@ const Circle: FC<CircleProps> = ({
   rotate = 0,
 }) => {
   const ref = useRef(null);
-  const deg = useLinearValue(startDegree, endDegree, ref);
+  const deg = useLinearValue({
+    startValue: startDegree,
+    endValue: endDegree,
+    elementRef: ref,
+  });
 
   const circleStyles: CSSProperties = {
     width: `${radius}px`,

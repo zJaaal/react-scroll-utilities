@@ -8,13 +8,13 @@ const Title = () => {
     startColor: [0, 0, 0],
     endColor: [255, 255, 255],
     elementRef: ref,
-    anchor: "top",
+    options: { anchor: "top" },
   });
   const backgroundColor = useDynamicColor({
     startColor: [255, 255, 255],
     endColor: [0, 0, 0],
     elementRef: ref,
-    anchor: "top",
+    options: { anchor: "top" },
   });
   const words = [
     "REACT ".split(""),

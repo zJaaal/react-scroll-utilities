@@ -24,7 +24,11 @@ const Rectangle: FC<RectangleProps> = ({
 }) => {
   const ref = useRef(null);
 
-  const deg = useLinearValue(startDegree, endDegree, ref);
+  const deg = useLinearValue({
+    startValue: startDegree,
+    endValue: endDegree,
+    elementRef: ref,
+  });
 
   const rectangleStyles: CSSProperties = {
     width: `${width}px`,

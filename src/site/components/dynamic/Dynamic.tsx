@@ -9,20 +9,20 @@ const Dynamic = () => {
     startColor: [255, 255, 255],
     endColor: [159, 212, 163],
     elementRef: ref,
-    anchor: "bottom",
+    options: { anchor: "bottom" },
   });
   const color = useDynamicColor({
     startColor: [159, 212, 163],
     endColor: [255, 255, 255],
     elementRef: ref,
-    anchor: "bottom",
+    options: { anchor: "bottom" },
   });
 
   const exampleColor = useDynamicColor({
     startColor: [239, 112, 155],
     endColor: [16, 55, 131],
     elementRef: exampleRef,
-    anchor: "middle",
+    options: { anchor: "middle" },
   });
   return (
     <div
