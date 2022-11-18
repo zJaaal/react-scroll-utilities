@@ -15,32 +15,35 @@ body,
 
 .left {
   animation-name: left;
+  -webkit-animation-name: left;
+  -moz-animation-name: left;
+  -o-animation-name: left;
   animation-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  -webkit-animation-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  -moz-animation-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  -o-animation-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
   animation-duration: 2s;
+  -webkit-animation-duration: 2s;
+  -moz-animation-duration: 2s;
+  -o-animation-duration: 2s;
 }
 
 .right {
   animation-name: right;
+  -webkit-animation-name: right;
+  -moz-animation-name: right;
+  -o-animation-name: right;
   animation-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  -webkit-animation-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  -moz-animation-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  -o-animation-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
   animation-duration: 2s;
-}
-
-@keyframes left {
-
-  from {
-    opacity: 0;
-    transform: translateX(-1000px);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
-
+  -webkit-animation-duration: 2s;
+  -moz-animation-duration: 2s;
+  -o-animation-duration: 2s;
 }
 
 @keyframes right {
-
   from {
     opacity: 0;
     transform: translateX(1000px);
@@ -48,6 +51,98 @@ body,
 
   to {
     opacity: 1;
-    transform: translateX(0);
+    transform: translateX(0px);
   }
+
+}
+
+@-webkit-keyframes right {
+  from {
+    opacity: 0;
+    -webkit-transform: translateX(1000px);
+  }
+
+  to {
+    opacity: 1;
+    -webkit-transform: translateX(0px);
+  }
+
+}
+
+@-moz-keyframes right {
+  from {
+    opacity: 0;
+    -moz-transform: translateX(1000px);
+  }
+
+  to {
+    opacity: 1;
+    -moz-transform: translateX(0px);
+  }
+
+}
+
+@-o-keyframes right {
+  from {
+    opacity: 0;
+    -o-transform: translateX(1000px);
+  }
+
+  to {
+    opacity: 1;
+    -o-transform: translateX(0px);
+  }
+
+}
+
+@keyframes left {
+  from {
+    opacity: 0;
+    transform: translateX(-1000px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0px);
+  }
+
+}
+
+@-webkit-keyframes left {
+  from {
+    opacity: 0;
+    -webkit-transform: translateX(-1000px);
+  }
+
+  to {
+    opacity: 1;
+    -webkit-transform: translateX(0px);
+  }
+
+}
+
+@-moz-keyframes left {
+  from {
+    opacity: 0;
+    -moz-transform: translateX(-1000px);
+  }
+
+  to {
+    opacity: 1;
+    -moz-transform: translateX(0px);
+  }
+
+}
+
+@-o-keyframes left {
+  from {
+    opacity: 0;
+    -o-transform: translateX(-1000px);
+  }
+
+  to {
+    opacity: 1;
+    -o-transform: translateX(0px);
+  }
+
 }
