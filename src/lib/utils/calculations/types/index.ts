@@ -11,5 +11,5 @@ export type CurrentColor = {
   endColor: number[];
   element: HTMLElement;
   proximity: number;
-  anchor: "top" | "middle" | "bottom";
+  anchor?: "top" | "middle" | "bottom";
 };

@@ -6,7 +6,7 @@ const getCurrentColor = ({
   endColor,
   element,
   proximity,
-  anchor,
+  anchor = "middle",
 }: CurrentColor): number[] => {
   let steps: number[] = [];
 
