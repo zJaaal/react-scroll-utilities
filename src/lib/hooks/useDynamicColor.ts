@@ -12,7 +12,6 @@ const useDynamicColor = ({
   elementRef,
   anchor = "middle",
 }: DynamicColor) => {
-  // const steps = useRef<number[]>([1, 1, 1]);
   const color = useRef<number[]>([...startColor]);
 
   const { onSight, y } = useProximity(elementRef);
