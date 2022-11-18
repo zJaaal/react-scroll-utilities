@@ -48,17 +48,6 @@ const useLinearValue = (
           break;
         }
         case "bottom": {
-          if (
-            bottom - window.innerHeight - elementRef.current!.clientHeight ==
-            0
-          )
-            value.current = startValue;
-          if (
-            bottom - window.innerHeight - elementRef.current!.clientHeight ==
-            elementRef.current!.clientHeight
-          )
-            value.current = endValue;
-
           const linearValue: LinearValue = {
             x1: 0,
             x2: elementRef.current!.clientHeight,

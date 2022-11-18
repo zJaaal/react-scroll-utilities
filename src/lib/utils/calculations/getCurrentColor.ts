@@ -54,14 +54,6 @@ const getCurrentColor = ({
         break;
       }
       case "bottom": {
-        if (bottom - window.innerHeight - element.clientHeight == 0)
-          return startColor;
-        if (
-          bottom - window.innerHeight - element.clientHeight ==
-          element.clientHeight
-        )
-          return endColor;
-
         const linearValue: LinearValue = {
           x1: 0,
           x2: element.clientHeight,
