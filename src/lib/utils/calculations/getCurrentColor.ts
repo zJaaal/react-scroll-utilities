@@ -1,3 +1,4 @@
+import clamp from "./clamp";
 import getLinearValue from "./getLinearValue";
 import { LinearValue, CurrentColor } from "./types";
 
@@ -67,7 +68,7 @@ const getCurrentColor = ({
         break;
       }
     }
-    steps.push(colorLinearValue);
+    steps.push(clamp(startColor[i], endColor[i], colorLinearValue));
   });
 
   return steps;

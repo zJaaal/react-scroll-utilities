@@ -29,25 +29,25 @@ const useDynamicColor = ({
   useLayoutEffect(() => {
     switch (direction) {
       case Directions.up: {
-        if (onSight && color.current.some((color, i) => color != startColor[i]))
+        if (onSight)
           color.current = getCurrentColor({
             startColor,
             endColor,
             element: elementRef.current!,
             proximity: y,
             anchor,
-          }).map((color, i) => clamp(startColor[i], endColor[i], color));
+          });
         break;
       }
       case Directions.down: {
-        if (onSight && color.current.some((color, i) => color != endColor[i]))
+        if (onSight)
           color.current = getCurrentColor({
             startColor,
             endColor,
             element: elementRef.current!,
             proximity: y,
             anchor,
-          }).map((color, i) => clamp(startColor[i], endColor[i], color));
+          });
         break;
       }
     }
