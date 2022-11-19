@@ -1,4 +1,4 @@
-import React, { RefObject, useLayoutEffect, useRef } from "react";
+import React, { useLayoutEffect, useRef } from "react";
 import { LinearValueOptions, LinearValueProps } from "../types";
 import clamp from "../utils/calculations/clamp";
 import getLinearValue from "../utils/calculations/getLinearValue";
