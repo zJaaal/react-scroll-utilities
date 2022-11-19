@@ -13,7 +13,11 @@ const TestEnvironment = () => {
     endValue: 600,
     elementRef: ref,
   });
-  const deg = useLinearValue({ startValue: 0, endValue: 360, elementRef: ref });
+  const deg = useLinearValue({
+    startValue: 0,
+    endValue: 360,
+    elementRef: ref,
+  });
 
   return (
     <div>
