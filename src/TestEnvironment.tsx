@@ -1,5 +1,5 @@
 import React, { useRef } from "react";
-import { useDynamicColor, useLinearValue } from "./lib";
+import { Circle, useDynamicColor, useLinearValue } from "./lib";
 
 const TestEnvironment = () => {
   const ref = useRef(null);
@@ -42,7 +42,9 @@ const TestEnvironment = () => {
           TestEnvironment2
         </div>
       </div>
-      <div style={{ height: 400 }}>TestEnvironment2</div>
+      <div style={{ height: 400 }}>
+        <Circle radius="40vh" stroke={2}></Circle>
+      </div>
     </div>
   );
 };
