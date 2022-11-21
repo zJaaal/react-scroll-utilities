@@ -45,10 +45,10 @@ const useLinearValue = ({
         case "top": {
           const linearValue: LinearValue = {
             x1: 0,
-            x2: elementRef.current!.clientHeight,
+            x2: -elementRef.current!.clientHeight,
             y1: startValue,
             y2: endValue,
-            position: Math.abs(top),
+            position: top,
           };
           value.current = getLinearValue(linearValue);
           break;

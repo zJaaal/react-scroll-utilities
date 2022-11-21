@@ -46,10 +46,10 @@ const getCurrentColor = ({
       case "top": {
         const linearValue: LinearValue = {
           x1: 0,
-          x2: element.clientHeight,
+          x2: -element.clientHeight,
           y1: startColor[i],
           y2: endColor[i],
-          position: Math.abs(top),
+          position: top,
         };
         colorLinearValue = getLinearValue(linearValue);
         break;
