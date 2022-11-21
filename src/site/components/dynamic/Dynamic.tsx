@@ -1,6 +1,8 @@
 import React, { useRef } from "react";
 import { Rectangle, useDynamicColor } from "../../../lib";
 
+import "./Dynamic.styles.css";
+
 const Dynamic = () => {
   const ref = useRef(null);
   const exampleRef = useRef(null);
@@ -40,10 +42,12 @@ const Dynamic = () => {
         backgroundColor={backgroundColor}
         color={color}
         stroke={5}
-        width={window.innerWidth / 2 + "px"}
+        width="60vw"
         height={100 + "px"}
       >
-        <h1 style={{ color: color, fontSize: "40px" }}>useDynamicColor</h1>
+        <h1 style={{ color: color }} className="long-section-title">
+          useDynamicColor
+        </h1>
       </Rectangle>
       <div
         ref={exampleRef}
@@ -52,17 +56,18 @@ const Dynamic = () => {
           flexDirection: "column",
           alignItems: "center",
         }}
+        className="explanation"
       >
-        <h2 style={{ marginTop: "20px", color, width: "50%" }}>
+        <h2 style={{ marginTop: "20px", color }}>
           Basically, this hook creates an animation of colors that goes from an{" "}
           <span style={{ color: "#ef709b" }}>start color</span> to an{" "}
           <span style={{ color: "#103783" }}>end color.</span>
         </h2>
-        <h2 style={{ marginTop: "40px", color: exampleColor, width: "50%" }}>
+        <h2 style={{ marginTop: "40px", color: exampleColor }}>
           You've been seeing examples of this through all the demo. I love this
           hook to be honest.
         </h2>
-        <h2 style={{ marginTop: "40px", color: exampleColor, width: "50%" }}>
+        <h2 style={{ marginTop: "40px", color: exampleColor }}>
           PD: Just need this space for you to appreciate the animation. ;)
         </h2>
       </div>
