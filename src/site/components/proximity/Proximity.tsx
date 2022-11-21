@@ -24,8 +24,8 @@ const Proximity = () => {
         backgroundColor="black"
         color="white"
         stroke={5}
-        width={window.innerWidth / 2}
-        height={100}
+        width={window.innerWidth / 2 + "px"}
+        height={100 + "px"}
       >
         <h1 style={{ color: "#2ec4b6", fontSize: "40px" }}>useProximity</h1>
       </Rectangle>
@@ -88,7 +88,7 @@ const Proximity = () => {
             backgroundColor="black"
             clockwise={false}
             rotate={-60}
-            radius={400}
+            radius={"400px"}
             startDegree={0}
             endDegree={120}
             stroke={5}
@@ -154,7 +154,7 @@ const Proximity = () => {
             color="white"
             backgroundColor="black"
             rotate={45}
-            radius={400}
+            radius={"400px"}
             startDegree={0}
             endDegree={140}
             stroke={5}

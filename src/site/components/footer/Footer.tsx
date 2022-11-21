@@ -1,6 +1,6 @@
 import React, { useRef } from "react";
 import Render from "../../../example-components/render/Render";
-import { useDynamicColor, Rectangle } from "../../../lib";
+import { useDynamicColor } from "../../../lib";
 
 const Footer = () => {
   const ref = useRef(null);

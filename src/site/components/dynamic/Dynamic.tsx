@@ -40,8 +40,8 @@ const Dynamic = () => {
         backgroundColor={backgroundColor}
         color={color}
         stroke={5}
-        width={window.innerWidth / 2}
-        height={100}
+        width={window.innerWidth / 2 + "px"}
+        height={100 + "px"}
       >
         <h1 style={{ color: color, fontSize: "40px" }}>useDynamicColor</h1>
       </Rectangle>
