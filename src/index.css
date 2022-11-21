@@ -13,6 +13,14 @@ body,
   margin: 0;
 }
 
+.section-title {
+  font-size: 40px
+}
+
+.long-section-title {
+  font-size: 40px
+}
+
 .left {
   animation-name: left;
   -webkit-animation-name: left;
@@ -26,6 +34,8 @@ body,
   -webkit-animation-duration: 2s;
   -moz-animation-duration: 2s;
   -o-animation-duration: 2s;
+
+  font-size: 20.8px
 }
 
 .right {
@@ -41,6 +51,8 @@ body,
   -webkit-animation-duration: 2s;
   -moz-animation-duration: 2s;
   -o-animation-duration: 2s;
+
+  font-size: 20.8px
 }
 
 @keyframes right {
@@ -145,4 +157,74 @@ body,
     -o-transform: translateX(0px);
   }
 
+}
+
+
+@media screen and (max-width: 800px) {
+
+  .left {
+    font-size: 18px;
+    padding-top: 20px;
+  }
+
+  .right {
+    font-size: 18px;
+    padding-top: 20px;
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .section-title {
+    font-size: 36px;
+  }
+
+  .long-section-title {
+    font-size: 32px;
+  }
+
+  .left {
+    font-size: 16px;
+  }
+
+  .right {
+    font-size: 16px;
+  }
+}
+
+@media screen and (max-width: 440px) {
+  .section-title {
+    font-size: 30px;
+  }
+
+  .long-section-title {
+    font-size: 26px;
+  }
+
+  .left {
+    font-size: 14px;
+  }
+
+  .right {
+    font-size: 14px;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .section-title {
+    font-size: 28px;
+  }
+
+  .long-section-title {
+    font-size: 24px;
+  }
+}
+
+@media screen and (max-width: 350px) {
+  .section-title {
+    font-size: 24px;
+  }
+
+  .long-section-title {
+    font-size: 20px;
+  }
 }

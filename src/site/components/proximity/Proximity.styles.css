@@ -1,0 +1,46 @@
+.render {
+  width: 40%;
+}
+
+.fill {
+  width: 50%;
+}
+
+@media screen and (max-width: 800px) {
+  .circle-container {
+    font-size: 14px;
+  }
+
+}
+
+@media screen and (max-width: 700px) {
+  .circle-container {
+    font-size: 12px;
+  }
+
+  .render {
+    width: 50%;
+  }
+
+  .fill {
+    width: 50%;
+  }
+}
+
+@media screen and (max-width: 660px) {
+  .circle-container {
+    font-size: 10px;
+    padding-top: 50px;
+  }
+}
+
+@media screen and (max-width: 450px) {
+
+  .render {
+    width: 60%;
+  }
+
+  .fill {
+    width: 40%;
+  }
+}

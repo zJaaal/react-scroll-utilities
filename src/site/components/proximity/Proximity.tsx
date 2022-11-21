@@ -2,6 +2,8 @@ import React, { useRef } from "react";
 import Render from "../../../example-components/render/Render";
 import { Circle, Rectangle, useProximity } from "../../../lib";
 
+import "./Proximity.styles.css";
+
 const Proximity = () => {
   const circleOneRef = useRef(null);
   const circleTwoRef = useRef(null);
@@ -12,10 +14,10 @@ const Proximity = () => {
   return (
     <div
       style={{
-        minHeight: "100%",
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
+        justifyContent: "stretch",
         backgroundColor: "black",
         paddingTop: "30px",
       }}
@@ -24,10 +26,12 @@ const Proximity = () => {
         backgroundColor="black"
         color="white"
         stroke={5}
-        width={window.innerWidth / 2 + "px"}
+        width="60vw"
         height={100 + "px"}
       >
-        <h1 style={{ color: "#2ec4b6", fontSize: "40px" }}>useProximity</h1>
+        <h1 style={{ color: "#2ec4b6" }} className="section-title">
+          useProximity
+        </h1>
       </Rectangle>
       <div
         style={{
@@ -50,10 +54,11 @@ const Proximity = () => {
           <Render
             style={{
               paddingTop: "50px",
-              height: "3rem",
+              height: "3em",
               width: "50%",
               zIndex: 10,
             }}
+            className="render"
           >
             <p
               style={{
@@ -61,7 +66,6 @@ const Proximity = () => {
                 display: "inline-block",
                 textAlign: "center",
                 padding: 30,
-                fontSize: "1.3rem",
               }}
               className="left"
             >
@@ -72,7 +76,7 @@ const Proximity = () => {
               custom hook
             </p>
           </Render>
-          <div style={{ width: "50%", height: "100%" }}></div>
+          <div style={{ height: "100%" }} className="fill"></div>
         </div>
         <div
           style={{
@@ -81,6 +85,7 @@ const Proximity = () => {
             display: "flex",
             justifyContent: "center",
           }}
+          className="circle-container"
           ref={circleOneRef}
         >
           <Circle
@@ -88,7 +93,7 @@ const Proximity = () => {
             backgroundColor="black"
             clockwise={false}
             rotate={-60}
-            radius={"400px"}
+            radius={"25em"}
             startDegree={0}
             endDegree={120}
             stroke={5}
@@ -98,7 +103,7 @@ const Proximity = () => {
                 color: "white",
                 textAlign: "center",
                 fontWeight: 500,
-                fontSize: "18px",
+                fontSize: "1em",
               }}
             >
               I'm
@@ -115,13 +120,13 @@ const Proximity = () => {
             justifyContent: "space-around",
           }}
         >
-          <div style={{ width: "50%" }}></div>
+          <div className="fill"></div>
           <Render
             style={{
-              height: "3rem",
-              width: "40%",
+              height: "3em",
               zIndex: 10,
             }}
+            className="render"
           >
             <p
               style={{
@@ -129,7 +134,6 @@ const Proximity = () => {
                 display: "inline-block",
                 textAlign: "center",
                 paddingRight: 30,
-                fontSize: "1.3rem",
               }}
               className="right"
             >
@@ -149,12 +153,13 @@ const Proximity = () => {
             justifyContent: "center",
             paddingLeft: 30,
           }}
+          className="circle-container"
         >
           <Circle
             color="white"
             backgroundColor="black"
             rotate={45}
-            radius={"400px"}
+            radius={"25em"}
             startDegree={0}
             endDegree={140}
             stroke={5}
@@ -164,7 +169,7 @@ const Proximity = () => {
                 color: "white",
                 textAlign: "center",
                 fontWeight: 500,
-                fontSize: "18px",
+                fontSize: "1em",
               }}
             >
               I'm
@@ -184,9 +189,9 @@ const Proximity = () => {
           <Render
             style={{
               height: "100%",
-              width: "40%",
               zIndex: 10,
             }}
+            className="render"
           >
             <p
               style={{
@@ -195,7 +200,6 @@ const Proximity = () => {
                 textAlign: "center",
                 paddingLeft: 30,
                 paddingBottom: 30,
-                fontSize: "1.3rem",
               }}
               className="left"
             >
@@ -206,7 +210,7 @@ const Proximity = () => {
               screen, for both axis Y and X
             </p>
           </Render>
-          <div style={{ width: "50%", height: "100%" }}>
+          <div style={{ height: "100%" }} className="fill">
             {" "}
             <div style={{ height: "100px" }}></div>
           </div>
