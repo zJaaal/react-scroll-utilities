@@ -16,3 +16,13 @@
   filter: invert(100%);
   -webkit-filter: invert(100%);
 }
+
+.first-title {
+  text-align: center;
+}
+
+@media screen and (max-width: 400px) {
+  .first-title {
+    font-size: 22px;
+  }
+}
