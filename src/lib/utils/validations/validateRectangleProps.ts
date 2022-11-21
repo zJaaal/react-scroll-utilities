@@ -1,6 +1,8 @@
+import { measureUnitRegex } from "./types";
+
 export const validateRectangleProps = (
-  width: number,
-  height: number,
+  width: string,
+  height: string,
   stroke: number,
   startDegree: number,
   endDegree: number
@@ -13,13 +15,18 @@ export const validateRectangleProps = (
   if (stroke <= 0)
     throw new Error(`stroke should be at least 1 and is "${stroke}"`);
 
-  if (width <= 0)
+  if (!height.match(measureUnitRegex)) {
     throw new Error(
-      `width of the rectangle should be more than 0 and is "${width}"`
+      `height should have a valid mesurement unit. height value is ${height}`
     );
-
-  if (height <= 0)
+  } else if (typeof Number(height.split(measureUnitRegex)[0]) != "number") {
+    throw new Error(`height should be a number`);
+  }
+  if (!width.match(measureUnitRegex)) {
     throw new Error(
-      `height of the rectangle should be more than 0 and is "${height}"`
+      `width should have a valid mesurement unit. width value is ${width}`
     );
+  } else if (typeof Number(width.split(measureUnitRegex)[0]) != "number") {
+    throw new Error(`width should be a number`);
+  }
 };

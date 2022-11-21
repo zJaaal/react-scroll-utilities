@@ -5,8 +5,8 @@ export type RectangleProps = {
   color?: string;
   clockwise?: boolean;
   stroke?: number;
-  height?: number;
-  width?: number;
+  height?: string;
+  width?: string;
   children?: ReactElement;
   startDegree?: number;
   endDegree?: number;

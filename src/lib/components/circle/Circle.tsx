@@ -6,7 +6,7 @@ import "./Circle.style.css";
 
 const Circle: FC<CircleProps> = ({
   children,
-  radius = 200,
+  radius = "200px",
   stroke = 2,
   backgroundColor = "white",
   color = "red",
@@ -23,15 +23,15 @@ const Circle: FC<CircleProps> = ({
   });
 
   const circleStyles: CSSProperties = {
-    width: `${radius}px`,
-    height: `${radius}px`,
+    width: radius,
+    height: radius,
     transform: `rotate(${rotate}deg) scaleX(${clockwise ? 1 : -1})`,
     WebkitTransform: `rotate(${rotate}deg) scaleX(${clockwise ? 1 : -1})`,
     msTransform: `rotate(${rotate}deg) scaleX(${clockwise ? 1 : -1})`,
   };
   const innerCircleStyles: CSSProperties = {
-    width: `${radius - stroke}px`,
-    height: `${radius - stroke}px`,
+    width: `calc(${radius} - ${stroke}px)`,
+    height: `calc(${radius} - ${stroke}px)`,
     backgroundColor: backgroundColor,
     transform: `rotate(-${Math.abs(rotate)}deg) scaleX(${clockwise ? 1 : -1})`,
     WebkitTransform: `rotate(-${Math.abs(rotate)}deg) scaleX(${
