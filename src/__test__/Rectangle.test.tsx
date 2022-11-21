@@ -88,56 +88,31 @@ describe("Rectangle Component", () => {
         RectangleTestComponent.queryByTestId("rectangle"),
         "Rectangle should be rendered with scaleX(-1)"
       ).toHaveStyle("transform: rotate(0deg) scaleX(-1);");
-    }),
-    it("Should change its stroke when setting stroke prop", () => {
-      let stroke = 5;
+    });
+  it("Should change its size when setting height prop", () => {
+    let height = 400;
 
-      const RectangleTestComponent = render(
-        <ScrollWatcher>
-          <Rectangle stroke={stroke} />
-        </ScrollWatcher>
-      );
+    const RectangleTestComponent = render(
+      <ScrollWatcher>
+        <Rectangle height={height + "px"} />
+      </ScrollWatcher>
+    );
 
-      //Calculate stroke by hand
-      const rectangleHeight = parseInt(
-        RectangleTestComponent.queryByTestId("rectangle")?.style
-          .height as string
-      );
-      const innerRectangleHeight = parseInt(
-        RectangleTestComponent.queryByTestId("inner-rectangle")?.style
-          .height as string
-      );
+    const rectangleHeight = parseInt(
+      RectangleTestComponent.queryByTestId("rectangle")?.style.height as string
+    );
 
-      expect(
-        rectangleHeight - innerRectangleHeight,
-        "Difference between rectangleHeight and innerRectangleHeight should be 5"
-      ).toBe(stroke);
-    }),
-    it("Should change its size when setting height prop", () => {
-      let height = 400;
-
-      const RectangleTestComponent = render(
-        <ScrollWatcher>
-          <Rectangle height={height} />
-        </ScrollWatcher>
-      );
-
-      const rectangleHeight = parseInt(
-        RectangleTestComponent.queryByTestId("rectangle")?.style
-          .height as string
-      );
-
-      expect(
-        rectangleHeight == height,
-        "Rectangle height should be equal to 400"
-      ).toBeTruthy();
-    }),
+    expect(
+      rectangleHeight == height,
+      "Rectangle height should be equal to 400"
+    ).toBeTruthy();
+  }),
     it("Should change its size when setting width prop", () => {
       let width = 400;
 
       const RectangleTestComponent = render(
         <ScrollWatcher>
-          <Rectangle width={width} />
+          <Rectangle width={width + "px"} />
         </ScrollWatcher>
       );
 
