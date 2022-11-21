@@ -24,7 +24,9 @@ const Footer = () => {
       }}
       ref={ref}
     >
-      <h1 style={{ color: "white", fontSize: "40px" }}>Wanna test it?</h1>
+      <h1 style={{ color: "white" }} className="section-title">
+        Wanna test it?
+      </h1>
 
       <div
         style={{
