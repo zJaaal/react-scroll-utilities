@@ -3,11 +3,17 @@ import { Circle, useDynamicColor, useLinearValue } from "./lib";
 
 const TestEnvironment = () => {
   const ref = useRef(null);
-  // const height = useLinearValue({
-  //   startValue: 300,
-  //   endValue: 500,
-  //   elementRef: ref,
-  // });
+  const color = useDynamicColor({
+    startColor: [67, 206, 162],
+    endColor: [24, 90, 157],
+    elementRef: ref,
+  });
+
+  const height = useLinearValue({
+    startValue: 100,
+    endValue: 500,
+    elementRef: ref,
+  });
   const width = useLinearValue({
     startValue: 100,
     endValue: 500,
@@ -31,16 +37,15 @@ const TestEnvironment = () => {
       >
         <div
           style={{
-            height: "200px",
+            height,
             width,
-            backgroundColor: "skyblue",
+            backgroundColor: color,
             color: "black",
             transform: `rotate(${deg}deg)`,
+            borderRadius: "10px",
           }}
           ref={ref}
-        >
-          TestEnvironment2
-        </div>
+        ></div>
       </div>
       <div style={{ height: 400 }}>
         <Circle radius="40vh" stroke={2}></Circle>
