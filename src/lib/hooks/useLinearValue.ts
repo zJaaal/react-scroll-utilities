@@ -3,12 +3,24 @@ import { LinearValueOptions, LinearValueProps } from "../types";
 import clamp from "../utils/calculations/clamp";
 import getLinearValue from "../utils/calculations/getLinearValue";
 import { LinearValue } from "../utils/calculations/types";
+import validateLinearValues from "../utils/validations/validateLinearValues";
 import useProximity from "./useProximity";
 
 const defaultOptions: LinearValueOptions = {
   anchor: "middle",
 };
 
+/**
+ * @description This custom hook takes an object with four properties: startValue, endValue, elementRef and options.
+ *
+ * The startValue and endValue are numbers, this values represent whatever you need to calculate, like height, width, position, etc.
+ *
+ * elementRef is a reference from an HTMLElement
+ *
+ * options is an object that let you change the behavior of the hook, like the anchor of the calculation of the value (see docs)
+ * @param LinearValueObject LinearValueProps
+ * @returns value number
+ */
 const useLinearValue = ({
   startValue,
   endValue,
@@ -18,6 +30,8 @@ const useLinearValue = ({
   const { anchor } = options;
   const { onSight, y } = useProximity(elementRef);
   const value = useRef(startValue);
+
+  useLayoutEffect(() => validateLinearValues(startValue, endValue), []);
 
   useLayoutEffect(() => {
     const { top, bottom } =
@@ -65,6 +79,12 @@ const useLinearValue = ({
           };
           value.current = getLinearValue(linearValue);
           break;
+        }
+        default: {
+          throw new Error(
+            "anchor should be a valid value, like: 'top', 'middle' or 'bottom'. Instead recieved " +
+              anchor
+          );
         }
       }
     }

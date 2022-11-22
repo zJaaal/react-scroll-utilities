@@ -8,7 +8,7 @@ import validateScrollValue from "../utils/validations/validateScrollValue";
 /**
  * @description This hooks returns the proximity of the viewport from the component.
  * @param ref A reference to the HTMLElement
- * @returns An object with 2 properties: x and y. Values that represents the proximity to the component. The closer to 1 the closer is the middle of the screen from the component.
+ * @returns An object with 3 properties: x, y and onSight. Values that represents the proximity to the component. The closer to 0 the closer is the center of the screen from the center of the component.
  */
 const useProximity = (ref: RefObject<HTMLElement>) => {
   const scrollState = useContext(ScrollContext);

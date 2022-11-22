@@ -10,6 +10,17 @@ const defautlOptions: DynamicColorOptions = {
   anchor: "middle",
 };
 
+/**
+ * @description This custom hook takes an object with four properties: startColor, endColor, elementRef and options.
+ *
+ * The startColor and endColor are arrays of 3 number, each value represent a color from RGB, like [123, 12, 214] == rgb(123, 12, 214).
+ *
+ * elementRef is a reference from an HTMLElement
+ *
+ * options is an object that let you change the behavior of the hook, like the anchor of the calculation of the color (see docs)
+ * @param DynamicColorObject DynamicColor
+ * @returns color string: "rgb(123, 23, 65)"
+ */
 const useDynamicColor = ({
   startColor,
   endColor,
