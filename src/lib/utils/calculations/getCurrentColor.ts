@@ -67,6 +67,12 @@ const getCurrentColor = ({
         colorLinearValue = getLinearValue(linearValue);
         break;
       }
+      default: {
+        throw new Error(
+          "anchor should be a valid value, like: 'top', 'middle' or 'bottom'. Instead recieved " +
+            anchor
+        );
+      }
     }
     steps.push(clamp(startColor[i], endColor[i], colorLinearValue));
   });
