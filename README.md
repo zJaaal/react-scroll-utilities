@@ -1,4 +1,4 @@
-# React Scroll Utilities (Beta)
+# React Scroll Utilities
   ![npm](https://img.shields.io/npm/v/react-scroll-utilities?color=%2301b37f)
   ![npm bundle size](https://img.shields.io/bundlephobia/min/react-scroll-utilities)
   ![npm](https://img.shields.io/npm/dw/react-scroll-utilities?color=%23620d7e)
@@ -7,10 +7,6 @@
 React Scroll Utilities is a Lightweight library to track scroll events like, proximity to components, direction of scroll and render a component if it's on screen sight. I'll be adding more features and improving the functionality. I'm also open to read any request or change that you think that would be a good addition.
 
 [Want to see a demo?](https://react-scroll-utilities.netlify.app)
-
-## Disclaimer
-
-This library is still on Beta phase, some components could get deprecated, implementations can change and generate breaking changes, so until futher notice I don't recommend to use it on real projects. Anyways I would be grateful if you use it and experiment with it. I'm still figuring out how to make some things and optimize implementations. So, if you have any ideas of new implementations/hooks/components please don't hesitate to open an issue. 
 
 ## Installation
 
