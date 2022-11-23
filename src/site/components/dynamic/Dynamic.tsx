@@ -1,8 +1,6 @@
 import React, { useRef } from "react";
 import { Rectangle, useDynamicColor } from "../../../lib";
 
-import "./Dynamic.styles.css";
-
 const Dynamic = () => {
   const ref = useRef(null);
   const exampleRef = useRef(null);
