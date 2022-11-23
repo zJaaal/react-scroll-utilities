@@ -3,14 +3,6 @@ import Render from "../../../example-components/render/Render";
 import { useDynamicColor } from "../../../lib";
 
 const Footer = () => {
-  const ref = useRef(null);
-
-  const backgroundColor = useDynamicColor({
-    startColor: [159, 212, 163],
-    endColor: [0, 0, 0],
-    elementRef: ref,
-    options: { anchor: "bottom" },
-  });
   return (
     <div
       style={{
@@ -19,10 +11,9 @@ const Footer = () => {
         flexDirection: "column",
         alignItems: "center",
         justifyContent: "space-between",
-        backgroundColor,
+        backgroundColor: "black",
         paddingTop: "30px",
       }}
-      ref={ref}
     >
       <h1 style={{ color: "white" }} className="section-title">
         Wanna test it?
