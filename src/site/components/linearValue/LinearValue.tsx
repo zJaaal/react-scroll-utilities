@@ -98,8 +98,8 @@ const LinearValue = () => {
               marginTop: "40px",
               backgroundColor: sqauresBackgroundColor,
               transform: `rotate(-${value}deg)`,
-              width: "100px",
-              height: "100px",
+              width: "90px",
+              height: "90px",
             }}
           ></div>
           <div
@@ -107,7 +107,7 @@ const LinearValue = () => {
               marginTop: "40px",
               backgroundColor: sqauresBackgroundColor,
               width: value,
-              height: "100px",
+              height: value,
             }}
           ></div>
           <div
@@ -115,8 +115,8 @@ const LinearValue = () => {
               marginTop: "40px",
               backgroundColor: sqauresBackgroundColor,
               transform: `rotate(${value}deg)`,
-              width: "100px",
-              height: "100px",
+              width: "90px",
+              height: "90px",
             }}
           ></div>
         </div>
@@ -129,7 +129,7 @@ const LinearValue = () => {
             flexDirection: "column",
             justifyContent: "space-around",
             width: "100vw",
-            height: "200px",
+            height: "400px",
             marginTop: "100px",
             marginLeft: "30px",
             marginBottom: "30px",
