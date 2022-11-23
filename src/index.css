@@ -1,59 +1,249 @@
-body {
+html,
+body,
+#root {
   height: 100%;
-  width: 2000px;
+  width: 100%;
+  font-family: 'Sono', sans-serif;
+  overflow-x: clip;
 }
+
 
 * {
   padding: 0;
   margin: 0;
 }
 
-.ease-in {
-  margin-bottom: 20px;
-  animation-name: ease-in;
-  animation-duration: 1s;
-  animation-timing-function: linear;
+.arrow-right {
+  height: 60px;
+  width: 60px;
+  filter: invert(100%);
+  -webkit-filter: invert(100%);
+  transition: all 0.5s ease-in-out;
 }
 
-@keyframes ease-in {
-  0% {
-    transform: translate(0, 100px);
-    opacity: 0;
-  }
-
-  100% {
-    transform: translate(0, 0);
-    opacity: 1;
-  }
+.section-title {
+  font-size: 40px
 }
 
-
-.test {
-  height: 100px;
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
+.long-section-title {
+  font-size: 40px
 }
 
-ul {
-  list-style: none;
-  list-style-type: none;
+.left {
+  animation-name: left;
+  -webkit-animation-name: left;
+  -moz-animation-name: left;
+  -o-animation-name: left;
+  animation-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  -webkit-animation-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  -moz-animation-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  -o-animation-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  animation-duration: 2s;
+  -webkit-animation-duration: 2s;
+  -moz-animation-duration: 2s;
+  -o-animation-duration: 2s;
+
+  font-size: 20.8px
 }
 
-#root {
-  height: inherit;
+.right {
+  animation-name: right;
+  -webkit-animation-name: right;
+  -moz-animation-name: right;
+  -o-animation-name: right;
+  animation-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  -webkit-animation-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  -moz-animation-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  -o-animation-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  animation-duration: 2s;
+  -webkit-animation-duration: 2s;
+  -moz-animation-duration: 2s;
+  -o-animation-duration: 2s;
+
+  font-size: 20.8px
 }
 
-
-
-@keyframes spin {
+@keyframes right {
   from {
-    transform: rotate(0deg);
+    opacity: 0;
+    transform: translateX(1000px);
   }
 
   to {
-    transform: rotate(360deg);
+    opacity: 1;
+    transform: translateX(0px);
+  }
+
+}
+
+@-webkit-keyframes right {
+  from {
+    opacity: 0;
+    -webkit-transform: translateX(1000px);
+  }
+
+  to {
+    opacity: 1;
+    -webkit-transform: translateX(0px);
+  }
+
+}
+
+@-moz-keyframes right {
+  from {
+    opacity: 0;
+    -moz-transform: translateX(1000px);
+  }
+
+  to {
+    opacity: 1;
+    -moz-transform: translateX(0px);
+  }
+
+}
+
+@-o-keyframes right {
+  from {
+    opacity: 0;
+    -o-transform: translateX(1000px);
+  }
+
+  to {
+    opacity: 1;
+    -o-transform: translateX(0px);
+  }
+
+}
+
+@keyframes left {
+  from {
+    opacity: 0;
+    transform: translateX(-1000px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0px);
+  }
+
+}
+
+@-webkit-keyframes left {
+  from {
+    opacity: 0;
+    -webkit-transform: translateX(-1000px);
+  }
+
+  to {
+    opacity: 1;
+    -webkit-transform: translateX(0px);
+  }
+
+}
+
+@-moz-keyframes left {
+  from {
+    opacity: 0;
+    -moz-transform: translateX(-1000px);
+  }
+
+  to {
+    opacity: 1;
+    -moz-transform: translateX(0px);
+  }
+
+}
+
+@-o-keyframes left {
+  from {
+    opacity: 0;
+    -o-transform: translateX(-1000px);
+  }
+
+  to {
+    opacity: 1;
+    -o-transform: translateX(0px);
+  }
+
+}
+
+.explanation {
+  width: 60%;
+}
+
+@media screen and (max-width: 400px) {
+  .explanation {
+    font-size: 16px;
+    width: 80%;
+  }
+}
+
+
+@media screen and (max-width: 800px) {
+
+  .left {
+    font-size: 18px;
+    padding-top: 20px;
+  }
+
+  .right {
+    font-size: 18px;
+    padding-top: 20px;
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .section-title {
+    font-size: 36px;
+  }
+
+  .long-section-title {
+    font-size: 32px;
+  }
+
+  .left {
+    font-size: 16px;
+  }
+
+  .right {
+    font-size: 16px;
+  }
+}
+
+@media screen and (max-width: 440px) {
+  .section-title {
+    font-size: 30px;
+  }
+
+  .long-section-title {
+    font-size: 26px;
+  }
+
+  .left {
+    font-size: 14px;
+  }
+
+  .right {
+    font-size: 14px;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .section-title {
+    font-size: 28px;
+  }
+
+  .long-section-title {
+    font-size: 24px;
+  }
+}
+
+@media screen and (max-width: 350px) {
+  .section-title {
+    font-size: 24px;
+  }
+
+  .long-section-title {
+    font-size: 20px;
   }
 }

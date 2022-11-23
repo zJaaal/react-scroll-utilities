@@ -1,20 +1,19 @@
-import { useRef } from "react";
-import { useDirection } from "./lib";
-import useProximity from "./lib/hooks/useProximity";
+import Direction from "./site/components/direction/Direction";
+import Dynamic from "./site/components/dynamic/Dynamic";
+import Footer from "./site/components/footer/Footer";
+import Header from "./site/components/header/Header";
+import LinearValue from "./site/components/linearValue/LinearValue";
+import Proximity from "./site/components/proximity/Proximity";
 
 function App() {
-  const ref = useRef<HTMLDivElement>(null);
-
-  const proximity = useProximity(ref);
-  const direction = useDirection();
-
   return (
-    <div className="test" ref={ref}>
-      <ul>
-        <li>{"Proximity Y: " + proximity.y}</li>
-        <li>{"Proximity X: " + proximity.x}</li>
-        <li>{"Direction: " + direction}</li>
-      </ul>
+    <div style={{ height: "100%" }}>
+      <Header />
+      <Proximity />
+      <Direction />
+      <Dynamic />
+      <LinearValue />
+      <Footer />
     </div>
   );
 }

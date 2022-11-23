@@ -88,72 +88,31 @@ describe("Rectangle Component", () => {
         RectangleTestComponent.queryByTestId("rectangle"),
         "Rectangle should be rendered with scaleX(-1)"
       ).toHaveStyle("transform: rotate(0deg) scaleX(-1);");
-    }),
-    //This test is not working, beacuse there's an issue in JSDom that don't set gradients to background and
-    //there's no way to test the values of the conical gradient
-    it.skip("Should change its speed when setting speed prop", () => {
-      const RectangleTestComponent = render(
-        <ScrollWatcher>
-          <Rectangle speed={10} />
-        </ScrollWatcher>
-      );
+    });
+  it("Should change its size when setting height prop", () => {
+    let height = 400;
 
-      //Should fire the same scroll event and compare the values
+    const RectangleTestComponent = render(
+      <ScrollWatcher>
+        <Rectangle height={height + "px"} />
+      </ScrollWatcher>
+    );
 
-      // expect(
-      //   someValue,
-      //   "Rectangle deg should be greater than the last deg calculation since is faster"
-      // ).toBeGreaterThan(lastCalculation));
-    }),
-    it("Should change its stroke when setting stroke prop", () => {
-      let stroke = 5;
+    const rectangleHeight = parseInt(
+      RectangleTestComponent.queryByTestId("rectangle")?.style.height as string
+    );
 
-      const RectangleTestComponent = render(
-        <ScrollWatcher>
-          <Rectangle stroke={stroke} />
-        </ScrollWatcher>
-      );
-
-      //Calculate stroke by hand
-      const rectangleHeight = parseInt(
-        RectangleTestComponent.queryByTestId("rectangle")?.style
-          .height as string
-      );
-      const innerRectangleHeight = parseInt(
-        RectangleTestComponent.queryByTestId("inner-rectangle")?.style
-          .height as string
-      );
-
-      expect(
-        rectangleHeight - innerRectangleHeight,
-        "Difference between rectangleHeight and innerRectangleHeight should be 5"
-      ).toBe(stroke);
-    }),
-    it("Should change its size when setting height prop", () => {
-      let height = 400;
-
-      const RectangleTestComponent = render(
-        <ScrollWatcher>
-          <Rectangle height={height} />
-        </ScrollWatcher>
-      );
-
-      const rectangleHeight = parseInt(
-        RectangleTestComponent.queryByTestId("rectangle")?.style
-          .height as string
-      );
-
-      expect(
-        rectangleHeight == height,
-        "Rectangle height should be equal to 400"
-      ).toBeTruthy();
-    }),
+    expect(
+      rectangleHeight == height,
+      "Rectangle height should be equal to 400"
+    ).toBeTruthy();
+  }),
     it("Should change its size when setting width prop", () => {
       let width = 400;
 
       const RectangleTestComponent = render(
         <ScrollWatcher>
-          <Rectangle width={width} />
+          <Rectangle width={width + "px"} />
         </ScrollWatcher>
       );
 
