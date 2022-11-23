@@ -1,15 +1,8 @@
 import React, { useRef } from "react";
 import Render from "../../../example-components/render/Render";
-import { useDynamicColor, Rectangle } from "../../../lib";
+import { useDynamicColor } from "../../../lib";
 
 const Footer = () => {
-  const ref = useRef(null);
-
-  const backgroundColor = useDynamicColor({
-    startColor: [159, 212, 163],
-    endColor: [0, 0, 0],
-    elementRef: ref,
-  });
   return (
     <div
       style={{
@@ -18,12 +11,13 @@ const Footer = () => {
         flexDirection: "column",
         alignItems: "center",
         justifyContent: "space-between",
-        backgroundColor,
+        backgroundColor: "black",
         paddingTop: "30px",
       }}
-      ref={ref}
     >
-      <h1 style={{ color: "white", fontSize: "40px" }}>Wanna test it?</h1>
+      <h1 style={{ color: "white" }} className="section-title">
+        Wanna test it?
+      </h1>
 
       <div
         style={{

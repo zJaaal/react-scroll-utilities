@@ -1,9 +1,10 @@
+import { measureUnitRegex } from "./types";
+
 export const validateCircleProps = (
-  radius: number,
+  radius: string,
   stroke: number,
   startDegree: number,
-  endDegree: number,
-  speed: number
+  endDegree: number
 ) => {
   if (startDegree > endDegree)
     throw new Error(
@@ -13,11 +14,11 @@ export const validateCircleProps = (
   if (stroke <= 0)
     throw new Error(`stroke should be more than 0 and is "${stroke}"`);
 
-  if (radius <= 0)
+  if (!radius.match(measureUnitRegex)) {
     throw new Error(
-      `radius of the circle should be more than 0 and is "${radius}"`
+      `radius should have a valid mesurement unit. Radius value is ${radius}`
     );
-
-  if (speed <= 0)
-    throw new Error(`speed should be more than 0 and is "${speed}"`);
+  } else if (typeof Number(radius.split(measureUnitRegex)[0]) != "number") {
+    throw new Error(`radius should be a number`);
+  }
 };

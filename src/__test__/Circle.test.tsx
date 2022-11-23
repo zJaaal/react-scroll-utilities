@@ -89,51 +89,12 @@ describe("Circle Component", () => {
         "Circle should be rendered with scaleX(-1)"
       ).toHaveStyle("transform: rotate(0deg) scaleX(-1);");
     }),
-    //This test is not working, beacuse there's an issue in JSDom that don't set gradients to background and
-    //there's no way to test the values of the conical gradient
-    it.skip("Should change its speed when setting speed prop", () => {
-      const CircleTestComponent = render(
-        <ScrollWatcher>
-          <Circle speed={10} />
-        </ScrollWatcher>
-      );
-
-      //Should fire the same scroll event and compare the values
-
-      // expect(
-      //   someValue,
-      //   "Circle deg should be greater than the last deg calculation since is faster"
-      // ).toBeGreaterThan(lastCalculation));
-    }),
-    it("Should change its stroke when setting stroke prop", () => {
-      let stroke = 5;
-
-      const CircleTestComponent = render(
-        <ScrollWatcher>
-          <Circle stroke={stroke} />
-        </ScrollWatcher>
-      );
-
-      //Calculate stroke by hand
-      const circleRadius = parseInt(
-        CircleTestComponent.queryByTestId("circle")?.style.height as string
-      );
-      const innerCircleRadius = parseInt(
-        CircleTestComponent.queryByTestId("inner-circle")?.style
-          .height as string
-      );
-
-      expect(
-        circleRadius - innerCircleRadius,
-        "Difference between circleRadius and innerCircleRadius should be 5"
-      ).toBe(stroke);
-    }),
     it("Should change its size when setting radius prop", () => {
       let radius = 400;
 
       const CircleTestComponent = render(
         <ScrollWatcher>
-          <Circle radius={radius} />
+          <Circle radius={radius + "px"} />
         </ScrollWatcher>
       );
 

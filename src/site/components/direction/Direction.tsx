@@ -36,14 +36,15 @@ const Direction = () => {
         backgroundColor={backgroundColor}
         color={color}
         stroke={5}
-        width={window.innerWidth / 2}
-        height={100}
-        speed={1.2}
+        width="60vw"
+        height={100 + "px"}
       >
-        <h1 style={{ color: "#e71d36", fontSize: "40px" }}>useDirection</h1>
+        <h1 style={{ color: "#e71d36" }} className={"section-title"}>
+          useDirection
+        </h1>
       </Rectangle>
 
-      <h2 style={{ marginTop: "20px", color }}>
+      <h2 style={{ marginTop: "20px", color }} className="first-title">
         These arrows react to the scroll direction
       </h2>
       {[0, 0, 0, 0].map((_, i) => (

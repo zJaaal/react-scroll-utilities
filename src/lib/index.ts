@@ -5,6 +5,7 @@ import useProximity from "./hooks/useProximity";
 import Circle from "./components/circle/Circle";
 import Rectangle from "./components/rectangle/Rectangle";
 import useDynamicColor from "./hooks/useDynamicColor";
+import useLinearValue from "./hooks/useLinearValue";
 
 export {
   //Components
@@ -16,6 +17,7 @@ export {
   useProximity,
   useDirection,
   useDynamicColor,
+  useLinearValue,
 
   //Types
   Directions,

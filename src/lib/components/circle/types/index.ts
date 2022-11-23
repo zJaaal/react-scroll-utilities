@@ -4,9 +4,8 @@ export type CircleProps = {
   backgroundColor?: string;
   color?: string;
   clockwise?: boolean;
-  speed?: number;
   stroke?: number;
-  radius?: number;
+  radius?: string;
   children?: ReactElement;
   startDegree?: number;
   endDegree?: number;
