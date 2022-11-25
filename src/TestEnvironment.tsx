@@ -1,28 +1,40 @@
 import React, { useRef } from "react";
 import { Circle, useDynamicColor, useLinearValue } from "./lib";
+import { LinearValueOptions } from "./lib/types";
 
 const TestEnvironment = () => {
   const ref = useRef(null);
+
+  const options: LinearValueOptions = {
+    anchor: "bottom",
+    delay: 0,
+    duration: 100,
+  };
+
   const color = useDynamicColor({
     startColor: [67, 206, 162],
     endColor: [24, 90, 157],
     elementRef: ref,
+    options,
   });
 
   const height = useLinearValue({
     startValue: 100,
     endValue: 500,
     elementRef: ref,
+    options,
   });
   const width = useLinearValue({
     startValue: 100,
     endValue: 500,
     elementRef: ref,
+    options,
   });
   const deg = useLinearValue({
     startValue: 0,
     endValue: 90,
     elementRef: ref,
+    options,
   });
 
   return (
