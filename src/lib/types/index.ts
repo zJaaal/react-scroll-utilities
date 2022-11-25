@@ -36,4 +36,6 @@ export type LinearValueProps = {
 
 export type LinearValueOptions = {
   anchor?: "top" | "middle" | "bottom";
+  duration?: number;
+  delay?: number;
 };

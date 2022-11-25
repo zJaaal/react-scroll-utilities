@@ -1,13 +1,17 @@
 import React, { useLayoutEffect, useRef } from "react";
 import { LinearValueOptions, LinearValueProps } from "../types";
-import clamp from "../utils/calculations/clamp";
-import getLinearValue from "../utils/calculations/getLinearValue";
-import { LinearValue } from "../utils/calculations/types";
-import validateLinearValues from "../utils/validations/validateLinearValues";
+import clamp from "../utils/calculations/misc/clamp";
+import getLinearValue from "../utils/calculations/linear/getLinearValue";
+import { LinearValue, OptionsParams } from "../utils/calculations/types";
+import validateLinearValues from "../utils/validations/hooks/validateLinearValues";
 import useProximity from "./useProximity";
+import getValueFromPercentage from "../utils/calculations/misc/getValueFromPercentage";
+import getLinearValueFromOptions from "../utils/calculations/linear/getLinearValueFromOptions";
 
 const defaultOptions: LinearValueOptions = {
   anchor: "middle",
+  duration: 100,
+  delay: 0,
 };
 
 /**
@@ -25,68 +29,28 @@ const useLinearValue = ({
   startValue,
   endValue,
   elementRef,
-  options = defaultOptions,
+  options,
 }: LinearValueProps) => {
-  const { anchor } = options;
+  const mixedOptions = { ...defaultOptions, ...options };
   const { onSight, y } = useProximity(elementRef);
   const value = useRef(startValue);
-
-  useLayoutEffect(() => validateLinearValues(startValue, endValue), []);
+  const height = useRef<number>();
 
   useLayoutEffect(() => {
-    const { top, bottom } =
-      anchor != "middle"
-        ? elementRef.current!.getBoundingClientRect()
-        : { top: 0, bottom: 0 };
+    validateLinearValues(startValue, endValue);
+    height.current = elementRef.current?.clientHeight;
+  }, []);
 
-    if (onSight) {
-      switch (anchor) {
-        case "middle": {
-          const linearValue: LinearValue = {
-            x1:
-              Math.max(elementRef.current!.clientHeight, window.innerHeight) /
-              -2,
-            x2:
-              Math.max(elementRef.current!.clientHeight, window.innerHeight) /
-              2,
-            y1: startValue,
-            y2: endValue,
-            position: y,
-          };
-          value.current = getLinearValue(linearValue);
-          break;
-        }
-        case "top": {
-          const linearValue: LinearValue = {
-            x1: 0,
-            x2: -elementRef.current!.clientHeight,
-            y1: startValue,
-            y2: endValue,
-            position: top,
-          };
-          value.current = getLinearValue(linearValue);
-          break;
-        }
-        case "bottom": {
-          const linearValue: LinearValue = {
-            x1: 0,
-            x2: elementRef.current!.clientHeight,
-            y1: startValue,
-            y2: endValue,
-            position: Math.abs(
-              bottom - window.innerHeight - elementRef.current!.clientHeight
-            ),
-          };
-          value.current = getLinearValue(linearValue);
-          break;
-        }
-        default: {
-          throw new Error(
-            "anchor should be a valid value, like: 'top', 'middle' or 'bottom'. Instead recieved " +
-              anchor
-          );
-        }
-      }
+  useLayoutEffect(() => {
+    if (onSight && typeof height.current != "undefined") {
+      const optionsParams: OptionsParams = {
+        y,
+        startValue,
+        endValue,
+        height: height.current,
+        options: mixedOptions,
+      };
+      value.current = getLinearValueFromOptions(optionsParams);
     }
   }, [y]);
   return clamp(startValue, endValue, value.current);
