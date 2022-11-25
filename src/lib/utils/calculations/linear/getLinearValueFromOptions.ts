@@ -16,11 +16,12 @@ const getLinearValueFromOptions = ({
       let maxValue = Math.max(height, window.innerHeight);
 
       //Calculate where it should start from the maxValue
-      let middleDelay = getValueFromPercentage(maxValue, delay!);
+      let middleDelay = getValueFromPercentage(maxValue, delay as number);
 
       //Calculate where it should end saying that the start is from the delay
       let middleDuration =
-        getValueFromPercentage(maxValue - middleDelay, duration!) + middleDelay;
+        getValueFromPercentage(maxValue - middleDelay, duration as number) +
+        middleDelay;
 
       const linearValue: LinearValue = {
         //We fix it to negative side or positive if is more than 50%
@@ -31,16 +32,15 @@ const getLinearValueFromOptions = ({
         y2: endValue,
         position: y,
       };
-      // console.log(getLinearValue(linearValue));
       return getLinearValue(linearValue);
     }
     case "top": {
       //Calculate where it should start from the maxValue in this case clientHeight of the element
-      let topDelay = getValueFromPercentage(-height, delay!);
+      let topDelay = getValueFromPercentage(height, delay as number);
 
       //Calculate where it should end saying that the start is from the delay
       let topDuration =
-        getValueFromPercentage(Math.abs(topDelay) - height, duration!) +
+        getValueFromPercentage(height - topDelay, duration as number) +
         topDelay; // With this sum we fix it to the limits between the delay and the end of the component
 
       const linearValue: LinearValue = {
@@ -48,8 +48,9 @@ const getLinearValueFromOptions = ({
         x2: topDuration,
         y1: startValue,
         y2: endValue,
-        position: y - window.innerHeight / 2 - height / 2,
+        position: y + height / 1.8 - window.innerHeight / 2,
       };
+
       return getLinearValue(linearValue);
     }
     case "bottom": {
@@ -65,8 +66,9 @@ const getLinearValueFromOptions = ({
         x2: bottomDuration,
         y1: startValue,
         y2: endValue,
-        position: y + window.innerHeight / 2 + height / 2,
+        position: y + window.innerHeight / 2 + height / 1.8,
       };
+
       return getLinearValue(linearValue);
     }
     default: {
