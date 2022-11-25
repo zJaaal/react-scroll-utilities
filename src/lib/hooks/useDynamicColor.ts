@@ -1,10 +1,5 @@
 import { useRef, useLayoutEffect } from "react";
-import {
-  DynamicColor,
-  Directions,
-  DynamicColorOptions,
-  LinearValueOptions,
-} from "../types";
+import { DynamicColor, Directions, LinearValueOptions } from "../types";
 import clamp from "../utils/calculations/misc/clamp";
 import getCurrentColor from "../utils/calculations/color/getCurrentColor";
 import validateColors from "../utils/validations/hooks/validateColors";
@@ -36,11 +31,13 @@ const useDynamicColor = ({
 }: DynamicColor) => {
   const mixedOptions = { ...defautlOptions, ...options };
   const color = useRef<number[]>([...startColor]);
+  const height = useRef<number>();
 
   const { onSight, y } = useProximity(elementRef);
 
   useLayoutEffect(() => {
     validateColors(startColor, endColor);
+    height.current = elementRef.current?.clientHeight;
   }, []);
 
   useLayoutEffect(() => {
@@ -49,6 +46,7 @@ const useDynamicColor = ({
         startColor,
         endColor,
         element: elementRef.current!,
+        height: height.current as number,
         proximity: y,
         options: mixedOptions,
       });

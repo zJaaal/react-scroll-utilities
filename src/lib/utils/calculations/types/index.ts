@@ -19,6 +19,7 @@ export type CurrentColor = {
   startColor: number[];
   endColor: number[];
   element: HTMLElement;
+  height: number;
   proximity: number;
   options: LinearValueOptions;
 };

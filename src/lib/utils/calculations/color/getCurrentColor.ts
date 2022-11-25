@@ -7,6 +7,7 @@ const getCurrentColor = ({
   startColor,
   endColor,
   element,
+  height,
   proximity,
   options,
 }: CurrentColor): number[] => {
@@ -18,17 +19,13 @@ const getCurrentColor = ({
     if (color == endColor[i]) return colorArray.push(0);
 
     //I'm using a linear function to calculate the color at the current point
-    //I'm using height of the element for X Coors
-    //I'm using start color and end color as Y Coors
-    //So (0, startColor[i]) and (element.clientHeight or innerHeight, endColor[i]) are my points
-
     let colorLinearValue = 0;
 
     let optionsParams: OptionsParams = {
       y: proximity,
       startValue: startColor[i],
       endValue: endColor[i],
-      height: element.clientHeight,
+      height: height,
       options,
     };
 
