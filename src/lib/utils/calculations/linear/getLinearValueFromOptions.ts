@@ -19,10 +19,8 @@ const getLinearValueFromOptions = ({
       let middleDelay = getValueFromPercentage(maxValue, delay!);
 
       //Calculate where it should end saying that the start is from the delay
-      let middleDuration = getValueFromPercentage(
-        maxValue - middleDelay,
-        duration!
-      );
+      let middleDuration =
+        getValueFromPercentage(maxValue - middleDelay, duration!) + middleDelay;
 
       const linearValue: LinearValue = {
         //We fix it to negative side or positive if is more than 50%
@@ -33,6 +31,7 @@ const getLinearValueFromOptions = ({
         y2: endValue,
         position: y,
       };
+      // console.log(getLinearValue(linearValue));
       return getLinearValue(linearValue);
     }
     case "top": {
