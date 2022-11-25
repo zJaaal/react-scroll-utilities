@@ -1,7 +1,7 @@
 import React, { FC, useEffect, useState } from "react";
 import ScrollContext from "../context/ScrollContext";
 import { Coors } from "../types";
-import getCoors from "../utils/calculations/getCoors";
+import getCoors from "../utils/calculations/proximity/getCoors";
 
 const ScrollWatcher: FC<any> = ({ children }) => {
   const initialState: Coors = getCoors();
