@@ -66,7 +66,7 @@ const getLinearValueFromOptions = ({
         x2: bottomDuration,
         y1: startValue,
         y2: endValue,
-        position: y + window.innerHeight / 2 + height / 1.8,
+        position: y + height / 1.8 + window.innerHeight / 2,
       };
 
       return getLinearValue(linearValue);
