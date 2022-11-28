@@ -21,7 +21,7 @@ const getLinearValueFromOptions = ({
       //Calculate where it should end saying that the start is from the delay
       let middleDuration =
         getValueFromPercentage(maxValue - middleDelay, duration as number) +
-        middleDelay;
+        middleDelay; // With this sum we fix it to the limits between the delay and the end of the component
 
       const linearValue: LinearValue = {
         //We fix it to negative side or positive if is more than 50%
@@ -49,6 +49,7 @@ const getLinearValueFromOptions = ({
         y1: startValue,
         y2: endValue,
         position: y + height / 1.8 - window.innerHeight / 2,
+        //1.8 is because like that the animation will end before it reach the end of the bottom of the component
       };
 
       return getLinearValue(linearValue);
@@ -67,6 +68,7 @@ const getLinearValueFromOptions = ({
         y1: startValue,
         y2: endValue,
         position: y + height / 1.8 + window.innerHeight / 2,
+        //1.8 is because like that the animation will end before it reach the end of the bottom of the component
       };
 
       return getLinearValue(linearValue);
