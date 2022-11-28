@@ -15,19 +15,19 @@ const TestEnvironment = () => {
   };
 
   const optionsDelay1: LinearValueOptions = {
-    anchor: "top",
+    anchor: "middle",
     delay: 0,
-    duration: 100,
+    duration: 50,
   };
   const optionsDelay2: LinearValueOptions = {
     anchor: "middle",
     delay: 0,
-    duration: 100,
+    duration: 60,
   };
   const optionsDelay3: LinearValueOptions = {
-    anchor: "bottom",
+    anchor: "middle",
     delay: 0,
-    duration: 100,
+    duration: 70,
   };
 
   const color = useDynamicColor({
