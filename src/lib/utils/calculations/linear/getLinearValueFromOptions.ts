@@ -27,11 +27,12 @@ const getLinearValueFromOptions = ({
         //We fix it to negative side or positive if is more than 50%
         x1: middleDelay - maxValue / 2,
         //We fix it to the positive side
-        x2: middleDuration / 2,
+        x2: middleDuration - maxValue / 2,
         y1: startValue,
         y2: endValue,
         position: y,
       };
+
       return getLinearValue(linearValue);
     }
     case "top": {
