@@ -22,12 +22,12 @@ const TestEnvironment = () => {
   const optionsDelay2: LinearValueOptions = {
     anchor: "middle",
     delay: 0,
-    duration: 60,
+    duration: 75,
   };
   const optionsDelay3: LinearValueOptions = {
     anchor: "middle",
     delay: 0,
-    duration: 70,
+    duration: 100,
   };
 
   const color = useDynamicColor({
