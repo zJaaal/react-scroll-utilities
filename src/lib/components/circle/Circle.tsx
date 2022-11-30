@@ -1,6 +1,6 @@
 import React, { CSSProperties, FC, useEffect, useRef } from "react";
 import { useLinearValue } from "../../index";
-import { validateCircleProps } from "../../utils/validations/validateCircleProps";
+import { validateCircleProps } from "../../utils/validations/components/validateCircleProps";
 import { CircleProps } from "./types";
 import "./Circle.style.css";
 

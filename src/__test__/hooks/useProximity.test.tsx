@@ -1,11 +1,11 @@
 import { render, cleanup, fireEvent, screen } from "@testing-library/react";
 import { describe, it, expect, beforeAll, afterEach } from "vitest";
-import ScrollWatcher from "../lib/components/ScrollWatcher";
-import UseProximityOnSight from "./components/proximity/UseProximityOnSight";
-import UseProximityX from "./components/proximity/UseProximityX";
-import UseProximityY from "./components/proximity/UseProximityY";
-import getBoundingClientRectMock from "./mock/getBoundingClientRectMock";
-import matchMediaMock from "./mock/matchMediaMock";
+import { ScrollWatcher } from "../../lib";
+import getBoundingClientRectMock from "../mock/getBoundingClientRectMock";
+import matchMediaMock from "../mock/matchMediaMock";
+import UseProximityOnSight from "../test-components/proximity/UseProximityOnSight";
+import UseProximityX from "../test-components/proximity/UseProximityX";
+import UseProximityY from "../test-components/proximity/UseProximityY";
 
 //for Y and X useProximity returns the distance to the center of the component
 //So if its not in the center, the value where the component is on sight

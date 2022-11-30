@@ -1,9 +1,9 @@
 import { cleanup, fireEvent, render } from "@testing-library/react";
 import { afterEach, beforeAll, describe, it, expect } from "vitest";
-import { ScrollWatcher } from "../lib";
-import Circle from "../lib/components/circle/Circle";
-import getBoundingClientRectMock from "./mock/getBoundingClientRectMock";
-import matchMediaMock from "./mock/matchMediaMock";
+import { ScrollWatcher } from "../../lib";
+import Circle from "../../lib/components/circle/Circle";
+import getBoundingClientRectMock from "../mock/getBoundingClientRectMock";
+import matchMediaMock from "../mock/matchMediaMock";
 
 describe("Circle Component", () => {
   afterEach(cleanup);

@@ -1,8 +1,8 @@
 import { cleanup, fireEvent, render } from "@testing-library/react";
 import { expect } from "vitest";
-import { ScrollWatcher } from "../lib";
-import LinearValueTest from "./components/linearValue/LinearValueTest";
-import getBoundingClientRectMock from "./mock/getBoundingClientRectMock";
+import { ScrollWatcher } from "../../lib";
+import getBoundingClientRectMock from "../mock/getBoundingClientRectMock";
+import LinearValueTest from "../test-components/linearValue/LinearValueTest";
 
 describe("useLinearValue custom hook", () => {
   beforeAll(() => getBoundingClientRectMock());

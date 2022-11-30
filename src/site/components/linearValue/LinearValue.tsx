@@ -14,7 +14,13 @@ const LinearValue = () => {
     startColor: [159, 212, 163],
     endColor: [0, 0, 0],
     elementRef: ref,
-    options: { anchor: "bottom" },
+    options: { anchor: "bottom", duration: 70 },
+  });
+  const color = useDynamicColor({
+    startColor: [0, 0, 0],
+    endColor: [159, 212, 163],
+    elementRef: ref,
+    options: { anchor: "bottom", duration: 70 },
   });
   const sqauresBackgroundColor = useDynamicColor({
     startColor: [159, 212, 163],
@@ -22,18 +28,12 @@ const LinearValue = () => {
     elementRef: ref,
     options: { anchor: "middle" },
   });
-  const color = useDynamicColor({
-    startColor: [0, 0, 0],
-    endColor: [159, 212, 163],
-    elementRef: ref,
-    options: { anchor: "bottom" },
-  });
 
   const value = useLinearValue({
     startValue: 0,
     endValue: 90,
     elementRef: ref,
-    options: { anchor: "bottom" },
+    options: { anchor: "bottom", duration: 80 },
   });
   const translateValue = useLinearValue({
     startValue: 0,

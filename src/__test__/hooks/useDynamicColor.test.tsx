@@ -1,9 +1,8 @@
 import { cleanup, fireEvent, render } from "@testing-library/react";
 import { describe, it, expect } from "vitest";
-import { ScrollWatcher } from "../lib";
-import DynamicBackground from "../example-components/dynamicBackground/DynamicBackground";
-import UseDynamicColorTest from "./components/dynamicColor/useDynamicColorTest";
-import getBoundingClientRectMock from "./mock/getBoundingClientRectMock";
+import { ScrollWatcher } from "../../lib";
+import getBoundingClientRectMock from "../mock/getBoundingClientRectMock";
+import UseDynamicColorTest from "../test-components/dynamicColor/useDynamicColorTest";
 
 describe("useDynamicColor hook", () => {
   beforeAll(() => {
