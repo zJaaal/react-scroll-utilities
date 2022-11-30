@@ -1,4 +1,4 @@
-import { Coors } from "../../types";
+import { Coors } from "../../../types";
 
 const getCoors = (): Coors => {
   return {

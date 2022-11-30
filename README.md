@@ -8,6 +8,19 @@ React Scroll Utilities is a Lightweight library to track scroll events like, pro
 
 [Want to see a demo?](https://react-scroll-utilities.netlify.app)
 
+## Index 
+
+1. [Installation](#installation)
+2. [ScrollWatcher Component](#scrollwatcher-component)
+3. [useProximity Hook](#useproximity-hook)
+4. [useDynamicColor Hook](#usedynamiccolor-hook)
+5. [useLinearValue Hook](#uselinearvalue-hook)
+6. [useDirection Hook](#usedirection-hook)
+7. [Linear Values Options](#linear-values-options)
+8. [Circle Component](#circle-component)
+9. [Rectangle Component](#rectangle-component)
+
+
 ## Installation
 
 You will need React ++16.8 to make this library work, since it use hooks as it's main construction.
@@ -127,11 +140,7 @@ This hook returns an RGB color that changes with the scroll, using an startColor
 
 This hook takes an object with 3 properties, "startColor" and "endColor" that are arrays of number with a length of 3. Each value in the array is a color representing RGB, so each value should be between 0 and 255. That means that each array should be like: [123, 2, 215] or [0, 0, 0] or [255, 255, 255 ]. The third property is "elementRef" that is an HTML Reference that you can get using the useRef hook. 
 
-Also it accepts an options object, to modify the behavior of the hook, options for now has just one property: anchor
-
-anchor property is a string that can only be: "top", "middle" and "bottom". Its default value is "middle".
-
-This represents which edge of the component will use the hook to calculate the current color. My recomendations are that you test it by yourself to see how it works. But I can tell you that if you have a component that is at the very top of your page, use anchor: "top" and if you have a component at the very bottom of your page, something like a footer, use anchor: "bottom".
+Also it accepts an options object. Refer to [Linear Values Options](#linear-values-options) for more information.
 
 It returns and string as: ```"rgb(123, 0, 43)"```
 
@@ -154,11 +163,6 @@ const DynamicBackground = ({
     startColor: [123, 0, 24], //The color will vary from here
     endColor: [45, 34, 12], // To here
     elementRef: elementRef, //Using the height and the position of this element
-
-    // Neither options or anchor are needed in this case because it will always have middle as default value, I just use it for example purposes
-    options: {
-      anchor: "middle" // Because this will cover all the app, since is a background
-    }
   }
 
   const colorWithExternalObject = useDynamicColor(colorObj);
@@ -185,11 +189,7 @@ This hook returns a value that changes on scroll, using an startValue and an end
 
 This hook takes an object with 3 properties, "startValue" and "endValue" that are numbers. The third property is "elementRef" that is an HTML Reference that you can get using the useRef hook. 
 
-Also it accepts an options object, to modify the behavior of the hook, options for now has just one property: anchor
-
-anchor property is a string that can only be: "top", "middle" and "bottom". Its default value is "middle".
-
-This represents which edge of the component will use the hook to calculate the current color. My recomendations are that you test it by yourself to see how it works. But I can tell you that if you have a component that is at the very top of your page, use anchor: "top" and if you have a component at the very bottom of your page, something like a footer, use anchor: "bottom".
+Also it accepts an options object. Refer to [Linear Values Options](#linear-values-options) for more information.
 
 It returns the current value as number.
 
@@ -289,7 +289,52 @@ function Example() {
 
 This lib provides an enum for TypeScript users, it just has four properties at the moment: Directions.up, Directions.down, Directions.right and Directions.left that returns the value of "UP", "DOWN" "RIGHT" and "LEFT", you can use it as helper for useDirection hook.
 
-# Animations Components
+
+## Linear Values Options 
+
+This options let you modify the behavior of the animations, is an object that useDynamicColor and useLinearValues use in their "options" property, it has 3 properties: "anchor", "delay" and "duration".
+
+### Anchor property
+
+It accepts 3 possible values as strings: "top", "middle" and "bottom". This refers to the edge of where the hook should make the calculations.
+
+For example: 
+
+- top: Refers to the top edge of your component, the animation will last until the bottom of your component touches the top of the viewport, so this anchor is perfect for header components that are at the very top of your app. This anchor takes the component height as reference.
+
+- middle: Refers to the exact middle of your component, the animation will last until the center of the component is out of the viewport, so this anchor is perfect for components that are floating near the center of some parent component. This anchor takes the viewport height as reference if the component height is less than viewport height.
+
+- bottom: Refers to the bottom edge of your component, the animation will last until the bottom of your component aligns to the bottom of the viewport, so this anchor is perfect for footer compoennts that are at the very bottom of your app. This anchor takes the component height as reference.
+
+### Delay property
+
+It accepts a number, that should be between 0 and 100, it refers to percentage. If you pass values that are out of range it will be clamped to 0 or 100.
+
+This means that, if you pass 50 the animation will delay to the 50% of the height of the component or viewport (depends on the anchor you use and the height of your component).
+
+So, let's say we are using a component of 1000px height as reference and we set delay as 30% and anchor as "middle".
+
+The animation won't start until the center of the screen (middle anchor) is at 300px (30% of 1000px) of the center of the component. 
+
+
+### Duration property
+
+It accepts a number, that should be between 0 and 100, it refers to percentage. If you pass values that are out of range it will be clamped to 0 or 100.
+
+This means that, if you pass 50 the animation will last long to the 50% of the total distance it should execute. 
+
+You can use delay and duration at the same time, if you set delay to 50% and set the animation to 50%, it will start at the half of the component and will last half of the time it should last. That means, if you set a delay, duration will use the total distance between the delay and the end of the component as reference.
+
+So, let's say we are using a component of 1000px, middle as anchor and we set duration and delay as 50.
+
+The animation won't start until the center of the screen (middle anchor) is at the center of the component (500px). So the total distance from delay to the end of the component is 500px. We also setted a duration at half, so the animation should last as half of the total distance, at 250px of the end of the component the animation will finish.
+
+### Recommendations
+
+If you struggle trying to understand that. I mean it could be hard to understand with all those numbers and calculations.
+
+I recommend to experiment with those values. Just go and mess around with it, maybe you'll understand it better if you see how it behaves.
+ 
 
 ## Circle Component
 

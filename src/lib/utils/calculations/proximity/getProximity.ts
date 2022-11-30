@@ -1,4 +1,4 @@
-import { ProximityState } from "../../types";
+import { ProximityState } from "../../../types";
 
 const getProximity = (element: HTMLElement): ProximityState => {
   const { x, y, top, bottom, left, right, height, width } =

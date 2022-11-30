@@ -1,4 +1,4 @@
-import { measureUnitRegex } from "./types";
+import { measureUnitRegex } from "../types";
 
 export const validateRectangleProps = (
   width: string,

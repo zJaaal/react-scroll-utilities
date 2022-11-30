@@ -6,7 +6,7 @@ import React, {
   useRef,
 } from "react";
 import { useLinearValue } from "../../index";
-import { validateRectangleProps } from "../../utils/validations/validateRectangleProps";
+import { validateRectangleProps } from "../../utils/validations/components/validateRectangleProps";
 import { RectangleProps } from "./types";
 import "./Rectangle.style.css";
 

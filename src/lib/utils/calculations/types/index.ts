@@ -1,3 +1,5 @@
+import { LinearValueOptions } from "../../../types";
+
 export type LinearValue = {
   x1: number;
   x2: number;
@@ -5,11 +7,19 @@ export type LinearValue = {
   y2: number;
   position: number;
 };
+export type OptionsParams = {
+  y: number;
+  startValue: number;
+  endValue: number;
+  height: number;
+  options: LinearValueOptions;
+};
 
 export type CurrentColor = {
   startColor: number[];
   endColor: number[];
   element: HTMLElement;
+  height: number;
   proximity: number;
-  anchor?: "top" | "middle" | "bottom";
+  options: LinearValueOptions;
 };

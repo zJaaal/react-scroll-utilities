@@ -1,7 +1,7 @@
 import { render } from "@testing-library/react";
 import { beforeAll, describe, expect, it } from "vitest";
-import ScrollWatcher from "../lib/components/ScrollWatcher";
-import matchMediaMock from "./mock/matchMediaMock";
+import { ScrollWatcher } from "../../lib";
+import matchMediaMock from "../mock/matchMediaMock";
 
 describe("ScrollWatcher Context", () => {
   beforeAll(() => matchMediaMock());

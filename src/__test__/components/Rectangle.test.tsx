@@ -1,9 +1,8 @@
 import { cleanup, fireEvent, render } from "@testing-library/react";
 import { afterEach, beforeAll, describe, it, expect } from "vitest";
-import { ScrollWatcher } from "../lib";
-import Rectangle from "../lib/components/rectangle/Rectangle";
-import getBoundingClientRectMock from "./mock/getBoundingClientRectMock";
-import matchMediaMock from "./mock/matchMediaMock";
+import { ScrollWatcher, Rectangle } from "../../lib";
+import getBoundingClientRectMock from "../mock/getBoundingClientRectMock";
+import matchMediaMock from "../mock/matchMediaMock";
 
 describe("Rectangle Component", () => {
   afterEach(cleanup);

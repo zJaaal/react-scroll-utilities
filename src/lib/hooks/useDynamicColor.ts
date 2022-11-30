@@ -1,13 +1,15 @@
 import { useRef, useLayoutEffect } from "react";
-import { DynamicColor, Directions, DynamicColorOptions } from "../types";
-import clamp from "../utils/calculations/clamp";
-import getCurrentColor from "../utils/calculations/getCurrentColor";
-import validateColors from "../utils/validations/validateColors";
+import { DynamicColor, Directions, LinearValueOptions } from "../types";
+import clamp from "../utils/calculations/misc/clamp";
+import getCurrentColor from "../utils/calculations/color/getCurrentColor";
+import validateColors from "../utils/validations/hooks/validateColors";
 import useDirection from "./useDirection";
 import useProximity from "./useProximity";
 
-const defautlOptions: DynamicColorOptions = {
+const defautlOptions: LinearValueOptions = {
   anchor: "middle",
+  delay: 0,
+  duration: 100,
 };
 
 /**
@@ -25,43 +27,29 @@ const useDynamicColor = ({
   startColor,
   endColor,
   elementRef,
-  options = defautlOptions,
+  options,
 }: DynamicColor) => {
-  const { anchor } = options;
+  const mixedOptions = { ...defautlOptions, ...options };
   const color = useRef<number[]>([...startColor]);
+  const height = useRef<number>();
 
   const { onSight, y } = useProximity(elementRef);
-  const direction = useDirection();
 
   useLayoutEffect(() => {
     validateColors(startColor, endColor);
+    height.current = elementRef.current?.clientHeight;
   }, []);
 
   useLayoutEffect(() => {
-    switch (direction) {
-      case Directions.up: {
-        if (onSight)
-          color.current = getCurrentColor({
-            startColor,
-            endColor,
-            element: elementRef.current!,
-            proximity: y,
-            anchor,
-          });
-        break;
-      }
-      case Directions.down: {
-        if (onSight)
-          color.current = getCurrentColor({
-            startColor,
-            endColor,
-            element: elementRef.current!,
-            proximity: y,
-            anchor,
-          });
-        break;
-      }
-    }
+    if (onSight)
+      color.current = getCurrentColor({
+        startColor,
+        endColor,
+        element: elementRef.current!,
+        height: height.current as number,
+        proximity: y,
+        options: mixedOptions,
+      });
   }, [y]);
 
   return `rgb(${color.current[0]}, ${color.current[1]}, ${color.current[2]})`;
