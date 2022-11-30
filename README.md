@@ -296,7 +296,7 @@ This options let you modify the behavior of the animations, is an object that us
 
 ### Anchor property
 
-It accepts 3 possible values as strings: "top", "middle" and "bottom". This refers to the edge of where the hook should make the calculations.
+It accepts 3 possible values as strings: "top", "middle" and "bottom". This refers to the edge of where the hook should make the calculations. The default value is "middle"
 
 For example: 
 
@@ -308,7 +308,7 @@ For example:
 
 ### Delay property
 
-It accepts a number, that should be between 0 and 100, it refers to percentage. If you pass values that are out of range it will be clamped to 0 or 100.
+It accepts a number, that should be between 0 and 100, it refers to percentage. If you pass values that are out of range it will be clamped to 0 or 100. The default value is 0.
 
 This means that, if you pass 50 the animation will delay to the 50% of the height of the component or viewport (depends on the anchor you use and the height of your component).
 
@@ -319,7 +319,7 @@ The animation won't start until the center of the screen (middle anchor) is at 3
 
 ### Duration property
 
-It accepts a number, that should be between 0 and 100, it refers to percentage. If you pass values that are out of range it will be clamped to 0 or 100.
+It accepts a number, that should be between 0 and 100, it refers to percentage. If you pass values that are out of range it will be clamped to 0 or 100. The default value is 100.
 
 This means that, if you pass 50 the animation will last long to the 50% of the total distance it should execute. 
 
@@ -334,6 +334,36 @@ The animation won't start until the center of the screen (middle anchor) is at t
 If you struggle trying to understand that. I mean it could be hard to understand with all those numbers and calculations.
 
 I recommend to experiment with those values. Just go and mess around with it, maybe you'll understand it better if you see how it behaves.
+
+### Example 
+
+```js
+
+  //This is how this object looks. All values are optional. You can skip everyone of them
+  const options = {
+    anchor: "middle", // This is skippable because anchor is middle by default
+    delay: 30, 
+    duration: 75,
+  };
+
+  //So now you just need to set it at the hooks
+    const color = useDynamicColor({
+    startColor: [67, 206, 162],
+    endColor: [24, 90, 157],
+    elementRef: ref, //Remember this is a ref to an HTML Element
+    options, // You can pass it like this because it has the same name as the property
+  });
+
+  //It's call height because I'm using this hook to change the height of a component on scroll
+  //In this case, the height will vary from 10 to 100 
+  const height = useLinearValue({
+    startValue: 10,
+    endValue: 100,
+    elementRef: ref, //Remember this is a ref to an HTML Element
+    options: options, //You can pass it like this if the name is different.
+  });
+
+```
  
 
 ## Circle Component
