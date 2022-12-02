@@ -17,8 +17,10 @@ React Scroll Utilities is a Lightweight library to track scroll events like, pro
 5. [useLinearValue Hook](#uselinearvalue-hook)
 6. [useDirection Hook](#usedirection-hook)
 7. [Linear Values Options](#linear-values-options)
-8. [Circle Component](#circle-component)
-9. [Rectangle Component](#rectangle-component)
+8. [Options Recommendations](#options-recommendations)
+9. [Circle Component](#circle-component)
+10. [Rectangle Component](#rectangle-component)
+11. [Circle/Rectangle Recommendations](#circlerectangle-recommendations)
 
 
 ## Installation
@@ -212,11 +214,6 @@ const SpinningSquare = () => {
     startValue: 0,
     endValue: 360,
     elementRef: ref,
-    options: {
-      //In this case lets say that we are going to use the SpinningSquare in a footer, so we use anchor: "bottom"
-      //Anyways, I recommend to test each of the possible anchor values to see how it behaves.
-      anchor: "bottom",
-    },
   };
 
   //Just an example of using an external object
@@ -329,7 +326,7 @@ So, let's say we are using a component of 1000px, middle as anchor and we set du
 
 The animation won't start until the center of the screen (middle anchor) is at the center of the component (500px). So the total distance from delay to the end of the component is 500px. We also setted a duration at half, so the animation should last as half of the total distance, at 250px of the end of the component the animation will finish.
 
-### Recommendations
+### Options Recommendations
 
 If you struggle trying to understand that. I mean it could be hard to understand with all those numbers and calculations.
 
@@ -354,7 +351,7 @@ I recommend to experiment with those values. Just go and mess around with it, ma
     options, // You can pass it like this because it has the same name as the property
   });
 
-  //It's call height because I'm using this hook to change the height of a component on scroll
+  //It's called height because I'm using this hook to change the height of a component on scroll
   //In this case, the height will vary from 10 to 100 
   const height = useLinearValue({
     startValue: 10,
@@ -438,7 +435,7 @@ This will render a rectangle that has a height of 400px, a width of 100px and a 
 ```
 
 
-## Recomendations
+## Circle/Rectangle Recommendations
 
 To make responsive the components, I recommend to use rem or em values, so that way you can modify the font-size of the root or parent component using media queries and therefore modify the sizes of the components.
 
