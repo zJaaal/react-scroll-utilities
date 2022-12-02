@@ -1,18 +1,9 @@
 import React, { useLayoutEffect, useRef } from "react";
-import { LinearValueOptions, LinearValueProps } from "../types";
-import clamp from "../utils/calculations/misc/clamp";
-import getLinearValue from "../utils/calculations/linear/getLinearValue";
-import { LinearValue, OptionsParams } from "../utils/calculations/types";
+import { LinearValueProps, defaultOptions } from "../types";
+import { OptionsParams } from "../utils/calculations/types";
 import validateLinearValues from "../utils/validations/hooks/validateLinearValues";
 import useProximity from "./useProximity";
-import getValueFromPercentage from "../utils/calculations/misc/getValueFromPercentage";
 import getLinearValueFromOptions from "../utils/calculations/linear/getLinearValueFromOptions";
-
-const defaultOptions: LinearValueOptions = {
-  anchor: "middle",
-  duration: 100,
-  delay: 0,
-};
 
 /**
  * @description This custom hook takes an object with four properties: startValue, endValue, elementRef and options.
@@ -53,7 +44,7 @@ const useLinearValue = ({
       value.current = getLinearValueFromOptions(optionsParams);
     }
   }, [y]);
-  return clamp(startValue, endValue, value.current);
+  return value.current;
 };
 
 export default useLinearValue;
