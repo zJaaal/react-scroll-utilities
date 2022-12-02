@@ -6,6 +6,7 @@ import LinearValue from "./site/components/linearValue/LinearValue";
 import Proximity from "./site/components/proximity/Proximity";
 
 function App() {
+  console.log("Welcome to React Scroll Utilities v1.1.2");
   return (
     <div style={{ height: "100%" }}>
       <Header />
