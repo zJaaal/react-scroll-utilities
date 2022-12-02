@@ -1,6 +1,6 @@
 import React, { RefObject, useContext, useLayoutEffect, useRef } from "react";
 import ScrollContext from "../context/ScrollContext";
-import { Coors, ProximityState } from "../types";
+import { ProximityState } from "../types";
 import getProximity from "../utils/calculations/proximity/getProximity";
 import validateRef from "../utils/validations/hooks/validateRef";
 import validateScrollValue from "../utils/validations/hooks/validateScrollValue";
