@@ -1,16 +1,8 @@
 import { useRef, useLayoutEffect } from "react";
-import { DynamicColor, Directions, LinearValueOptions } from "../types";
-import clamp from "../utils/calculations/misc/clamp";
+import { DynamicColor, defaultOptions } from "../types";
 import getCurrentColor from "../utils/calculations/color/getCurrentColor";
 import validateColors from "../utils/validations/hooks/validateColors";
-import useDirection from "./useDirection";
 import useProximity from "./useProximity";
-
-const defautlOptions: LinearValueOptions = {
-  anchor: "middle",
-  delay: 0,
-  duration: 100,
-};
 
 /**
  * @description This custom hook takes an object with four properties: startColor, endColor, elementRef and options.
@@ -29,7 +21,7 @@ const useDynamicColor = ({
   elementRef,
   options,
 }: DynamicColor) => {
-  const mixedOptions = { ...defautlOptions, ...options };
+  const mixedOptions = { ...defaultOptions, ...options };
   const color = useRef<number[]>([...startColor]);
   const height = useRef<number>();
 

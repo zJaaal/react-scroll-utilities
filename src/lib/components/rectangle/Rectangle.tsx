@@ -1,10 +1,4 @@
-import React, {
-  CSSProperties,
-  FC,
-  useEffect,
-  useLayoutEffect,
-  useRef,
-} from "react";
+import React, { CSSProperties, FC, useEffect, useRef } from "react";
 import { useLinearValue } from "../../index";
 import { validateRectangleProps } from "../../utils/validations/components/validateRectangleProps";
 import { RectangleProps } from "./types";

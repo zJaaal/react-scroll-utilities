@@ -35,3 +35,9 @@ export type LinearValueOptions = {
   duration?: number;
   delay?: number;
 };
+
+export const defaultOptions: LinearValueOptions = {
+  anchor: "middle",
+  delay: 0,
+  duration: 100,
+};

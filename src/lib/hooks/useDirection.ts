@@ -1,7 +1,6 @@
-import React, { useContext, useEffect, useMemo, useRef, useState } from "react";
+import React, { useContext, useEffect, useMemo, useRef } from "react";
 import ScrollContext from "../context/ScrollContext";
 import { Coors, Directions } from "../types";
-import fixScroll from "../utils/calculations/proximity/fixScroll";
 import validateScrollValue from "../utils/validations/hooks/validateScrollValue";
 
 /**
