@@ -1,15 +1,16 @@
 import getLinearValueFromOptions from "../../lib/utils/calculations/linear/getLinearValueFromOptions";
 import { describe, it, expect } from "vitest";
 import getValueFromPercentage from "../../lib/utils/calculations/misc/getValueFromPercentage";
+import { LinearValueOptions } from "../../lib/types";
 const start = 0;
 const end = 500;
 const delay = 50;
 const duration = 50;
 const height = 1000;
-const defaultOptions = {
+const defaultOptions: LinearValueOptions = {
   delay: 0,
   duration: 100,
-  anchor: "middle" as "middle",
+  anchor: "middle",
 };
 
 describe("getLinearValueFromOptions function", () => {
