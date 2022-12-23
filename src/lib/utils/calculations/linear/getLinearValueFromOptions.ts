@@ -53,8 +53,8 @@ const getLinearValueFromOptions = ({
         ...linearValue,
         x1: topDelay,
         x2: topDuration,
-        position: y + height / 1.8 - window.innerHeight / 2,
-        //1.8 is because like that the animation will end before it reach the end of the bottom of the component
+        position: y + height / 2.1 - window.innerHeight / 2,
+        //2.1 is because like that the animation will end before it reach the end of the bottom of the component
       };
       break;
     }
@@ -70,8 +70,8 @@ const getLinearValueFromOptions = ({
         ...linearValue,
         x1: bottomDelay,
         x2: bottomDuration,
-        position: y + height / 1.8 + window.innerHeight / 2,
-        //1.8 is because like that the animation will end before it reach the end of the bottom of the component
+        position: y + height / 2.1 + window.innerHeight / 2,
+        //2.1 is because like that the animation will end before it reach the end of the bottom of the component
       };
       break;
     }
