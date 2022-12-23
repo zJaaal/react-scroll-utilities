@@ -1,7 +1,6 @@
 import React, { useLayoutEffect, useRef } from "react";
 import { LinearValueProps, defaultOptions } from "../types";
 import { OptionsParams } from "../utils/calculations/types";
-import validateLinearValues from "../utils/validations/hooks/validateLinearValues";
 import useProximity from "./useProximity";
 import getLinearValueFromOptions from "../utils/calculations/linear/getLinearValueFromOptions";
 
@@ -28,7 +27,6 @@ const useLinearValue = ({
   const height = useRef<number>();
 
   useLayoutEffect(() => {
-    validateLinearValues(startValue, endValue);
     height.current = elementRef.current?.clientHeight;
   }, []);
 
