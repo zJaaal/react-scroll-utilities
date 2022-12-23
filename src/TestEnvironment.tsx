@@ -38,20 +38,20 @@ const TestEnvironment = () => {
   });
 
   const height = useLinearValue({
-    startValue: 10,
-    endValue: 100,
+    startValue: 100,
+    endValue: 10,
     elementRef: ref,
     options,
   });
   const width = useLinearValue({
-    startValue: 10,
-    endValue: 100,
+    startValue: 100,
+    endValue: 10,
     elementRef: ref,
     options,
   });
   const deg = useLinearValue({
-    startValue: 0,
-    endValue: 90,
+    startValue: 90,
+    endValue: 0,
     elementRef: ref,
     options,
   });
