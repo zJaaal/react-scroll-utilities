@@ -7,7 +7,7 @@ import TestEnvironment from "./TestEnvironment";
 
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
   <ScrollWatcher>
-    {/* <App /> */}
+    <App />
     {/* <TestEnvironment /> */}
   </ScrollWatcher>
 );
