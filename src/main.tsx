@@ -8,6 +8,6 @@ import TestEnvironment from "./TestEnvironment";
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
   <ScrollWatcher>
     {/* <App /> */}
-    <TestEnvironment />
+    {/* <TestEnvironment /> */}
   </ScrollWatcher>
 );
