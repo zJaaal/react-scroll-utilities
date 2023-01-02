@@ -1,7 +1,6 @@
 import React, { useLayoutEffect, useRef } from "react";
 import { LinearValueProps, defaultOptions } from "../types";
 import { OptionsParams } from "../utils/calculations/types";
-import validateLinearValues from "../utils/validations/hooks/validateLinearValues";
 import useProximity from "./useProximity";
 import getLinearValueFromOptions from "../utils/calculations/linear/getLinearValueFromOptions";
 
@@ -16,19 +15,13 @@ import getLinearValueFromOptions from "../utils/calculations/linear/getLinearVal
  * @param LinearValueObject LinearValueProps
  * @returns value number
  */
-const useLinearValue = ({
-  startValue,
-  endValue,
-  elementRef,
-  options,
-}: LinearValueProps) => {
+const useLinearValue = ({ startValue, endValue, elementRef, options }: LinearValueProps) => {
   const mixedOptions = { ...defaultOptions, ...options };
   const { onSight, y } = useProximity(elementRef);
   const value = useRef(startValue);
   const height = useRef<number>();
 
   useLayoutEffect(() => {
-    validateLinearValues(startValue, endValue);
     height.current = elementRef.current?.clientHeight;
   }, []);
 

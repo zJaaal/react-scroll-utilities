@@ -41,3 +41,11 @@ export const defaultOptions: LinearValueOptions = {
   delay: 0,
   duration: 100,
 };
+
+export type StepValueProps = {
+  startValue: number;
+  endValue: number;
+  steps: number;
+  elementRef: RefObject<HTMLElement>;
+  options?: LinearValueOptions;
+};
