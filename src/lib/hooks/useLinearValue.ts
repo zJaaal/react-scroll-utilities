@@ -15,12 +15,7 @@ import getLinearValueFromOptions from "../utils/calculations/linear/getLinearVal
  * @param LinearValueObject LinearValueProps
  * @returns value number
  */
-const useLinearValue = ({
-  startValue,
-  endValue,
-  elementRef,
-  options,
-}: LinearValueProps) => {
+const useLinearValue = ({ startValue, endValue, elementRef, options }: LinearValueProps) => {
   const mixedOptions = { ...defaultOptions, ...options };
   const { onSight, y } = useProximity(elementRef);
   const value = useRef(startValue);
