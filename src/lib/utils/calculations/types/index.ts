@@ -13,6 +13,7 @@ export type OptionsParams = {
   endValue: number;
   height: number;
   options: LinearValueOptions;
+  parentHeight?: number;
 };
 
 export type CurrentColor = {
@@ -22,4 +23,5 @@ export type CurrentColor = {
   height: number;
   proximity: number;
   options: LinearValueOptions;
+  parentHeight?: number;
 };
