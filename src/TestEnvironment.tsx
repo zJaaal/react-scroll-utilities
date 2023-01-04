@@ -1,15 +1,25 @@
 import React, { CSSProperties, useRef } from "react";
-import { Circle, useDynamicColor, useLinearValue } from "./lib";
+import { Circle, useDirection, useDynamicColor, useLinearValue, useProximity } from "./lib";
+import useScrollWatcher from "./lib/hooks/useScrollWatcher";
 import { LinearValueOptions } from "./lib/types";
 
 const TestEnvironment = () => {
   const ref = useRef(null);
+  const scrollRef = useRef(null);
+  const context = useScrollWatcher(scrollRef);
 
   const options: LinearValueOptions = {
     anchor: "middle",
     delay: 0,
     duration: 100,
+    context,
   };
+
+  const direction = useDirection(context);
+
+  const proximity = useProximity(ref, context);
+
+  console.log(direction, proximity);
 
   const color = useDynamicColor({
     startColor: [67, 206, 162],
@@ -41,35 +51,48 @@ const TestEnvironment = () => {
     height,
     width,
     backgroundColor: color,
-    color: "black",
     transform: `rotate(${deg}deg)`,
+    color: "black",
     borderRadius: "10px",
   };
 
   return (
-    <div>
+    <div
+      style={{
+        height: 4000,
+      }}
+    >
       <div
         style={{
-          height: "4000px",
-          display: "flex",
-          flexDirection: "column",
-          justifyContent: "center",
-          alignItems: "center",
-          gap: 20,
+          height: "50vh",
+          width: "100%",
+          overflow: "scroll",
         }}
+        ref={scrollRef}
       >
         <div
-          ref={ref}
           style={{
+            height: "4000px",
             display: "flex",
+            flexDirection: "column",
             justifyContent: "center",
             alignItems: "center",
             gap: 20,
           }}
         >
-          <div style={styles}></div>
-          <div style={styles}></div>
-          <div style={styles}></div>
+          <div
+            ref={ref}
+            style={{
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+              gap: 20,
+            }}
+          >
+            <div style={styles}></div>
+            <div style={styles}></div>
+            <div style={styles}></div>
+          </div>
         </div>
       </div>
     </div>
