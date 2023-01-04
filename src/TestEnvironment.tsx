@@ -8,18 +8,16 @@ const TestEnvironment = () => {
   const scrollRef = useRef(null);
   const context = useScrollWatcher(scrollRef);
 
+  const proximity = useProximity(ref, context);
+
+  console.log(proximity.onSight);
+
   const options: LinearValueOptions = {
     anchor: "middle",
     delay: 0,
     duration: 100,
     context,
   };
-
-  const direction = useDirection(context);
-
-  const proximity = useProximity(ref, context);
-
-  console.log(direction, proximity);
 
   const color = useDynamicColor({
     startColor: [67, 206, 162],
@@ -60,13 +58,17 @@ const TestEnvironment = () => {
     <div
       style={{
         height: 4000,
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
       }}
     >
       <div
         style={{
-          height: "50vh",
-          width: "100%",
+          height: "60vh",
+          width: "50%",
           overflow: "scroll",
+          backgroundColor: "black",
         }}
         ref={scrollRef}
       >
