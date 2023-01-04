@@ -15,21 +15,19 @@ import useProximity from "./useProximity";
  * @param DynamicColorObject DynamicColor
  * @returns color string: "rgb(123, 23, 65)"
  */
-const useDynamicColor = ({
-  startColor,
-  endColor,
-  elementRef,
-  options,
-}: DynamicColor) => {
+const useDynamicColor = ({ startColor, endColor, elementRef, options }: DynamicColor) => {
   const mixedOptions = { ...defaultOptions, ...options };
   const color = useRef<number[]>([...startColor]);
   const height = useRef<number>();
+  const parentHeight = useRef<number>();
 
-  const { onSight, y } = useProximity(elementRef);
+  const { onSight, y } = useProximity(elementRef, options?.context);
 
   useLayoutEffect(() => {
     validateColors(startColor, endColor);
     height.current = elementRef.current?.clientHeight;
+    if (options?.context)
+      parentHeight.current = options.context.element?.getBoundingClientRect().height;
   }, []);
 
   useLayoutEffect(() => {
@@ -41,6 +39,7 @@ const useDynamicColor = ({
         height: height.current as number,
         proximity: y,
         options: mixedOptions,
+        parentHeight: parentHeight.current,
       });
   }, [y]);
 
