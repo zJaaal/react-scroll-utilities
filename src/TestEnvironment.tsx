@@ -10,6 +10,8 @@ const TestEnvironment = () => {
 
   const proximity = useProximity(ref, context);
 
+  console.log(proximity);
+
   const options: LinearValueOptions = {
     anchor: "middle",
     delay: 0,
@@ -57,8 +59,8 @@ const TestEnvironment = () => {
       style={{
         height: 4000,
         display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
+        // justifyContent: "end",
+        // alignItems: "center",
       }}
     >
       <div
