@@ -26,6 +26,7 @@ const getProximity = (element: HTMLElement, parent?: HTMLElement): ProximityStat
       };
 
   //Check the bug on testEnviroment
+  //Its something about values by 0 because they are in the corner or in the edge
   if (parent) {
     childX = childX - parentX;
     childY = childY - parentY;
