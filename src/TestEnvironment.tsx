@@ -10,8 +10,6 @@ const TestEnvironment = () => {
 
   const proximity = useProximity(ref, context);
 
-  console.log(proximity.onSight);
-
   const options: LinearValueOptions = {
     anchor: "middle",
     delay: 0,
