@@ -25,10 +25,11 @@ const getProximity = (element: HTMLElement, parent?: HTMLElement): ProximityStat
         height: 0,
       };
 
+  //Check the bug on testEnviroment
   if (parent) {
     childX = childX - parentX;
     childY = childY - parentY;
-    childBottom = parentX + parentWidth - childBottom;
+    childBottom = parentY + parentHeight - childBottom;
     childRight = parentX + parentWidth - childRight;
     childTop = childY;
     childLeft = childX;
