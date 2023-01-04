@@ -1,5 +1,4 @@
 import { ProximityState } from "../../../types";
-import { getInnerValues } from "../misc/getInnerValues";
 
 const getProximity = (element: HTMLElement, parent?: HTMLElement): ProximityState => {
   let {

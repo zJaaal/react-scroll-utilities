@@ -3,7 +3,6 @@ import { LinearValueProps, defaultOptions } from "../types";
 import { OptionsParams } from "../utils/calculations/types";
 import useProximity from "./useProximity";
 import getLinearValueFromOptions from "../utils/calculations/linear/getLinearValueFromOptions";
-import { getInnerValues } from "../utils/calculations/misc/getInnerValues";
 
 /**
  * @description This custom hook takes an object with four properties: startValue, endValue, elementRef and options.
@@ -32,7 +31,6 @@ const useLinearValue = ({ startValue, endValue, elementRef, options }: LinearVal
 
   useLayoutEffect(() => {
     if (onSight && typeof height.current != "undefined") {
-      console.log(options?.context?.element?.offsetHeight);
       const optionsParams: OptionsParams = {
         y,
         startValue,
