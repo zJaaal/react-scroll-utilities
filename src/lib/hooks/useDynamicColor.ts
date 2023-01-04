@@ -1,6 +1,7 @@
 import { useRef, useLayoutEffect } from "react";
 import { DynamicColor, defaultOptions } from "../types";
 import getCurrentColor from "../utils/calculations/color/getCurrentColor";
+import { getInnerValues } from "../utils/calculations/misc/getInnerValues";
 import validateColors from "../utils/validations/hooks/validateColors";
 import useProximity from "./useProximity";
 
@@ -26,9 +27,11 @@ const useDynamicColor = ({ startColor, endColor, elementRef, options }: DynamicC
   useLayoutEffect(() => {
     validateColors(startColor, endColor);
     height.current = elementRef.current?.clientHeight;
-    if (options?.context)
-      parentHeight.current = options.context.element?.getBoundingClientRect().height;
   }, []);
+
+  useLayoutEffect(() => {
+    parentHeight.current = options?.context?.element?.offsetHeight;
+  }, [options?.context?.element]);
 
   useLayoutEffect(() => {
     if (onSight)
