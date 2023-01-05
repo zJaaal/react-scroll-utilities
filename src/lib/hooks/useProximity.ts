@@ -1,6 +1,6 @@
 import React, { RefObject, useContext, useLayoutEffect, useRef } from "react";
-import ScrollContext from "../context/ScrollContext";
-import { ProximityState } from "../types";
+import ScrollWatcherContext from "../context/ScrollWatcherContext";
+import { Coors, ProximityState, ScrollContext } from "../types";
 import getProximity from "../utils/calculations/proximity/getProximity";
 import validateRef from "../utils/validations/hooks/validateRef";
 import validateScrollValue from "../utils/validations/hooks/validateScrollValue";
@@ -10,8 +10,8 @@ import validateScrollValue from "../utils/validations/hooks/validateScrollValue"
  * @param ref A reference to the HTMLElement
  * @returns An object with 3 properties: x, y and onSight. Values that represents the proximity to the component. The closer to 0 the closer is the center of the screen from the center of the component.
  */
-const useProximity = (ref: RefObject<HTMLElement>) => {
-  const scrollState = useContext(ScrollContext);
+const useProximity = (ref: RefObject<HTMLElement>, context?: ScrollContext) => {
+  const scrollState = context?.position || useContext(ScrollWatcherContext);
   const initialState: ProximityState = {
     x: 0,
     y: 0,
@@ -26,7 +26,7 @@ const useProximity = (ref: RefObject<HTMLElement>) => {
 
   useLayoutEffect(() => {
     proximityRef.current = {
-      ...getProximity(ref.current as HTMLElement),
+      ...getProximity(ref.current as HTMLElement, context?.element),
     };
   }, [scrollState]);
 

@@ -10,6 +10,7 @@ const getCurrentColor = ({
   height,
   proximity,
   options,
+  parentHeight,
 }: CurrentColor): number[] => {
   let colorArray: number[] = [];
 
@@ -27,6 +28,7 @@ const getCurrentColor = ({
       endValue: endColor[i],
       height: height,
       options,
+      parentHeight,
     };
 
     colorLinearValue = getLinearValueFromOptions(optionsParams);

@@ -1,5 +1,5 @@
 import React, { FC, useEffect, useState } from "react";
-import ScrollContext from "../context/ScrollContext";
+import ScrollWatcherContext from "../context/ScrollWatcherContext";
 import { Coors } from "../types";
 import getCoors from "../utils/calculations/proximity/getCoors";
 
@@ -23,9 +23,7 @@ const ScrollWatcher: FC<any> = ({ children }) => {
     };
   }, []);
 
-  return (
-    <ScrollContext.Provider value={position}>{children}</ScrollContext.Provider>
-  );
+  return <ScrollWatcherContext.Provider value={position}>{children}</ScrollWatcherContext.Provider>;
 };
 
 export default ScrollWatcher;
