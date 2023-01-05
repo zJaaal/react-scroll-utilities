@@ -25,13 +25,10 @@ const getProximity = (element: HTMLElement, parent?: HTMLElement): ProximityStat
         height: 0,
       };
 
-  //Check the bug on testEnviroment
-  //Its something about values by 0 because they are in the corner or in the edge
+  //Fix the coors to match parent context
   if (parent) {
     childX = childX - parentX;
     childY = childY - parentY;
-    childBottom = parentY + parentHeight - childBottom;
-    childRight = parentX + parentWidth - childRight;
     childTop = childY;
     childLeft = childX;
   }
