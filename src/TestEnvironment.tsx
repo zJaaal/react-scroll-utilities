@@ -1,5 +1,12 @@
 import React, { CSSProperties, useRef } from "react";
-import { Circle, useDirection, useDynamicColor, useLinearValue, useProximity } from "./lib";
+import {
+  Circle,
+  Rectangle,
+  useDirection,
+  useDynamicColor,
+  useLinearValue,
+  useProximity,
+} from "./lib";
 import useScrollWatcher from "./lib/hooks/useScrollWatcher";
 import { LinearValueOptions } from "./lib/types";
 
@@ -71,7 +78,7 @@ const TestEnvironment = () => {
           height: "60vh",
           width: "50%",
           overflow: "scroll",
-          backgroundColor: colorBG,
+          // backgroundColor: colorBG,
         }}
         ref={scrollRef}
       >
@@ -94,9 +101,18 @@ const TestEnvironment = () => {
               gap: 20,
             }}
           >
+            {/* <div style={styles}></div>
             <div style={styles}></div>
-            <div style={styles}></div>
-            <div style={styles}></div>
+            <div style={styles}></div> */}
+
+            <Rectangle
+              options={options}
+              width={"100px"}
+              height={"100px"}
+              stroke={10}
+              color={color}
+            />
+            <Circle options={options} radius={"100px"} stroke={10} color={color} />
           </div>
         </div>
       </div>
