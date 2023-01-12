@@ -68,9 +68,12 @@ const TestEnvironment = () => {
   return (
     <div
       style={{
-        height: 4000,
-        display: "fixed",
-        transform: "translate(20%, 10%)",
+        height: 2000,
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "center",
+        alignItems: "center",
+        backgroundColor: "black",
       }}
     >
       <div
@@ -78,7 +81,7 @@ const TestEnvironment = () => {
           height: "60vh",
           width: "50%",
           overflow: "scroll",
-          // backgroundColor: colorBG,
+          backgroundColor: "white",
         }}
         ref={scrollRef}
       >
@@ -98,21 +101,40 @@ const TestEnvironment = () => {
               display: "flex",
               justifyContent: "center",
               alignItems: "center",
-              gap: 20,
+              flexDirection: "column",
+              gap: 100,
             }}
           >
-            {/* <div style={styles}></div>
-            <div style={styles}></div>
-            <div style={styles}></div> */}
+            <div
+              style={{
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+                gap: 20,
+              }}
+            >
+              <div style={styles}></div>
+              <div style={styles}></div>
+              <div style={styles}></div>
+            </div>
 
-            <Rectangle
-              options={options}
-              width={"100px"}
-              height={"100px"}
-              stroke={10}
-              color={color}
-            />
-            <Circle options={options} radius={"100px"} stroke={10} color={color} />
+            <div
+              style={{
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+                gap: 20,
+              }}
+            >
+              <Rectangle
+                options={options}
+                width={"100px"}
+                height={"100px"}
+                stroke={10}
+                color={color}
+              />
+              <Circle options={options} radius={"100px"} stroke={10} color={color} />
+            </div>
           </div>
         </div>
       </div>
