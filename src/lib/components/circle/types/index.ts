@@ -1,4 +1,5 @@
 import { ReactElement } from "react";
+import { LinearValueOptions } from "../../../types";
 
 export type CircleProps = {
   backgroundColor?: string;
@@ -10,4 +11,5 @@ export type CircleProps = {
   startDegree?: number;
   endDegree?: number;
   rotate?: number;
+  options?: LinearValueOptions;
 };
