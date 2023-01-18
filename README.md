@@ -59,7 +59,7 @@ You only need to render this component on the top level of your app, it provides
 
 ## useScrollWatcher Hook
 
-This hooks creates an scroll context from a ref to a element that has overflow therefore can have an scroll behavior, that way yo can pass that context to other hooks or components and use it as reference.
+This hooks creates an scroll context from a ref to a element that has overflow therefore can have an scroll behavior, that way you can pass that context to other hooks or components and use it as reference. This returns an object with the "position" of the scroll and the "element" we are using.
 
 ### Example
 
