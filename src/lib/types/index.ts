@@ -12,6 +12,11 @@ export type Coors = {
   y: number;
 };
 
+export type ScrollContext = {
+  position: Coors;
+  element?: HTMLElement;
+};
+
 export interface ProximityState extends Coors {
   onSight: boolean;
 }
@@ -34,6 +39,7 @@ export type LinearValueOptions = {
   anchor?: "top" | "middle" | "bottom";
   duration?: number;
   delay?: number;
+  context?: ScrollContext;
 };
 
 export const defaultOptions: LinearValueOptions = {

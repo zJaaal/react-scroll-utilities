@@ -17,13 +17,17 @@ import getLinearValueFromOptions from "../utils/calculations/linear/getLinearVal
  */
 const useLinearValue = ({ startValue, endValue, elementRef, options }: LinearValueProps) => {
   const mixedOptions = { ...defaultOptions, ...options };
-  const { onSight, y } = useProximity(elementRef);
+  const { onSight, y } = useProximity(elementRef, options?.context);
   const value = useRef(startValue);
   const height = useRef<number>();
+  const parentHeight = useRef<number>();
 
   useLayoutEffect(() => {
     height.current = elementRef.current?.clientHeight;
   }, []);
+  useLayoutEffect(() => {
+    parentHeight.current = options?.context?.element?.offsetHeight;
+  }, [options?.context?.element]);
 
   useLayoutEffect(() => {
     if (onSight && typeof height.current != "undefined") {
@@ -33,6 +37,7 @@ const useLinearValue = ({ startValue, endValue, elementRef, options }: LinearVal
         endValue,
         height: height.current,
         options: mixedOptions,
+        parentHeight: parentHeight.current,
       };
       value.current = getLinearValueFromOptions(optionsParams);
     }

@@ -3,6 +3,8 @@ import { useLinearValue } from "../../index";
 import { validateRectangleProps } from "../../utils/validations/components/validateRectangleProps";
 import { RectangleProps } from "./types";
 import "./Rectangle.style.css";
+import { defaultOptions } from "../../types";
+import getRectangleStyles from "../../utils/calculations/misc/getRectangleStyles";
 
 const Rectangle: FC<RectangleProps> = ({
   children,
@@ -15,39 +17,29 @@ const Rectangle: FC<RectangleProps> = ({
   startDegree = 0,
   endDegree = 360,
   rotate = 0,
+  options = defaultOptions,
 }) => {
+  const mixedOptions = { ...defaultOptions, ...options };
+
   const ref = useRef(null);
 
   const deg = useLinearValue({
     startValue: startDegree,
     endValue: endDegree,
     elementRef: ref,
+    options: mixedOptions,
   });
 
-  const rectangleStyles: CSSProperties = {
-    width: width,
-    height: height,
-    transform: `rotate(${rotate}deg) scaleX(${clockwise ? 1 : -1})`,
-    WebkitTransform: `rotate(${rotate}deg) scaleX(${clockwise ? 1 : -1})`,
-    msTransform: `rotate(${rotate}deg) scaleX(${clockwise ? 1 : -1})`,
-  };
-  const innerRectangleStyles: CSSProperties = {
-    width: `calc(${width} - ${stroke}px)`,
-    height: `calc(${height} - ${stroke}px)`,
-    backgroundColor: backgroundColor,
-    transform: `rotate(-${Math.abs(rotate)}deg) scaleX(${clockwise ? 1 : -1})`,
-    WebkitTransform: `rotate(-${Math.abs(rotate)}deg) scaleX(${
-      clockwise ? 1 : -1
-    })`,
-    msTransform: `rotate(-${Math.abs(rotate)}deg) scaleX(${
-      clockwise ? 1 : -1
-    })`,
-  };
+  useEffect(() => validateRectangleProps(width, height, stroke, startDegree, endDegree), []);
 
-  useEffect(
-    () => validateRectangleProps(width, height, stroke, startDegree, endDegree),
-    []
-  );
+  const { rectangleStyles, innerRectangleStyles } = getRectangleStyles({
+    width,
+    height,
+    stroke,
+    rotate,
+    backgroundColor,
+    clockwise,
+  });
 
   return (
     <div
@@ -59,11 +51,7 @@ const Rectangle: FC<RectangleProps> = ({
       }}
       ref={ref}
     >
-      <div
-        data-testid="inner-rectangle"
-        className="inner-rectangle"
-        style={innerRectangleStyles}
-      >
+      <div data-testid="inner-rectangle" className="inner-rectangle" style={innerRectangleStyles}>
         {children || null}
       </div>
     </div>

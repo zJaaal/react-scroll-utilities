@@ -8,6 +8,7 @@ export const getParamsFromOptions = ({
   endValue,
   height,
   options,
+  parentHeight = window.innerHeight,
 }: OptionsParams) => {
   const { anchor, delay, duration } = options;
 
@@ -19,7 +20,7 @@ export const getParamsFromOptions = ({
     position: 0,
   };
 
-  let maxHeight = anchor == "middle" ? Math.max(height, window.innerHeight) : height;
+  let maxHeight = anchor == "middle" ? Math.max(height, parentHeight) : height;
 
   //Calculate where it should start from the maxHeight
   let finalDelay = getValueFromPercentage(maxHeight, delay as number);
@@ -43,7 +44,7 @@ export const getParamsFromOptions = ({
         ...linearValue,
         x1: finalDelay,
         x2: finalDuration,
-        position: y + height / 2.1 - window.innerHeight / 2,
+        position: y + height / 2.1 - parentHeight / 2,
         //2.1 is because like that the animation will end before it reach the end of the bottom of the component
       };
       break;
@@ -53,7 +54,7 @@ export const getParamsFromOptions = ({
         ...linearValue,
         x1: finalDelay,
         x2: finalDuration,
-        position: y + height / 2.1 + window.innerHeight / 2,
+        position: y + height / 2.1 + parentHeight / 2,
         //2.1 is because like that the animation will end before it reach the end of the bottom of the component
       };
     }

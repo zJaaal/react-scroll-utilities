@@ -4,9 +4,10 @@ import Footer from "./site/components/footer/Footer";
 import Header from "./site/components/header/Header";
 import LinearValue from "./site/components/linearValue/LinearValue";
 import Proximity from "./site/components/proximity/Proximity";
+import packageJson from "../package.json";
 
 function App() {
-  console.log("Welcome to React Scroll Utilities v1.1.2");
+  console.log(`Welcome to React Scroll Utilities ${packageJson.version}`);
   return (
     <div style={{ height: "100%" }}>
       <Header />
