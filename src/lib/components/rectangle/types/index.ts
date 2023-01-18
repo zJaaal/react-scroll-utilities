@@ -1,4 +1,5 @@
 import { ReactElement } from "react";
+import { LinearValueOptions } from "../../../types";
 
 export type RectangleProps = {
   backgroundColor?: string;
@@ -11,4 +12,5 @@ export type RectangleProps = {
   startDegree?: number;
   endDegree?: number;
   rotate?: number;
+  options?: LinearValueOptions;
 };

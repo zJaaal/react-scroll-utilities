@@ -6,8 +6,5 @@ import { ScrollWatcher } from "./lib";
 import TestEnvironment from "./TestEnvironment";
 
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
-  <ScrollWatcher>
-    <App />
-    {/* <TestEnvironment /> */}
-  </ScrollWatcher>
+  <ScrollWatcher>{import.meta.env.DEV ? <TestEnvironment /> : <App />}</ScrollWatcher>
 );

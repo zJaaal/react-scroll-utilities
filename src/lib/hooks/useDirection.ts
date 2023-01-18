@@ -1,18 +1,18 @@
 import React, { useContext, useEffect, useMemo, useRef } from "react";
-import ScrollContext from "../context/ScrollContext";
-import { Coors, Directions } from "../types";
+import ScrollWatcherContext from "../context/ScrollWatcherContext";
+import { Coors, Directions, ScrollContext } from "../types";
 import validateScrollValue from "../utils/validations/hooks/validateScrollValue";
 
 /**
  * @description This hooks calculates the direction of your scroll
  * @returns direction: "UP", "DOWN", "RIGHT" or "LEFT"
  */
-const useDirection = () => {
+const useDirection = (context?: ScrollContext) => {
   const initialState: Coors = {
     x: 0,
     y: 0,
   };
-  const scrollState = useContext(ScrollContext);
+  const scrollState = context?.position || useContext(ScrollWatcherContext);
   const directionRef = useRef(Directions.down);
   const lastPosition = useRef(initialState);
 
@@ -38,7 +38,7 @@ const useDirection = () => {
 
     lastPosition.current = scrollState;
     return directionRef.current;
-  }, [scrollState]);
+  }, [scrollState?.x, scrollState?.y]);
 
   return direction;
 };

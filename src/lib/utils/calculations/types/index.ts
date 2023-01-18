@@ -1,3 +1,4 @@
+import { CSSProperties } from "react";
 import { LinearValueOptions } from "../../../types";
 
 export type LinearValue = {
@@ -13,6 +14,7 @@ export type OptionsParams = {
   endValue: number;
   height: number;
   options: LinearValueOptions;
+  parentHeight?: number;
 };
 
 export type CurrentColor = {
@@ -22,4 +24,31 @@ export type CurrentColor = {
   height: number;
   proximity: number;
   options: LinearValueOptions;
+  parentHeight?: number;
+};
+
+export type CircleStyles = {
+  circleStyles: CSSProperties;
+  innerCircleStyles: CSSProperties;
+};
+export type CircleStylesParam = {
+  radius: string;
+  rotate: number;
+  stroke: number;
+  backgroundColor: string;
+  clockwise: boolean;
+};
+
+export type RectagleStyles = {
+  rectangleStyles: CSSProperties;
+  innerRectangleStyles: CSSProperties;
+};
+
+export type RectangleStylesParam = {
+  width: string;
+  height: string;
+  rotate: number;
+  clockwise: boolean;
+  stroke: number;
+  backgroundColor: string;
 };

@@ -12,15 +12,16 @@ React Scroll Utilities is a Lightweight library to track scroll events like, pro
 
 1. [Installation](#installation)
 2. [ScrollWatcher Component](#scrollwatcher-component)
-3. [useProximity Hook](#useproximity-hook)
-4. [useDynamicColor Hook](#usedynamiccolor-hook)
-5. [useLinearValue Hook](#uselinearvalue-hook)
-6. [useDirection Hook](#usedirection-hook)
-7. [Linear Values Options](#linear-values-options)
-8. [Options Recommendations](#options-recommendations)
-9. [Circle Component](#circle-component)
-10. [Rectangle Component](#rectangle-component)
-11. [Circle/Rectangle Recommendations](#circlerectangle-recommendations)
+3. [useScrollWatcher Hook](#usescrollwatcher-component)
+4. [useProximity Hook](#useproximity-hook)
+5. [useDynamicColor Hook](#usedynamiccolor-hook)
+6. [useLinearValue Hook](#uselinearvalue-hook)
+7. [useDirection Hook](#usedirection-hook)
+8. [Linear Values Options](#linear-values-options)
+9. [Options Recommendations](#options-recommendations)
+10. [Circle Component](#circle-component)
+11. [Rectangle Component](#rectangle-component)
+12. [Circle/Rectangle Recommendations](#circlerectangle-recommendations)
 
 
 ## Installation
@@ -56,6 +57,40 @@ You only need to render this component on the top level of your app, it provides
 </ScrollWatcher>
 ```
 
+## useScrollWatcher Hook
+
+This hooks creates an scroll context from a ref to a element that has overflow therefore can have an scroll behavior, that way you can pass that context to other hooks or components and use it as reference. This returns an object with the "position" of the scroll and the "element" we are using.
+
+### Example
+
+```js
+
+function Example () {
+
+  const scrollRef = useRef(null);
+
+  const context = useScrollWatcher(scrollRef);
+
+//This div has an scroll because its content is bigger than it 
+  return 
+        <div
+        style={{
+          height: "60vh",
+          overflow: "scroll",
+        }}
+        ref={scrollRef}
+        >
+        <div
+          style={{
+            height: "4000px",
+          }}
+        ></div>
+      </div>
+}
+```
+
+For further instructions of how to use the hook in other hooks/components, for all hooks/components that accepts [Linear Values Options](#linear-values-options) it has a dedicated property, the other ones have an optional parameter called context.
+
 ## useProximity hook
 
 This hook lets you know how far is the screen from the component, it returns an object with 3 properties: "x", "y" and "onSight". "x" and "y", represents the proximity of the component from the center of the screen, it works as a Cartesian Plane, where up and right are positive values for "y" and "x", and down and left are negative values for "y" and "x", the values goes from -innerHeight/2 to +innerHeight/2 or -height/2 to +height/2 in case that the component is bigger than the viewport, that is for "y" value, for "x" is the same but using the width of the viewport or the width of the component. onSight is a boolean that tells you if the component is inside the viewport or not.
@@ -64,7 +99,7 @@ So if your component is 2000h x 1000w it will go from -1000 to 1000 for Y axis, 
 
 ### Usage
 
-This hook only take one argument that should be a ref to an HTML Element. This hook won't work if ScrollWatcher is not implemented.
+This hook only take two arguments, one that should be a ref to an HTML Element and the other one an scroll context created with [useScrollWatcher Hook](#usescrollwatcher-component). If you don't pass a context, you will have to implement [ScrollWatcher Component](#scrollwatcher-component).
 
 #### Example
 
@@ -243,7 +278,7 @@ This hooks returns the current direction of the scroll. It returns an string tha
 
 ### Usage
 
-The only requirement in order to use it, is to make the right implementation of ScrollWatcher. It doesn't take any arguments at the time. You can use this hook in combination of useProximity to make different animations using the direction of the scroll as reference. You can go to src/test-components/BackgroundChange.tsx to see and example of a background that reacts to the scroll and direction.
+The only requirement in order to use it, is to make the right implementation of ScrollWatcher or pass an scroll context created with [useScrollWatcher Hook](#usescrollwatcher-component).
 
 ### Example
 
@@ -289,7 +324,7 @@ This lib provides an enum for TypeScript users, it just has four properties at t
 
 ## Linear Values Options 
 
-This options let you modify the behavior of the animations, is an object that useDynamicColor and useLinearValues use in their "options" property, it has 3 properties: "anchor", "delay" and "duration".
+This options let you modify the behavior of the animations, is an object that useDynamicColor and useLinearValues use in their "options" property, it has 4 properties: "anchor", "delay", "duration" and "context".
 
 ### Anchor property
 
@@ -326,7 +361,13 @@ So, let's say we are using a component of 1000px, middle as anchor and we set du
 
 The animation won't start until the center of the screen (middle anchor) is at the center of the component (500px). So the total distance from delay to the end of the component is 500px. We also setted a duration at half, so the animation should last as half of the total distance, at 250px of the end of the component the animation will finish.
 
+### Context Property
+
+This property accepts a context created with [useScrollWatcher Hook](#usescrollwatcher-component), this is the context the hook/component will use as reference
+
 ### Options Recommendations
+
+Both Circle and Rectangle accepts this options.
 
 If you struggle trying to understand that. I mean it could be hard to understand with all those numbers and calculations.
 
@@ -339,8 +380,8 @@ I recommend to experiment with those values. Just go and mess around with it, ma
   //This is how this object looks. All values are optional. You can skip everyone of them
   const options = {
     anchor: "middle", // This is skippable because anchor is middle by default
-    delay: 30, 
-    duration: 75,
+    delay: 30, //Animation won't trigger until the 30% of the height
+    duration: 75, //Animation will last the 75% of the height its left after the 30% of delay
   };
 
   //So now you just need to set it at the hooks
@@ -385,6 +426,8 @@ Just be sure that ScrollWatcher is at the top level of your app, any other way t
 | startDegree     | Initial state of the line in degrees,  it can start with some portion of  the circle already drawed                                                                         | number       | 0             | 90, 180, 270, 45, 60, 75, 21.2, 3...                    | startDegree should be less than endDegree, in other case it will  throw an exception                        |
 | endDegree       | Final state of the line in degrees,  to prevent the line from drawing  at some point of the circle                                                                          | number       | 360           | 90, 283, 180, 213, 270, 34.2                            | endDegree should be greater than startDegree, in other case it will throw an exception                      |
 | rotate          | Initial state of the line in degrees, you can  set the start of the line at 90° instead  of 0°. This won't draw the circle,  it will move the starting position of the line | number       | 0             | 78, 90, 100, 80, 170, 45, 21.3, 56...                   | if you pass something else that's not a number, it won't work  since it's not a valid degree (at the time). |
+
+
 
 
 ## Example
@@ -436,6 +479,8 @@ This will render a rectangle that has a height of 400px, a width of 100px and a 
 
 
 ## Circle/Rectangle Recommendations
+
+Both Circle and Rectangle accepts [Linear Values Options](#linear-values-options) in options prop.
 
 To make responsive the components, I recommend to use rem or em values, so that way you can modify the font-size of the root or parent component using media queries and therefore modify the sizes of the components.
 

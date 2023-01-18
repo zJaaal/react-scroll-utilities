@@ -6,6 +6,7 @@ import Circle from "./components/circle/Circle";
 import Rectangle from "./components/rectangle/Rectangle";
 import useDynamicColor from "./hooks/useDynamicColor";
 import useLinearValue from "./hooks/useLinearValue";
+import useScrollWatcher from "./hooks/useScrollWatcher";
 
 export {
   //Components
@@ -18,6 +19,7 @@ export {
   useDirection,
   useDynamicColor,
   useLinearValue,
+  useScrollWatcher,
 
   //Types
   Directions,
