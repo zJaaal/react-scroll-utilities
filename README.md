@@ -64,28 +64,27 @@ This hooks creates an scroll context from a ref to a element that has overflow t
 ### Example
 
 ```js
-
-function Example () {
-
+function Example() {
   const scrollRef = useRef(null);
 
   const context = useScrollWatcher(scrollRef);
 
-//This div has an scroll because its content is bigger than it 
-  return 
-        <div
+  //This div has an scroll because its content is bigger than it
+  return (
+    <div
+      style={{
+        height: "60vh",
+        overflow: "scroll",
+      }}
+      ref={scrollRef}
+    >
+      <div
         style={{
-          height: "60vh",
-          overflow: "scroll",
+          height: "4000px",
         }}
-        ref={scrollRef}
-        >
-        <div
-          style={{
-            height: "4000px",
-          }}
-        ></div>
-      </div>
+      ></div>
+    </div>
+  );
 }
 ```
 
